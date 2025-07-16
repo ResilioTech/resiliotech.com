@@ -1,0 +1,189 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="heroTechStackTitle">
+  <title id="heroTechStackTitle">SRE/DevOps Technology Stack Animation</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Tech label styles -->
+    <style type="text/css">
+      .tech-label {
+        cursor: pointer;
+        transform-origin: center;
+      }
+      .tech-rect {
+        transition: all 0.3s ease;
+      }
+      .tech-text {
+        transition: all 0.3s ease;
+      }
+      .tech-label:hover .tech-rect {
+        filter: brightness(1.1);
+      }
+      .tech-label:hover .tech-text {
+        /* No font-weight change */
+      }
+      .center-hub {
+        cursor: pointer;
+      }
+      .center-hub:hover {
+        /* No hover effect */
+      }
+      .connection-lines line {
+        transition: stroke-width 0.3s ease;
+      }
+      .connection-lines line:hover {
+        stroke-width: 2.5;
+      }
+      
+      /* Removed pulse animation */
+      
+      .tech-label .tech-rect {
+        /* No animation */
+      }
+    </style>
+  </defs>
+  <!-- Soft background -->
+  <rect width="600" height="400" fill="url(#bg)"/>
+  
+  <!-- Central ResilioTech hub -->
+  <g class="center-hub">
+    <circle cx="300" cy="200" r="45" fill="#2563eb" filter="url(#glow)"/>
+    <text x="300" y="193" text-anchor="middle" fill="#fff" font-size="16" font-family="Inter, Arial, sans-serif" font-weight="bold">Resilio</text>
+    <text x="300" y="213" text-anchor="middle" fill="#fff" font-size="16" font-family="Inter, Arial, sans-serif" font-weight="bold">Tech</text>
+  </g>
+
+  <!-- Top Row -->
+  <!-- Prometheus -->
+  <g class="tech-label" style="--delay: 0.5s">
+    <rect x="175" y="70" width="90" height="30" rx="5" class="tech-rect" fill="#e6522c" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="220" y="90" text-anchor="middle" fill="#fff" font-size="10" font-family="Inter, Arial, sans-serif" class="tech-text">Prometheus</text>
+  </g>
+
+  <!-- Grafana -->
+  <g class="tech-label" style="--delay: 0.7s">
+    <rect x="335" y="70" width="70" height="30" rx="5" class="tech-rect" fill="#f46800" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="370" y="90" text-anchor="middle" fill="#fff" font-size="10" font-family="Inter, Arial, sans-serif" class="tech-text">Grafana</text>
+  </g>
+
+  <!-- Top Center -->
+  <!-- Kubernetes -->
+  <g class="tech-label" style="--delay: 0s">
+    <rect x="265" y="120" width="70" height="30" rx="5" class="tech-rect" fill="#326ce5" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="300" y="140" text-anchor="middle" fill="#fff" font-size="14" font-family="Inter, Arial, sans-serif" class="tech-text">K8s</text>
+  </g>
+
+  <!-- Left Side -->
+  <!-- Azure -->
+  <g class="tech-label" style="--delay: 0.2s">
+    <rect x="105" y="140" width="60" height="30" rx="5" class="tech-rect" fill="#0078d4" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="135" y="160" text-anchor="middle" fill="#fff" font-size="12" font-family="Inter, Arial, sans-serif" class="tech-text">Azure</text>
+  </g>
+
+  <!-- Ansible -->
+  <g class="tech-label" style="--delay: 0.4s">
+    <rect x="80" y="185" width="70" height="30" rx="5" class="tech-rect" fill="#ee0000" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="115" y="205" text-anchor="middle" fill="#fff" font-size="10" font-family="Inter, Arial, sans-serif" class="tech-text">Ansible</text>
+  </g>
+
+  <!-- GCP -->
+  <g class="tech-label" style="--delay: 0.9s">
+    <rect x="90" y="230" width="50" height="30" rx="5" class="tech-rect" fill="#4285f4" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="115" y="250" text-anchor="middle" fill="#fff" font-size="12" font-family="Inter, Arial, sans-serif" class="tech-text">GCP</text>
+  </g>
+
+  <!-- Helm -->
+  <g class="tech-label" style="--delay: 0.6s">
+    <rect x="150" y="270" width="50" height="30" rx="5" class="tech-rect" fill="#2779bd" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="175" y="290" text-anchor="middle" fill="#fff" font-size="10" font-family="Inter, Arial, sans-serif" class="tech-text">Helm</text>
+  </g>
+
+  <!-- Bottom Center -->
+  <!-- Docker -->
+  <g class="tech-label" style="--delay: 0.3s">
+    <rect x="265" y="270" width="70" height="30" rx="5" class="tech-rect" fill="#2496ed" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="300" y="290" text-anchor="middle" fill="#fff" font-size="14" font-family="Inter, Arial, sans-serif" class="tech-text">Docker</text>
+  </g>
+
+  <!-- Blockchain -->
+  <g class="tech-label" style="--delay: 1.2s">
+    <rect x="255" y="320" width="90" height="30" rx="5" class="tech-rect" fill="#f7931a" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="300" y="340" text-anchor="middle" fill="#fff" font-size="12" font-family="Inter, Arial, sans-serif" class="tech-text">Blockchain</text>
+  </g>
+
+  <!-- Right Side -->
+  <!-- Jenkins -->
+  <g class="tech-label" style="--delay: 0.8s">
+    <rect x="430" y="130" width="70" height="30" rx="5" class="tech-rect" fill="#d24939" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="465" y="150" text-anchor="middle" fill="#fff" font-size="12" font-family="Inter, Arial, sans-serif" class="tech-text">Jenkins</text>
+  </g>
+
+  <!-- AWS -->
+  <g class="tech-label" style="--delay: 0.1s">
+    <rect x="450" y="200" width="60" height="30" rx="5" class="tech-rect" fill="#ff9900" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="480" y="220" text-anchor="middle" fill="#fff" font-size="14" font-family="Inter, Arial, sans-serif" class="tech-text">AWS</text>
+  </g>
+
+  <!-- GitHub Actions -->
+  <g class="tech-label" style="--delay: 0.5s">
+    <rect x="390" y="240" width="70" height="30" rx="5" class="tech-rect" fill="#24292e" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="425" y="260" text-anchor="middle" fill="#fff" font-size="12" font-family="Inter, Arial, sans-serif" class="tech-text">Actions</text>
+  </g>
+
+  <!-- Terraform -->
+  <g class="tech-label" style="--delay: 1s">
+    <rect x="360" y="290" width="80" height="30" rx="5" class="tech-rect" fill="#7c4dff" opacity="0.85" filter="url(#textGlow)"/>
+    <text x="400" y="310" text-anchor="middle" fill="#fff" font-size="12" font-family="Inter, Arial, sans-serif" class="tech-text">Terraform</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g class="connection-lines" opacity="0.3">
+    <!-- K8s -->
+    <line x1="300" y1="200" x2="300" y2="135" stroke="#326ce5" stroke-width="1.5" />
+    <!-- Docker -->
+    <line x1="300" y1="200" x2="300" y2="285" stroke="#2496ed" stroke-width="1.5" />
+    <!-- Jenkins -->
+    <line x1="300" y1="200" x2="465" y2="145" stroke="#d24939" stroke-width="1.5" />
+    <!-- GitHub Actions -->
+    <line x1="300" y1="200" x2="425" y2="255" stroke="#24292e" stroke-width="1.5" />
+    <!-- AWS -->
+    <line x1="300" y1="200" x2="480" y2="215" stroke="#ff9900" stroke-width="1.5" />
+    <!-- Azure -->
+    <line x1="300" y1="200" x2="135" y2="155" stroke="#0078d4" stroke-width="1.5" />
+    <!-- GCP -->
+    <line x1="300" y1="200" x2="115" y2="245" stroke="#4285f4" stroke-width="1.5" />
+    <!-- Terraform -->
+    <line x1="300" y1="200" x2="400" y2="305" stroke="#7c4dff" stroke-width="1.5" />
+    <!-- Prometheus -->
+    <line x1="300" y1="200" x2="220" y2="85" stroke="#e6522c" stroke-width="1.5" />
+    <!-- Grafana -->
+    <line x1="300" y1="200" x2="370" y2="85" stroke="#f46800" stroke-width="1.5" />
+    <!-- Ansible -->
+    <line x1="300" y1="200" x2="115" y2="200" stroke="#ee0000" stroke-width="1.5" />
+    <!-- Helm -->
+    <line x1="300" y1="200" x2="175" y2="285" stroke="#2779bd" stroke-width="1.5" />
+    <!-- Blockchain -->
+    <line x1="300" y1="200" x2="300" y2="335" stroke="#f7931a" stroke-width="1.5" />
+  </g>
+  
+  <!-- Subtle network background -->
+  <g opacity="0.1">
+    <circle cx="300" cy="200" r="140" fill="none" stroke="#3b82f6" stroke-width="0.5" stroke-dasharray="4 2"/>
+    <circle cx="300" cy="200" r="100" fill="none" stroke="#3b82f6" stroke-width="0.5" stroke-dasharray="4 2"/>
+    <circle cx="300" cy="200" r="60" fill="none" stroke="#3b82f6" stroke-width="0.5" stroke-dasharray="4 2"/>
+  </g>
+</svg>

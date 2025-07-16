@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resilio Tech - Expert SRE consulting that transforms your tech stack from fragile to fortress-strong. Infrastructure resilience, monitoring, and DevOps acceleration.">
+    <meta name="keywords" content="SRE consulting, infrastructure resilience, DevOps, monitoring, observability, site reliability engineering">
+    <meta name="author" content="Resilio Tech">
+    
+    <!-- Open Graph / Facebook --                             navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, './resources/');
+                        navHTML = navHTML.replace(/\{\{homeActive\}\}/g, 'active');
+                        navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');            navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, './resources/');
+                        navHTML = navHTML.replace(/\{\{homeActive\}\}/g, 'active');
+                        navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');meta property="og:type" content="website">
+    <meta property="og:url" content="https://resiliotech.com/">
+    <meta property="og:title" content="Resilio Tech - Bulletproof Infrastructure. Zero-Downtime Dreams.">
+    <meta property="og:description" content="Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://resiliotech.com/">
+    <meta property="twitter:title" content="Resilio Tech - Bulletproof Infrastructure. Zero-Downtime Dreams.">
+    <meta property="twitter:description" content="Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.">
+
+    <title>Resilio Tech - Expert SRE Consulting | Infrastructure Resilience</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <!-- Page-specific Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/hero-animation.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Shared Component System -->
+    <script src="shared/js/component-loader.js"></script>
+    <script src="shared/js/page-config.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Resilio Tech",
+        "url": "https://resiliotech.com",
+        "logo": "https://resiliotech.com/assets/images/logo.svg",
+        "description": "Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.",
+        "email": "contact@resiliotech.com",
+        "sameAs": [
+            "https://blogs.resiliotech.com"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@resiliotech.com",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+</head>
+<body data-page-type="home" data-auto-init-components="false">
+    <!-- Navigation will be loaded here -->
+    <div id="navigation-container"></div>
+
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Comprehensive SRE Solutions</h2>
+                <p class="section-description">
+                    Strategic infrastructure and reliability engineering services that transform your operations from reactive to proactive
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Cloud & Infrastructure Automation</h3>
+                    <p class="service-description">
+                        Provision, manage, and scale cloud and on-prem infrastructure using IaC, automation, and best practices.
+                    </p>
+                    <ul class="service-features">
+                        <li>Infrastructure as Code (Terraform, CloudFormation)</li>
+                        <li>Multi-cloud Strategy & Migration</li>
+                        <li>Auto-scaling & Resource Management</li>
+                        <li>Configuration Management</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <path d="M7.5 4.21l4.5 2.6 4.5-2.6"/>
+                            <path d="M7.5 19.79V14.6L3 12"/>
+                            <path d="M21 12l-4.5 2.6v5.19"/>
+                            <path d="M3.27 6.96L12 12.01l8.73-5.05"/>
+                            <path d="M12 22.08V12"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Containerization & Orchestration</h3>
+                    <p class="service-description">
+                        Design, deploy, and manage resilient applications using Docker, Kubernetes, and modern container platforms.
+                    </p>
+                    <ul class="service-features">
+                        <li>Container Strategy & Implementation</li>
+                        <li>Kubernetes Deployment & Management</li>
+                        <li>Microservices Architecture</li>
+                        <li>Service Mesh & Networking</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">CI/CD & DevOps Enablement</h3>
+                    <p class="service-description">
+                        Build robust, automated pipelines for testing, deployment, and delivery to accelerate your software lifecycle.
+                    </p>
+                    <ul class="service-features">
+                        <li>CI/CD Pipeline Design & Implementation</li>
+                        <li>GitOps Workflows & Automation</li>
+                        <li>Automated Testing & Quality Gates</li>
+                        <li>Release Management & Rollback Strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 19c-5 0-8-4-8-9s4-8 9-8 8 4 8 9-3 9-8 9z"/>
+                            <path d="M15 12h6m-3-3v6"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Monitoring, Observability & Incident Response</h3>
+                    <p class="service-description">
+                        Achieve end-to-end visibility and rapid incident management with modern tools and processes.
+                    </p>
+                    <ul class="service-features">
+                        <li>Comprehensive Monitoring & Alerting</li>
+                        <li>Distributed Tracing & Log Management</li>
+                        <li>Incident Response & Postmortem Processes</li>
+                        <li>Performance Analytics & Optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Reliability Engineering & Chaos Testing</h3>
+                    <p class="service-description">
+                        Implement SRE best practices, define SLOs/SLIs, and use chaos engineering to proactively test and improve resilience.
+                    </p>
+                    <ul class="service-features">
+                        <li>SRE Methodology & Culture Implementation</li>
+                        <li>SLO/SLI Definition & Monitoring</li>
+                        <li>Chaos Engineering & Resilience Testing</li>
+                        <li>Error Budget Management</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 12l2 2 4-4"/>
+                            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                            <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
+                            <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Security, Compliance & Cost Optimization</h3>
+                    <p class="service-description">
+                        Integrate security, enforce compliance, and optimize costs across your cloud and infrastructure footprint.
+                    </p>
+                    <ul class="service-features">
+                        <li>DevSecOps & Security Automation</li>
+                        <li>Compliance Frameworks & Auditing</li>
+                        <li>Cost Monitoring & Optimization</li>
+                        <li>Risk Assessment & Mitigation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="services-cta" data-aos="fade-up" data-aos-delay="700">
+                <h3>Ready to Transform Your Infrastructure?</h3>
+                <p>Let's discuss which services align best with your current challenges and goals.</p>
+                <a href="#contact" class="btn btn-primary">Get Your Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2 class="section-title">Built by Experience, Driven by Excellence</h2>
+                    <p class="about-description">
+                        Founded by a senior SRE engineer with over a decade of experience keeping critical systems running 
+                        for Fortune 500 companies and fast-growing startups alike. I've been in your shoes—called at 3 AM 
+                        for production incidents, battling with legacy systems, and scaling infrastructure under pressure.
+                    </p>
+                    <p class="about-description">
+                        That's why I started Resilio Tech. To help companies build the kind of infrastructure that lets 
+                        engineering teams focus on building great products instead of fighting fires.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <span class="highlight-number">10+</span>
+                            <span class="highlight-text">Years SRE Experience</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">Fortune 500</span>
+                            <span class="highlight-text">to Startups</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">99.99%</span>
+                            <span class="highlight-text">Uptime Delivered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Projects</h2>
+                <p class="section-description">
+                    Recent successful implementations showcasing our expertise in cloud infrastructure, DevOps, and site reliability engineering
+                </p>
+            </div>
+            <div class="projects-grid" id="home-projects-grid">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+            <div class="resources-cta">
+                <a href="./projects/" class="btn">
+                    View All Projects
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Resources</h2>
+                <p class="section-description">
+                    Articles, videos, and insights on SRE practices, infrastructure patterns, and lessons learned from the trenches
+                </p>
+            </div>
+            <div class="resources-grid" id="home-resources-grid">
+                <!-- Featured resources will be dynamically loaded here -->
+            </div>
+            <div class="resources-cta">
+                <a href="./resources/" class="btn btn-outline">
+                    <span>View All Resources</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2 class="section-title">Ready to Bulletproof Your Infrastructure?</h2>
+                <p class="section-description">
+                    Let's discuss how we can transform your infrastructure challenges into competitive advantages. 
+                    Get your free infrastructure health check today.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:contact@resiliotech.com" class="contact-value">contact@resiliotech.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <div>
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Remote • Global</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <div>
+                                <span class="contact-label">Response Time</span>
+                                <span class="contact-value">Within 24 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="cloud-infrastructure">Cloud & Infrastructure Automation</option>
+                                <option value="containerization">Containerization & Orchestration</option>
+                                <option value="cicd-devops">CI/CD & DevOps Enablement</option>
+                                <option value="monitoring-observability">Monitoring, Observability & Incident Response</option>
+                                <option value="reliability-engineering">Reliability Engineering & Chaos Testing</option>
+                                <option value="security-compliance">Security, Compliance & Cost Optimization</option>
+                                <option value="consultation">General Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <!-- Shared Scripts -->
+    <script src="shared/js/common.js"></script>
+    <!-- Page-specific Scripts -->
+    <script src="shared/js/resources-data.js"></script>
+    <script src="shared/js/projects-data.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/hero-animation.js"></script>
+    
+    <!-- Initialize page -->
+    <script>
+        let componentsLoaded = false;
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (componentsLoaded) return;
+            componentsLoaded = true;
+            
+            console.log('Initializing main page components...');
+            
+            // Load navigation
+            try {
+                const navContainer = document.getElementById('navigation-container');
+                if (navContainer && !navContainer.innerHTML.trim()) {
+                    const navResponse = await fetch('./shared/components/navigation.html');
+                    if (navResponse.ok) {
+                        let navHTML = await navResponse.text();
+                        navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, './');
+                        navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, './projects/');
+                        navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, './resources/');
+                        navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, './assets/images/logo.svg');
+                        navHTML = navHTML.replace(/\{\{homeActive\}\}/g, 'active');
+                        navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
+                        navContainer.innerHTML = navHTML;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading navigation:', error);
+            }
+            
+            // Load header
+            try {
+                const headerContainer = document.getElementById('header-container');
+                if (headerContainer && !headerContainer.innerHTML.trim()) {
+                    const headerResponse = await fetch('./shared/components/header.html');
+                    if (headerResponse.ok) {
+                        let headerHTML = await headerResponse.text();
+                        headerHTML = headerHTML.replace(/\{\{heroClass\}\}/g, 'hero');
+                        headerHTML = headerHTML.replace(/\{\{heroId\}\}/g, ' id="home"');
+                        headerHTML = headerHTML.replace(/\{\{heroContainerClass\}\}/g, 'hero-container');
+                        headerHTML = headerHTML.replace(/\{\{heroContentClass\}\}/g, 'hero-content');
+                        headerHTML = headerHTML.replace(/\{\{heroTitle\}\}/g, '<span class="hero-title-main">Bulletproof Infrastructure.</span><span class="hero-title-accent">Zero-Downtime Dreams.</span>');
+                        headerHTML = headerHTML.replace(/\{\{heroDescription\}\}/g, 'Expert SRE consulting that transforms your tech stack from fragile to fortress-strong. Sleep better knowing your systems won\'t wake you at 3 AM.');
+                        headerHTML = headerHTML.replace(/\{\{heroAdditionalContent\}\}/g, `
+                            <div class="hero-cta">
+                                <a href="#contact" class="btn btn-primary">Get Your Free Infrastructure Health Check</a>
+                                <a href="#services" class="btn btn-secondary">Learn More</a>
+                            </div>
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">99.99%</span>
+                                    <span class="stat-label">Uptime Delivered</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Companies Served</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Monitoring</span>
+                                </div>
+                            </div>
+                        `);
+                        headerHTML = headerHTML.replace(/\{\{heroRightContent\}\}/g, `
+                            <div class="hero-animation-container">
+                                <object data="assets/images/hero-animation.svg" type="image/svg+xml" class="hero-animation" aria-label="SRE Tech Stack Animation">
+                                    <img src="assets/images/hero-animation.svg" alt="SRE Tech Stack Animation" class="hero-animation">
+                                </object>
+                            </div>
+                        `);
+                        headerHTML = headerHTML.replace(/\{\{heroBottomContent\}\}/g, `
+                            <div class="hero-scroll-indicator">
+                                <div class="scroll-arrow"></div>
+                            </div>
+                        `);
+                        headerContainer.innerHTML = headerHTML;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading header:', error);
+            }
+            
+            // Load footer
+            try {
+                const footerContainer = document.getElementById('footer-container');
+                if (footerContainer && !footerContainer.innerHTML.trim()) {
+                    const footerResponse = await fetch('./shared/components/footer.html');
+                    if (footerResponse.ok) {
+                        let footerHTML = await footerResponse.text();
+                        footerHTML = footerHTML.replace(/\{\{homeUrl\}\}/g, './');
+                        footerHTML = footerHTML.replace(/\{\{resourcesUrl\}\}/g, './resources/');
+                        footerHTML = footerHTML.replace(/\{\{logoUrl\}\}/g, './assets/images/logo.svg');
+                        footerContainer.innerHTML = footerHTML;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading footer:', error);
+            }
+        });
+    </script>
+</body>
+</html>

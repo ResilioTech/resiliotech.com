@@ -1,0 +1,24 @@
+<!-- Shared Navigation Component -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="{{homeUrl}}" class="nav-logo-link">
+                <img src="{{logoUrl}}" alt="Resilio Tech Logo" class="logo-img">
+            </a>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <a href="{{homeUrl}}" class="nav-link {{homeActive}}">Home</a>
+            <a href="{{homeUrl}}#services" class="nav-link {{servicesActive}}">Services</a>
+            <a href="{{homeUrl}}#about" class="nav-link {{aboutActive}}">About</a>
+            <a href="{{projectsUrl}}" class="nav-link {{projectsActive}}">Projects</a>
+            <a href="{{resourcesUrl}}" class="nav-link {{resourcesActive}}">Resources</a>
+            <a href="{{homeUrl}}#contact" class="nav-link {{contactActive}}">Contact</a>
+            <a href="{{homeUrl}}#contact" class="nav-cta">Get Started</a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>

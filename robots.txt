@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://resiliotech.com/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1
