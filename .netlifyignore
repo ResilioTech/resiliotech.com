@@ -20,6 +20,9 @@ build/
 README.md
 CLEANUP_COMPLETE.md
 
+# Cache clearing file
+.netlify-clear-cache
+
 # Prevent any Node.js processing
 *.lock
 yarn.lock

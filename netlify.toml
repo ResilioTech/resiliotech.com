@@ -1,6 +1,7 @@
 [build]
   # Static site - no build required
   publish = "."
+  command = ""
   
 # Disable all build processing
 [build.processing]
