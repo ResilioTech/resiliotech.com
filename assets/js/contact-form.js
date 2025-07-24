@@ -34,6 +34,9 @@ class ContactFormHandler {
         try {
             const formData = new FormData(this.form);
             
+            // Add form-name for Netlify Forms AJAX submission
+            formData.append('form-name', 'contact');
+            
             // Submit to Netlify Forms
             const response = await fetch('/', {
                 method: 'POST',
@@ -54,12 +57,27 @@ class ContactFormHandler {
                 }, 2000);
                 
             } else {
-                throw new Error('Form submission failed');
+                // Get more specific error information
+                const errorText = await response.text();
+                console.error('Form submission failed:', response.status, errorText);
+                throw new Error(`Form submission failed: ${response.status}`);
             }
             
         } catch (error) {
             console.error('Form submission error:', error);
-            this.showError('There was an error sending your message. Please try again or contact us directly.');
+            
+            // Provide more specific error messages
+            let errorMessage = 'There was an error sending your message. Please try again or email us directly at contact@resiliotech.com.';
+            
+            if (error.message.includes('404')) {
+                errorMessage = 'Form endpoint not found. Please email us directly at contact@resiliotech.com.';
+            } else if (error.message.includes('400')) {
+                errorMessage = 'Invalid form data. Please check your entries and try again.';
+            } else if (error.message.includes('500')) {
+                errorMessage = 'Server error. Please try again in a few minutes or email us at contact@resiliotech.com.';
+            }
+            
+            this.showError(errorMessage);
             
             // Track error event
             this.trackFormSubmission('error', error.message);

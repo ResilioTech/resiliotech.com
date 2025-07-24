@@ -477,6 +477,9 @@
                 </div>
                 <div class="contact-form-container" data-aos="fade-left">
                     <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html">
+                        <!-- Hidden field for Netlify Forms -->
+                        <input type="hidden" name="form-name" value="contact" />
+                        
                         <!-- Netlify honeypot field for spam protection -->
                         <p style="display: none;">
                             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
