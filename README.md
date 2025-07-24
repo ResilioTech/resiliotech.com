@@ -36,8 +36,8 @@ cd resiliotech
 
 # Start the development server with 404 support
 node server.js
-# or
-npm start
+# or (rename package.json.dev to package.json first)
+# npm start
 ```
 
 Visit `http://localhost:8000` to view the website.

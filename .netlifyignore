@@ -1,9 +1,11 @@
-# Development files
+# Development files - do not deploy
 server.js
-package.json
+package.json.dev
+package-lock.json
 optimize.js
 build-prod.sh
 node_modules/
+.npmrc
 
 # Build directory (we deploy source, not build)
 build/
@@ -14,6 +16,10 @@ build/
 .vscode/
 .DS_Store
 
-# Documentation
+# Documentation and development files
 README.md
 CLEANUP_COMPLETE.md
+
+# Prevent any Node.js processing
+*.lock
+yarn.lock

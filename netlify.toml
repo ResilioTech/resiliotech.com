@@ -1,11 +1,14 @@
 [build]
-  # Skip build process - this is a static site
-  command = ""
+  # Static site - no build required
   publish = "."
   
+# Disable all build processing
+[build.processing]
+  skip_processing = false
+  
+# Disable automatic framework detection
 [build.environment]
-  # Skip npm install
-  NPM_FLAGS = "--production=false"
+  NODE_ENV = "production"
 
 [[redirects]]
   # Handle 404 errors with custom 404.html page
