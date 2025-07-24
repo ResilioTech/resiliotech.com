@@ -21,14 +21,14 @@ class ComponentLoader {
         }
 
         try {
-            console.log(`Loading component: ${componentName} from ${basePath}`);
+            // console.log(`Loading component: ${componentName} from ${basePath}`);
             const response = await fetch(`${basePath}${componentName}.html`);
             if (!response.ok) {
                 throw new Error(`Failed to load component: ${componentName} (${response.status})`);
             }
             const html = await response.text();
             this.templateCache[componentName] = html;
-            console.log(`Successfully loaded component: ${componentName}`);
+            // console.log(`Successfully loaded component: ${componentName}`);
             return html;
         } catch (error) {
             console.error(`Error loading component ${componentName}:`, error);

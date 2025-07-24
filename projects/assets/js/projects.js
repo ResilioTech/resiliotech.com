@@ -8,11 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load all projects initially
     loadProjects();
+    
+    // Initialize breadcrumbs
+    initializeBreadcrumbs();
 });
 
 function initializeProjectsPage() {
     // Add any initialization logic here
-    console.log('Projects page initialized');
+    // console.log('Projects page initialized');
+}
+
+function initializeBreadcrumbs() {
+    if (typeof window.ResilioCommon !== 'undefined') {
+        const common = new window.ResilioCommon();
+        common.initBreadcrumbs();
+    }
 }
 
 function setupFilters() {

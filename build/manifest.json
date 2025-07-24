@@ -1,0 +1,21 @@
+{
+    "name": "Resilio Tech - Expert SRE Consulting",
+    "short_name": "Resilio Tech",
+    "description": "Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "assets/images/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["business", "productivity", "technology"],
+    "lang": "en-US",
+    "dir": "ltr"
+}

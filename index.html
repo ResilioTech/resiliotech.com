@@ -3,36 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Resilio Tech - Expert SRE consulting that transforms your tech stack from fragile to fortress-strong. Infrastructure resilience, monitoring, and DevOps acceleration.">
-    <meta name="keywords" content="SRE consulting, infrastructure resilience, DevOps, monitoring, observability, site reliability engineering">
+    <meta name="description" content="Expert SRE & MLOps consulting for early-stage startups. 5+ years experience building production-ready infrastructure, automated ML pipelines, and reliability engineering solutions.">
+    <meta name="keywords" content="SRE consulting, MLOps consulting, startup infrastructure, DevOps automation, site reliability engineering, machine learning operations, Kubernetes, Terraform">
     <meta name="author" content="Resilio Tech">
     
-    <!-- Open Graph / Facebook --                             navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, './resources/');
-                        navHTML = navHTML.replace(/\{\{homeActive\}\}/g, 'active');
-                        navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');            navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, './resources/');
-                        navHTML = navHTML.replace(/\{\{homeActive\}\}/g, 'active');
-                        navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');meta property="og:type" content="website">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://resiliotech.com/">
-    <meta property="og:title" content="Resilio Tech - Bulletproof Infrastructure. Zero-Downtime Dreams.">
-    <meta property="og:description" content="Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.">
+    <meta property="og:title" content="Expert SRE & MLOps Consulting for Early-Stage Startups | Resilio Tech">
+    <meta property="og:description" content="5+ years SRE experience building production-ready infrastructure and MLOps automation for startups. Transform your tech foundation with expert consulting.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://resiliotech.com/">
-    <meta property="twitter:title" content="Resilio Tech - Bulletproof Infrastructure. Zero-Downtime Dreams.">
-    <meta property="twitter:description" content="Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.">
+    <meta property="twitter:title" content="Expert SRE & MLOps Consulting for Early-Stage Startups | Resilio Tech">
+    <meta property="twitter:description" content="5+ years SRE experience building production-ready infrastructure and MLOps automation for startups. Transform your tech foundation with expert consulting.">
 
-    <title>Resilio Tech - Expert SRE Consulting | Infrastructure Resilience</title>
+    <title>Expert SRE & MLOps Consulting for Startups | Resilio Tech</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
+    <link rel="alternate icon" href="./assets/images/favicon.svg">
     
     <!-- Preload critical assets -->
+    <link rel="preload" href="shared/css/common.css" as="style">
+    <link rel="preload" href="assets/css/styles.css" as="style">
     <link rel="preload" href="assets/css/styles.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
     
@@ -42,7 +37,7 @@
     <link rel="stylesheet" href="shared/css/common.css">
     <!-- Page-specific Styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/hero-animation.css">
+    <link rel="stylesheet" href="shared/css/common.css">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -59,7 +54,7 @@
         "name": "Resilio Tech",
         "url": "https://resiliotech.com",
         "logo": "https://resiliotech.com/assets/images/logo.svg",
-        "description": "Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.",
+        "description": "Expert SRE & MLOps consulting for early-stage startups. 5+ years experience building production-ready infrastructure, automated ML pipelines, and reliability engineering solutions.",
         "email": "contact@resiliotech.com",
         "sameAs": [
             "https://blogs.resiliotech.com"
@@ -83,141 +78,273 @@
     <!-- Header will be loaded here -->
     <div id="header-container"></div>
 
+    <!-- Value Proposition Section -->
+    <section id="value-prop" class="value-prop section-padding">
+        <div class="container">
+            <div class="value-prop-content">
+                <div class="value-prop-header" data-aos="fade-up">
+                    <h2 class="value-prop-title">Why Choose Resilio Tech for Your SRE & MLOps Needs?</h2>
+                    <p class="value-prop-subtitle">
+                        We deliver production-ready infrastructure and MLOps solutions that scale with your startup's growth
+                    </p>
+                </div>
+                
+                <div class="value-props-grid card-grid grid-gap-md">
+                    <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-content">
+                            <div class="value-prop-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <h3>Startup-Focused Expertise</h3>
+                            <p>5+ years specifically working with early-stage startups. We understand resource constraints and deliver maximum impact with minimal overhead.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-content">
+                            <div class="value-prop-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                </svg>
+                            </div>
+                            <h3>End-to-End MLOps Implementation</h3>
+                            <p>Complete ML operations setup: from data pipelines to model deployment, monitoring, and automated retraining. Turn your ML experiments into production systems.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-content">
+                            <div class="value-prop-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                            </div>
+                            <h3>Proven SRE Methodologies</h3>
+                            <p>Implement battle-tested SRE practices: SLOs, error budgets, incident response, and observability. Build systems that scale reliably under pressure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services section-padding">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Comprehensive SRE Solutions</h2>
+                <h2 class="section-title">Expert SRE & MLOps Consulting for Early-Stage Startups</h2>
                 <p class="section-description">
-                    Strategic infrastructure and reliability engineering services that transform your operations from reactive to proactive
+                    5+ years of senior SRE experience delivering scalable infrastructure and MLOps automation solutions. We help startups build reliable, production-ready systems and implement world-class machine learning operations practices that scale with your business growth.
                 </p>
             </div>
             
             <!-- Services Grid -->
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/>
-                        </svg>
+            <div class="services-grid card-grid grid-gap-md">
+                <div class="service-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-content">
+                        <div class="service-icon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Site Reliability Engineering (SRE) Consulting</h3>
+                        <p class="service-description">
+                            Transform your startup's infrastructure with battle-tested SRE practices. From zero to production-ready reliability engineering.
+                        </p>
+                        <ul class="service-features">
+                            <li>Infrastructure as Code (Terraform, CloudFormation)</li>
+                            <li>SLO/SLI Implementation & Error Budget Management</li>
+                            <li>Incident Response & Postmortem Culture</li>
+                            <li>Multi-cloud Strategy & Cost Optimization</li>
+                        </ul>
                     </div>
-                    <h3 class="service-title">Cloud & Infrastructure Automation</h3>
-                    <p class="service-description">
-                        Provision, manage, and scale cloud and on-prem infrastructure using IaC, automation, and best practices.
-                    </p>
-                    <ul class="service-features">
-                        <li>Infrastructure as Code (Terraform, CloudFormation)</li>
-                        <li>Multi-cloud Strategy & Migration</li>
-                        <li>Auto-scaling & Resource Management</li>
-                        <li>Configuration Management</li>
-                    </ul>
                 </div>
                 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <path d="M7.5 4.21l4.5 2.6 4.5-2.6"/>
-                            <path d="M7.5 19.79V14.6L3 12"/>
-                            <path d="M21 12l-4.5 2.6v5.19"/>
-                            <path d="M3.27 6.96L12 12.01l8.73-5.05"/>
-                            <path d="M12 22.08V12"/>
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            <path d="M12 6v6l3 3"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Containerization & Orchestration</h3>
+                    <h3 class="service-title">MLOps & Machine Learning Operations</h3>
                     <p class="service-description">
-                        Design, deploy, and manage resilient applications using Docker, Kubernetes, and modern container platforms.
+                        Complete MLOps platform implementation: automated ML pipelines, model deployment, monitoring, and production-ready ML infrastructure.
                     </p>
                     <ul class="service-features">
-                        <li>Container Strategy & Implementation</li>
-                        <li>Kubernetes Deployment & Management</li>
-                        <li>Microservices Architecture</li>
-                        <li>Service Mesh & Networking</li>
+                        <li>MLOps Pipeline Development & Automation</li>
+                        <li>Model Deployment & Serving Infrastructure</li>
+                        <li>ML Model Monitoring & Performance Tracking</li>
+                        <li>Data Engineering & Feature Store Implementation</li>
                     </ul>
                 </div>
                 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <path d="M7.5 4.21l4.5 2.6 4.5-2.6"/>
+                            <path d="M7.5 19.79V14.6L3 12"/>
+                            <path d="M21 12l-4.5 2.6v5.19"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">CI/CD & DevOps Enablement</h3>
+                    <h3 class="service-title">Kubernetes & Container Orchestration</h3>
                     <p class="service-description">
-                        Build robust, automated pipelines for testing, deployment, and delivery to accelerate your software lifecycle.
+                        Production-ready Kubernetes clusters and microservices architecture. Scale your startup applications with confidence.
                     </p>
                     <ul class="service-features">
-                        <li>CI/CD Pipeline Design & Implementation</li>
-                        <li>GitOps Workflows & Automation</li>
-                        <li>Automated Testing & Quality Gates</li>
-                        <li>Release Management & Rollback Strategies</li>
+                        <li>Kubernetes Cluster Design & Management</li>
+                        <li>Microservices Architecture & Service Mesh</li>
+                        <li>Container Security & Compliance</li>
+                        <li>Auto-scaling & Resource Optimization</li>
                     </ul>
                 </div>
                 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-icon">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M9 19c-5 0-8-4-8-9s4-8 9-8 8 4 8 9-3 9-8 9z"/>
-                            <path d="M15 12h6m-3-3v6"/>
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Monitoring, Observability & Incident Response</h3>
+                    <h3 class="service-title">DevOps & CI/CD Pipeline Engineering</h3>
                     <p class="service-description">
-                        Achieve end-to-end visibility and rapid incident management with modern tools and processes.
+                        Accelerate your development velocity with automated CI/CD pipelines, GitOps workflows, and deployment strategies.
                     </p>
                     <ul class="service-features">
-                        <li>Comprehensive Monitoring & Alerting</li>
-                        <li>Distributed Tracing & Log Management</li>
-                        <li>Incident Response & Postmortem Processes</li>
-                        <li>Performance Analytics & Optimization</li>
+                        <li>CI/CD Pipeline Design & Implementation</li>
+                        <li>GitOps Workflows & Infrastructure Automation</li>
+                        <li>Automated Testing & Quality Assurance</li>
+                        <li>Blue-Green & Canary Deployment Strategies</li>
                     </ul>
                 </div>
                 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="service-icon">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 19c-5 0-8-4-8-9s4-8 9-8 8 4 8 9-3 9-8 9z"/>
+                            <path d="M15 12h6m-3-3v6"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Reliability Engineering & Chaos Testing</h3>
+                    <h3 class="service-title">Monitoring, Observability & Performance</h3>
                     <p class="service-description">
-                        Implement SRE best practices, define SLOs/SLIs, and use chaos engineering to proactively test and improve resilience.
+                        Comprehensive observability stack with real-time monitoring, distributed tracing, and proactive incident management.
                     </p>
                     <ul class="service-features">
-                        <li>SRE Methodology & Culture Implementation</li>
-                        <li>SLO/SLI Definition & Monitoring</li>
-                        <li>Chaos Engineering & Resilience Testing</li>
-                        <li>Error Budget Management</li>
+                        <li>Full-Stack Monitoring & Alerting Setup</li>
+                        <li>Distributed Tracing & Log Aggregation</li>
+                        <li>Performance Optimization & Capacity Planning</li>
+                        <li>Custom Dashboards & SRE Metrics</li>
                     </ul>
                 </div>
                 
                 <div class="service-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="service-icon">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M9 12l2 2 4-4"/>
-                            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-                            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
-                            <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
-                            <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
-                    <h3 class="service-title">Security, Compliance & Cost Optimization</h3>
+                    <h3 class="service-title">Cloud Security & Compliance</h3>
                     <p class="service-description">
-                        Integrate security, enforce compliance, and optimize costs across your cloud and infrastructure footprint.
+                        Secure your startup's infrastructure with enterprise-grade security practices, compliance frameworks, and risk management.
                     </p>
                     <ul class="service-features">
-                        <li>DevSecOps & Security Automation</li>
-                        <li>Compliance Frameworks & Auditing</li>
-                        <li>Cost Monitoring & Optimization</li>
-                        <li>Risk Assessment & Mitigation</li>
+                        <li>Cloud Security Architecture & Best Practices</li>
+                        <li>Compliance Frameworks (SOC2, ISO 27001, GDPR)</li>
+                        <li>Security Automation & Vulnerability Management</li>
+                        <li>Identity & Access Management (IAM)</li>
                     </ul>
                 </div>
             </div>
             
             <div class="services-cta" data-aos="fade-up" data-aos-delay="700">
-                <h3>Ready to Transform Your Infrastructure?</h3>
-                <p>Let's discuss which services align best with your current challenges and goals.</p>
-                <a href="#contact" class="btn btn-primary">Get Your Free Consultation</a>
+                <h3>Ready to Build Production-Ready Infrastructure?</h3>
+                <p>Get expert SRE & MLOps consulting designed specifically for early-stage startups building scalable, reliable systems.</p>
+                <a href="#contact" class="btn btn-primary">Schedule Your Free Infrastructure Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Capabilities Section -->
+    <section id="capabilities" class="capabilities section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Core SRE & MLOps Capabilities</h2>
+                <p class="section-description">
+                    Comprehensive infrastructure and machine learning operations expertise to power your startup's growth
+                </p>
+            </div>
+            
+            <div class="capabilities-grid card-grid grid-gap-md">
+                <div class="capability-item card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-content">
+                        <div class="capability-number">01</div>
+                        <h3>Infrastructure as Code</h3>
+                        <p>Terraform, CloudFormation, and Pulumi implementations for reproducible, version-controlled infrastructure across AWS, Azure, and GCP.</p>
+                        <div class="capability-tags">
+                            <span class="tag">Terraform</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">Multi-Cloud</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="capability-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="capability-number">02</div>
+                    <h3>Kubernetes & Container Orchestration</h3>
+                    <p>Production-ready Kubernetes clusters with auto-scaling, service mesh, security policies, and GitOps workflows for seamless deployments.</p>
+                    <div class="capability-tags">
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Istio</span>
+                    </div>
+                </div>
+                
+                <div class="capability-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="capability-number">03</div>
+                    <h3>MLOps Pipeline Development</h3>
+                    <p>End-to-end ML pipelines with automated training, testing, deployment, and monitoring using MLflow, Kubeflow, and custom frameworks.</p>
+                    <div class="capability-tags">
+                        <span class="tag">MLflow</span>
+                        <span class="tag">Kubeflow</span>
+                        <span class="tag">CI/CD</span>
+                    </div>
+                </div>
+                
+                <div class="capability-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="capability-number">04</div>
+                    <h3>Observability & Monitoring</h3>
+                    <p>Comprehensive monitoring with Prometheus, Grafana, Jaeger, and ELK stack. Real-time alerting and incident response automation.</p>
+                    <div class="capability-tags">
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">Jaeger</span>
+                    </div>
+                </div>
+                
+                <div class="capability-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="capability-number">05</div>
+                    <h3>CI/CD & DevOps Automation</h3>
+                    <p>Automated testing, security scanning, and deployment pipelines with GitLab CI, GitHub Actions, and ArgoCD for rapid, reliable releases.</p>
+                    <div class="capability-tags">
+                        <span class="tag">GitLab CI</span>
+                        <span class="tag">ArgoCD</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                </div>
+                
+                <div class="capability-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="capability-number">06</div>
+                    <h3>SRE Best Practices</h3>
+                    <p>SLO/SLI implementation, error budget management, chaos engineering, and incident response procedures that scale with your team.</p>
+                    <div class="capability-tags">
+                        <span class="tag">SLOs</span>
+                        <span class="tag">Chaos Engineering</span>
+                        <span class="tag">Incident Response</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -227,28 +354,29 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
-                    <h2 class="section-title">Built by Experience, Driven by Excellence</h2>
+                    <h2 class="section-title">Expert SRE & MLOps Leadership for Growing Startups</h2>
                     <p class="about-description">
-                        Founded by a senior SRE engineer with over a decade of experience keeping critical systems running 
-                        for Fortune 500 companies and fast-growing startups alike. I've been in your shoes—called at 3 AM 
-                        for production incidents, battling with legacy systems, and scaling infrastructure under pressure.
+                        Founded by a senior SRE engineer with 5+ years of experience building production-ready infrastructure 
+                        and implementing MLOps practices for fast-growing startups. I specialize in helping early-stage companies 
+                        establish reliable, scalable systems from day one—including robust ML operations that support data-driven products.
                     </p>
                     <p class="about-description">
-                        That's why I started Resilio Tech. To help companies build the kind of infrastructure that lets 
-                        engineering teams focus on building great products instead of fighting fires.
+                        Resilio Tech delivers both strategic SRE consulting and comprehensive MLOps implementation services. 
+                        We focus on building the infrastructure foundation that allows your startup to scale confidently 
+                        while maintaining high reliability and operational excellence.
                     </p>
                     <div class="about-highlights">
                         <div class="highlight">
-                            <span class="highlight-number">10+</span>
+                            <span class="highlight-number">5+</span>
                             <span class="highlight-text">Years SRE Experience</span>
                         </div>
                         <div class="highlight">
-                            <span class="highlight-number">Fortune 500</span>
-                            <span class="highlight-text">to Startups</span>
+                            <span class="highlight-number">Production</span>
+                            <span class="highlight-text">Ready Focus</span>
                         </div>
                         <div class="highlight">
-                            <span class="highlight-number">99.99%</span>
-                            <span class="highlight-text">Uptime Delivered</span>
+                            <span class="highlight-number">MLOps</span>
+                            <span class="highlight-text">Specialization</span>
                         </div>
                     </div>
                 </div>
@@ -257,15 +385,15 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects section-padding">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Latest Projects</h2>
+                <h2 class="section-title">SRE & MLOps Success Stories</h2>
                 <p class="section-description">
-                    Recent successful implementations showcasing our expertise in cloud infrastructure, DevOps, and site reliability engineering
+                    Real implementations showcasing how we've helped startups build production-ready SRE foundations and implement robust MLOps practices
                 </p>
             </div>
-            <div class="projects-grid" id="home-projects-grid">
+            <div class="projects-grid card-grid grid-gap-md" id="home-projects-grid">
                 <!-- Projects will be dynamically loaded here -->
             </div>
             <div class="resources-cta">
@@ -280,15 +408,15 @@
     </section>
 
     <!-- Resources Section -->
-    <section id="resources" class="resources">
+    <section id="resources" class="resources section-padding">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Latest Resources</h2>
+                <h2 class="section-title">SRE & MLOps Knowledge Hub</h2>
                 <p class="section-description">
-                    Articles, videos, and insights on SRE practices, infrastructure patterns, and lessons learned from the trenches
+                    In-depth guides, best practices, and real-world insights on building reliable infrastructure and implementing production-ready MLOps
                 </p>
             </div>
-            <div class="resources-grid" id="home-resources-grid">
+            <div class="resources-grid card-grid grid-gap-md" id="home-resources-grid">
                 <!-- Featured resources will be dynamically loaded here -->
             </div>
             <div class="resources-cta">
@@ -306,10 +434,10 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-header">
-                <h2 class="section-title">Ready to Bulletproof Your Infrastructure?</h2>
+                <h2 class="section-title">Ready to Build Production-Ready Infrastructure?</h2>
                 <p class="section-description">
-                    Let's discuss how we can transform your infrastructure challenges into competitive advantages. 
-                    Get your free infrastructure health check today.
+                    Transform your startup's infrastructure with proven SRE and MLOps expertise. 
+                    Get your free infrastructure assessment and roadmap to scale with confidence.
                 </p>
             </div>
             <div class="contact-content">
@@ -348,7 +476,12 @@
                     </div>
                 </div>
                 <div class="contact-form-container" data-aos="fade-left">
-                    <form class="contact-form" id="contact-form">
+                    <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html">
+                        <!-- Netlify honeypot field for spam protection -->
+                        <p style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+                        
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" required>
@@ -376,11 +509,26 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project, current challenges, or how we can help..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">
-                            Send Message
+                        
+                        <!-- Hidden field for form identification -->
+                        <input type="hidden" name="form-name" value="contact">
+                        
+                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">
+                                <svg width="20" height="20" viewBox="0 0 50 50">
+                                    <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.416" stroke-dashoffset="31.416">
+                                        <animate attributeName="stroke-array" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/>
+                                        <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416" repeatCount="indefinite"/>
+                                    </circle>
+                                </svg>
+                                Sending...
+                            </span>
                         </button>
+                        
+                        <div class="form-status" id="form-status" style="display: none;"></div>
                     </form>
                 </div>
             </div>
@@ -392,12 +540,14 @@
 
     <!-- Scripts -->
     <!-- Shared Scripts -->
+    <script src="shared/js/utils.js"></script>
     <script src="shared/js/common.js"></script>
+    <script src="shared/js/performance-monitor.js"></script>
     <!-- Page-specific Scripts -->
     <script src="shared/js/resources-data.js"></script>
     <script src="shared/js/projects-data.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/hero-animation.js"></script>
+    <script src="assets/js/contact-form.js"></script>
     
     <!-- Initialize page -->
     <script>
@@ -427,6 +577,11 @@
                         navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
                         navContainer.innerHTML = navHTML;
+                        
+                        // Initialize navigation after it's loaded
+                        if (window.initializeNavigation) {
+                            window.initializeNavigation();
+                        }
                     }
                 }
             } catch (error) {
@@ -444,33 +599,94 @@
                         headerHTML = headerHTML.replace(/\{\{heroId\}\}/g, ' id="home"');
                         headerHTML = headerHTML.replace(/\{\{heroContainerClass\}\}/g, 'hero-container');
                         headerHTML = headerHTML.replace(/\{\{heroContentClass\}\}/g, 'hero-content');
-                        headerHTML = headerHTML.replace(/\{\{heroTitle\}\}/g, '<span class="hero-title-main">Bulletproof Infrastructure.</span><span class="hero-title-accent">Zero-Downtime Dreams.</span>');
-                        headerHTML = headerHTML.replace(/\{\{heroDescription\}\}/g, 'Expert SRE consulting that transforms your tech stack from fragile to fortress-strong. Sleep better knowing your systems won\'t wake you at 3 AM.');
+                        headerHTML = headerHTML.replace(/\{\{heroTitle\}\}/g, '<span class="hero-title-main">SRE & MLOps Infrastructure</span><span class="hero-title-accent">for Growing Startups</span>');
+                        headerHTML = headerHTML.replace(/\{\{heroDescription\}\}/g, '5+ years of proven SRE expertise helping startups build production-ready infrastructure, implement robust MLOps practices, and establish reliability engineering that scales with rapid business growth.');
                         headerHTML = headerHTML.replace(/\{\{heroAdditionalContent\}\}/g, `
                             <div class="hero-cta">
-                                <a href="#contact" class="btn btn-primary">Get Your Free Infrastructure Health Check</a>
-                                <a href="#services" class="btn btn-secondary">Learn More</a>
+                                <a href="#contact" class="btn btn-primary">Get Your Free Infrastructure Assessment</a>
+                                <a href="#services" class="btn btn-secondary">Explore SRE & MLOps Services</a>
                             </div>
                             <div class="hero-stats">
                                 <div class="stat">
-                                    <span class="stat-number">99.99%</span>
-                                    <span class="stat-label">Uptime Delivered</span>
+                                    <span class="stat-number">5+</span>
+                                    <span class="stat-label">Years SRE Experience</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">500+</span>
-                                    <span class="stat-label">Companies Served</span>
+                                    <span class="stat-number">Production</span>
+                                    <span class="stat-label">Ready Systems</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">24/7</span>
-                                    <span class="stat-label">Monitoring</span>
+                                    <span class="stat-number">MLOps</span>
+                                    <span class="stat-label">Automation</span>
                                 </div>
                             </div>
                         `);
                         headerHTML = headerHTML.replace(/\{\{heroRightContent\}\}/g, `
-                            <div class="hero-animation-container">
-                                <object data="assets/images/hero-animation.svg" type="image/svg+xml" class="hero-animation" aria-label="SRE Tech Stack Animation">
-                                    <img src="assets/images/hero-animation.svg" alt="SRE Tech Stack Animation" class="hero-animation">
-                                </object>
+                            <div class="tech-stack-grid">
+                                <div class="tech-item">
+                                    <img src="assets/images/1-kubernetes.svg" alt="Kubernetes" class="tech-icon">
+                                    <span class="tech-label">Kubernetes</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/2-docker.svg" alt="Docker" class="tech-icon">
+                                    <span class="tech-label">Docker</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/3-aws.svg" alt="AWS" class="tech-icon">
+                                    <span class="tech-label">AWS</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/4-azure.svg" alt="Azure" class="tech-icon">
+                                    <span class="tech-label">Azure</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/5-google-cloud.svg" alt="Google Cloud" class="tech-icon">
+                                    <span class="tech-label">Google Cloud</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/6-terraform.svg" alt="Terraform" class="tech-icon">
+                                    <span class="tech-label">Terraform</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/7-ansible.svg" alt="Ansible" class="tech-icon">
+                                    <span class="tech-label">Ansible</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/8-jenkins.svg" alt="Jenkins" class="tech-icon">
+                                    <span class="tech-label">Jenkins</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/9-gitHub-actions.svg" alt="GitHub Actions" class="tech-icon">
+                                    <span class="tech-label">GitHub Actions</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/10-prometheus.svg" alt="Prometheus" class="tech-icon">
+                                    <span class="tech-label">Prometheus</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/11-grafana.svg" alt="Grafana" class="tech-icon">
+                                    <span class="tech-label">Grafana</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/12-helm.svg" alt="Helm" class="tech-icon">
+                                    <span class="tech-label">Helm</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/13-argocd.svg" alt="ArgoCD" class="tech-icon">
+                                    <span class="tech-label">ArgoCD</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/14-elasticsearch.svg" alt="Elasticsearch" class="tech-icon">
+                                    <span class="tech-label">Elasticsearch</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/15-vault.svg" alt="Vault" class="tech-icon">
+                                    <span class="tech-label">Vault</span>
+                                </div>
+                                <div class="tech-item">
+                                    <img src="assets/images/16-bitcoin.svg" alt="Bitcoin" class="tech-icon">
+                                    <span class="tech-label">Bitcoin</span>
+                                </div>
                             </div>
                         `);
                         headerHTML = headerHTML.replace(/\{\{heroBottomContent\}\}/g, `

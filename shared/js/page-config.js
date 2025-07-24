@@ -18,12 +18,10 @@ class PageConfig {
                 twitterDescription: 'Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.',
                 twitterImage: 'https://resiliotech.com/assets/images/twitter-card.jpg',
                 css: [
-                    'assets/css/styles.css',
-                    'assets/css/hero-animation.css'
+                    'assets/css/styles.css'
                 ],
                 js: [
-                    'assets/js/main.js',
-                    'assets/js/hero-animation.js'
+                    'assets/js/main.js'
                 ]
             },
             blog: {
@@ -122,7 +120,7 @@ class PageConfig {
             twitterTitle: config.twitterTitle,
             twitterDescription: config.twitterDescription,
             twitterImage: config.twitterImage,
-            faviconUrl: basePath + 'assets/images/favicon.ico',
+            faviconUrl: basePath + 'assets/images/favicon.svg',
             commonCssUrl: basePath + 'shared/css/common.css',
             additionalCss: this.generateCssLinks(config.css, basePath, config.external?.css),
             ...overrides
@@ -347,10 +345,25 @@ class PageConfig {
                     </div>
                 `,
                 heroRightContent: `
-                    <div class="hero-animation-container">
-                        <object data="${basePath}assets/images/hero-animation.svg" type="image/svg+xml" class="hero-animation" aria-label="Interactive visualization showcasing SRE and DevOps technologies including Kubernetes, Docker, AWS, Azure, Jenkins, GitHub Actions, Terraform, Prometheus, Grafana, Ansible, Helm, Blockchain, and GCP" role="img" tabindex="0">
-                            <img src="${basePath}assets/images/hero-animation.svg" alt="Animated diagram showing orbiting technology icons around a central SRE hub, representing our expertise in cloud infrastructure, containerization, CI/CD, monitoring, and automation tools" class="hero-animation">
-                        </object>
+                    <div class="tech-grid-container">
+                        <div class="tech-grid">
+                            <div class="tech-item" title="Kubernetes"><img src="${basePath}assets/images/1-kubernetes.svg" alt="Kubernetes" loading="lazy"></div>
+                            <div class="tech-item" title="Docker"><img src="${basePath}assets/images/2-docker.svg" alt="Docker" loading="lazy"></div>
+                            <div class="tech-item" title="AWS"><img src="${basePath}assets/images/3-aws.svg" alt="AWS" loading="lazy"></div>
+                            <div class="tech-item" title="Azure"><img src="${basePath}assets/images/4-azure.svg" alt="Azure" loading="lazy"></div>
+                            <div class="tech-item" title="Google Cloud"><img src="${basePath}assets/images/5-google-cloud.svg" alt="Google Cloud" loading="lazy"></div>
+                            <div class="tech-item" title="Terraform"><img src="${basePath}assets/images/6-terraform.svg" alt="Terraform" loading="lazy"></div>
+                            <div class="tech-item" title="Ansible"><img src="${basePath}assets/images/7-ansible.svg" alt="Ansible" loading="lazy"></div>
+                            <div class="tech-item" title="Jenkins"><img src="${basePath}assets/images/8-jenkins.svg" alt="Jenkins" loading="lazy"></div>
+                            <div class="tech-item" title="GitHub Actions"><img src="${basePath}assets/images/9-gitHub-actions.svg" alt="GitHub Actions" loading="lazy"></div>
+                            <div class="tech-item" title="Prometheus"><img src="${basePath}assets/images/10-prometheus.svg" alt="Prometheus" loading="lazy"></div>
+                            <div class="tech-item" title="Grafana"><img src="${basePath}assets/images/11-grafana.svg" alt="Grafana" loading="lazy"></div>
+                            <div class="tech-item" title="Helm"><img src="${basePath}assets/images/12-helm.svg" alt="Helm" loading="lazy"></div>
+                            <div class="tech-item" title="ArgoCD"><img src="${basePath}assets/images/13-argocd.svg" alt="ArgoCD" loading="lazy"></div>
+                            <div class="tech-item" title="Elasticsearch"><img src="${basePath}assets/images/14-elasticsearch.svg" alt="Elasticsearch" loading="lazy"></div>
+                            <div class="tech-item" title="HashiCorp Vault"><img src="${basePath}assets/images/15-vault.svg" alt="HashiCorp Vault" loading="lazy"></div>
+                            <div class="tech-item" title="Blockchain"><img src="${basePath}assets/images/16-bitcoin.svg" alt="Blockchain" loading="lazy"></div>
+                        </div>
                     </div>
                 `,
                 heroBottomContent: `

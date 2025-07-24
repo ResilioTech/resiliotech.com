@@ -1,0 +1,197 @@
+/**
+ * Contact Form Handler for Resilio Tech
+ * Handles form submission with Netlify Forms integration
+ */
+
+class ContactFormHandler {
+    constructor() {
+        this.form = document.getElementById('contact-form');
+        this.submitBtn = document.getElementById('submit-btn');
+        this.btnText = this.submitBtn?.querySelector('.btn-text');
+        this.btnLoading = this.submitBtn?.querySelector('.btn-loading');
+        this.formStatus = document.getElementById('form-status');
+        
+        this.init();
+    }
+    
+    init() {
+        if (this.form) {
+            this.form.addEventListener('submit', this.handleSubmit.bind(this));
+        }
+    }
+    
+    async handleSubmit(event) {
+        event.preventDefault();
+        
+        // Validate form
+        if (!this.validateForm()) {
+            return;
+        }
+        
+        // Show loading state
+        this.setLoadingState(true);
+        
+        try {
+            const formData = new FormData(this.form);
+            
+            // Submit to Netlify Forms
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: this.encode(formData)
+            });
+            
+            if (response.ok) {
+                this.showSuccess();
+                this.form.reset();
+                
+                // Track submission event (if analytics is setup)
+                this.trackFormSubmission('success');
+                
+                // Redirect to thank you page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = '/thank-you.html';
+                }, 2000);
+                
+            } else {
+                throw new Error('Form submission failed');
+            }
+            
+        } catch (error) {
+            console.error('Form submission error:', error);
+            this.showError('There was an error sending your message. Please try again or contact us directly.');
+            
+            // Track error event
+            this.trackFormSubmission('error', error.message);
+        } finally {
+            this.setLoadingState(false);
+        }
+    }
+    
+    // Encode form data for Netlify
+    encode(data) {
+        return [...data.entries()]
+            .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+            .join('&');
+    }
+    
+    validateForm() {
+        const requiredFields = this.form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                this.highlightField(field, false);
+                isValid = false;
+            } else {
+                this.highlightField(field, true);
+            }
+        });
+        
+        // Email validation
+        const email = this.form.querySelector('#email');
+        if (email && email.value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                this.highlightField(email, false);
+                isValid = false;
+            }
+        }
+        
+        if (!isValid) {
+            this.showError('Please fill in all required fields correctly.');
+        }
+        
+        return isValid;
+    }
+    
+    highlightField(field, isValid) {
+        const formGroup = field.closest('.form-group');
+        if (formGroup) {
+            if (isValid) {
+                formGroup.style.borderColor = '';
+                field.style.borderColor = '';
+            } else {
+                field.style.borderColor = '#ef4444';
+                field.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+            }
+        }
+    }
+    
+    setLoadingState(isLoading) {
+        if (this.submitBtn) {
+            this.submitBtn.disabled = isLoading;
+            
+            if (this.btnText && this.btnLoading) {
+                this.btnText.style.display = isLoading ? 'none' : 'inline';
+                this.btnLoading.style.display = isLoading ? 'flex' : 'none';
+            }
+        }
+    }
+    
+    showSuccess() {
+        if (this.formStatus) {
+            this.formStatus.className = 'form-status success';
+            this.formStatus.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"></polyline>
+                    </svg>
+                    <span>Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.</span>
+                </div>
+            `;
+            this.formStatus.style.display = 'block';
+            
+            // Scroll to show success message
+            this.formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+    
+    showError(message = 'There was an error sending your message. Please try again.') {
+        if (this.formStatus) {
+            this.formStatus.className = 'form-status error';
+            this.formStatus.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                    <span>${message}</span>
+                </div>
+            `;
+            this.formStatus.style.display = 'block';
+            
+            // Scroll to show error message
+            this.formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+    
+    hideStatus() {
+        if (this.formStatus) {
+            this.formStatus.style.display = 'none';
+        }
+    }
+    
+    trackFormSubmission(status, error = null) {
+        // Analytics tracking (Google Analytics, etc.)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', {
+                event_category: 'Contact',
+                event_label: status,
+                value: status === 'success' ? 1 : 0
+            });
+        }
+        
+        // Console log for development
+        console.log(`Form submission ${status}`, error ? { error } : {});
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new ContactFormHandler();
+});
+
+// Export for use in other scripts if needed
+window.ContactFormHandler = ContactFormHandler;

@@ -1,5 +1,24 @@
 /* Projects Page Styles */
 
+/* Breadcrumb Section */
+.breadcrumb-section {
+    padding: var(--spacing-4) 0;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--background-light);
+}
+
+.breadcrumb-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-section {
+        padding: var(--spacing-3) 0;
+    }
+}
+
 /* Hero Section */
 .projects-hero {
     padding: 140px 0 var(--spacing-16);

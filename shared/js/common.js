@@ -4,40 +4,88 @@ class ResilioCommon {
         this.initNavigation();
         this.initScrollBehavior();
         this.initPerformanceOptimizations();
+        this.initBackToTop();
+        this.initKeyboardNavigation();
+        this.initFormLoading();
     }
 
     // Navigation functionality
     initNavigation() {
+        // Try to initialize navigation immediately
+        this.setupNavigation();
+        
+        // Also set up a mutation observer to watch for navigation being added
+        const observer = new MutationObserver(() => {
+            this.setupNavigation();
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    setupNavigation() {
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
 
-        // Mobile menu toggle
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-                navToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Close mobile menu when clicking on a link
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                    navToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
+        // Only set up if elements exist
+        if (!navToggle || !navMenu) {
+            return;
         }
+
+        // Mobile menu toggle
+        // Remove existing listeners to avoid duplicates
+        if (navToggle.clickHandler) {
+            navToggle.removeEventListener('click', navToggle.clickHandler);
+        }
+        
+        // Add click listener for mobile menu toggle
+        navToggle.clickHandler = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isActive = navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Update accessibility attributes
+            navToggle.setAttribute('aria-expanded', isActive);
+            
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        };
+        
+        navToggle.addEventListener('click', navToggle.clickHandler);
+
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
 
         // Active navigation highlighting
         this.updateActiveNavLink();
@@ -66,7 +114,7 @@ class ResilioCommon {
         // Navbar background on scroll
         const navbar = document.getElementById('navbar');
         if (navbar) {
-            const handleScroll = () => {
+            const handleScroll = Utils.throttle(() => {
                 if (window.scrollY > 50) {
                     navbar.style.background = 'rgba(0, 0, 0, 0.98)';
                     navbar.style.backdropFilter = 'blur(20px)';
@@ -74,34 +122,19 @@ class ResilioCommon {
                     navbar.style.background = 'rgba(0, 0, 0, 0.95)';
                     navbar.style.backdropFilter = 'blur(10px)';
                 }
-            };
+            }, 16); // ~60fps
 
-            // Throttle scroll events for performance
-            let ticking = false;
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        handleScroll();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
+            window.addEventListener('scroll', handleScroll, { passive: true });
         }
 
-        // Smooth scroll for anchor links
+        // Enhanced smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     const navbarHeight = document.getElementById('navbar')?.offsetHeight || 70;
-                    const targetPosition = target.offsetTop - navbarHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    Utils.smoothScrollTo(target, navbarHeight);
                 }
             });
         });
@@ -109,26 +142,34 @@ class ResilioCommon {
 
     // Performance optimizations
     initPerformanceOptimizations() {
-        // Lazy loading for images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
+        // Use optimized lazy loading
+        Utils.lazyLoadImages('img[data-src]');
+        
         // Preload critical resources
         this.preloadCriticalResources();
+        
+        // Add intersection observer for animations
+        this.initAnimationObserver();
+    }
+
+    initAnimationObserver() {
+        if (!Utils.supports.intersectionObserver) return;
+
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    animationObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('[data-animate]').forEach(el => {
+            animationObserver.observe(el);
+        });
     }
 
     preloadCriticalResources() {
@@ -250,6 +291,407 @@ class ResilioCommon {
 document.addEventListener('DOMContentLoaded', () => {
     window.resilioCommon = new ResilioCommon();
 });
+
+// Global function to reinitialize navigation (call after navigation is loaded)
+window.initializeNavigation = function() {
+    if (window.resilioCommon) {
+        window.resilioCommon.setupNavigation();
+    }
+};
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('Service Worker registered successfully:', registration);
+                
+                // Handle updates
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // Show update notification
+                            showUpdateNotification();
+                        }
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+    });
+}
+
+// Show update notification
+function showUpdateNotification() {
+    if (Utils.createNotification) {
+        const notification = Utils.createNotification(
+            'New version available!',
+            'Click to update to the latest version.',
+            'info'
+        );
+        
+        notification.addEventListener('click', () => {
+            if (navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({
+                    type: 'SKIP_WAITING'
+                });
+                
+                window.location.reload();
+            }
+        });
+    }
+}
+
+// PWA Install Prompt
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('PWA install prompt available');
+    
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    
+    // Stash the event so it can be triggered later
+    deferredPrompt = e;
+    
+    // Show custom install button
+    showInstallButton();
+});
+
+function showInstallButton() {
+    const installButton = document.createElement('button');
+    installButton.textContent = 'Install App';
+    installButton.className = 'install-button';
+    installButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        font-size: 14px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    `;
+    
+    installButton.addEventListener('click', () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                
+                deferredPrompt = null;
+                installButton.remove();
+            });
+        }
+    });
+    
+    document.body.appendChild(installButton);
+    
+    // Hide button after 10 seconds
+    setTimeout(() => {
+        if (installButton.parentNode) {
+            installButton.style.opacity = '0';
+            setTimeout(() => installButton.remove(), 300);
+        }
+    }, 10000);
+}
+
+// Handle app install
+window.addEventListener('appinstalled', (evt) => {
+    console.log('PWA was installed');
+    
+    // Track installation
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'pwa_install', {
+            event_category: 'engagement',
+            event_label: 'PWA Installation'
+        });
+    }
+});
+
+// Network status monitoring
+function initNetworkMonitoring() {
+    function updateNetworkStatus() {
+        const isOnline = navigator.onLine;
+        document.body.classList.toggle('offline', !isOnline);
+        
+        if (!isOnline) {
+            Utils.showToast('You are offline. Some features may be limited.', 'warning');
+        } else {
+            Utils.showToast('You are back online!', 'success');
+        }
+    }
+    
+    window.addEventListener('online', updateNetworkStatus);
+    window.addEventListener('offline', updateNetworkStatus);
+    
+    // Initial check
+    updateNetworkStatus();
+}
+
+// Initialize network monitoring
+initNetworkMonitoring();
+
+// Cache management utilities
+const CacheManager = {
+    async getCacheSize() {
+        if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+            return new Promise((resolve) => {
+                const channel = new MessageChannel();
+                
+                channel.port1.onmessage = (event) => {
+                    if (event.data.type === 'CACHE_SIZE') {
+                        resolve(event.data.size);
+                    }
+                };
+                
+                navigator.serviceWorker.controller.postMessage({
+                    type: 'GET_CACHE_SIZE'
+                }, [channel.port2]);
+            });
+        }
+        return 0;
+    },
+    
+    async clearCache() {
+        if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+            return new Promise((resolve) => {
+                const channel = new MessageChannel();
+                
+                channel.port1.onmessage = (event) => {
+                    if (event.data.type === 'CACHE_CLEARED') {
+                        resolve();
+                    }
+                };
+                
+                navigator.serviceWorker.controller.postMessage({
+                    type: 'CLEAR_CACHE'
+                }, [channel.port2]);
+            });
+        }
+    }
+};
+
+// Back to Top Button functionality
+class BackToTop {
+    constructor() {
+        this.createButton();
+        this.initScrollListener();
+    }
+
+    createButton() {
+        // Check if button already exists
+        if (document.getElementById('back-to-top')) return;
+
+        const button = document.createElement('button');
+        button.id = 'back-to-top';
+        button.className = 'back-to-top';
+        button.setAttribute('aria-label', 'Back to top');
+        button.innerHTML = `
+            <svg class="progress-ring" width="50" height="50">
+                <circle class="progress" cx="25" cy="25" r="22"></circle>
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18,15 12,9 6,15"></polyline>
+            </svg>
+        `;
+
+        document.body.appendChild(button);
+
+        button.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    initScrollListener() {
+        const button = document.getElementById('back-to-top');
+        const progressCircle = button?.querySelector('.progress');
+        
+        if (!button || !progressCircle) return;
+
+        const circumference = 2 * Math.PI * 22; // r = 22
+        progressCircle.style.strokeDasharray = circumference;
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+
+            // Show/hide button
+            if (scrollTop > 300) {
+                button.classList.add('visible');
+            } else {
+                button.classList.remove('visible');
+            }
+
+            // Update progress ring
+            const offset = circumference - (scrollPercent * circumference);
+            progressCircle.style.strokeDashoffset = offset;
+        });
+    }
+}
+
+// Keyboard Navigation Enhancement
+class KeyboardNavigation {
+    constructor() {
+        this.initKeyboardIndicator();
+        this.initTabTrapping();
+    }
+
+    initKeyboardIndicator() {
+        // Add keyboard navigation class when tab is used
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        // Remove keyboard navigation class when mouse is used
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+    }
+
+    initTabTrapping() {
+        // Trap focus in modals and menus
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Close mobile menu if open
+                const navMenu = document.getElementById('nav-menu');
+                const navToggle = document.getElementById('nav-toggle');
+                
+                if (navMenu?.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    navToggle?.classList.remove('active');
+                    navToggle?.focus();
+                }
+            }
+        });
+    }
+}
+
+// Form Loading States
+class FormLoading {
+    constructor() {
+        this.initFormSubmissionHandlers();
+    }
+
+    initFormSubmissionHandlers() {
+        // Add loading states to all forms
+        document.addEventListener('submit', (e) => {
+            const form = e.target;
+            if (form.tagName === 'FORM') {
+                this.showLoadingState(form);
+                
+                // Hide loading state after 3 seconds as fallback
+                setTimeout(() => {
+                    this.hideLoadingState(form);
+                }, 3000);
+            }
+        });
+    }
+
+    showLoadingState(form) {
+        form.classList.add('form-loading');
+        
+        // Disable form inputs
+        const inputs = form.querySelectorAll('input, textarea, button, select');
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+    }
+
+    hideLoadingState(form) {
+        form.classList.remove('form-loading');
+        
+        // Re-enable form inputs
+        const inputs = form.querySelectorAll('input, textarea, button, select');
+        inputs.forEach(input => {
+            input.disabled = false;
+        });
+    }
+}
+
+// Breadcrumb Navigation
+class BreadcrumbNavigation {
+    constructor() {
+        this.generateBreadcrumbs();
+    }
+
+    generateBreadcrumbs() {
+        const breadcrumbContainer = document.getElementById('breadcrumb');
+        if (!breadcrumbContainer) return;
+
+        const path = window.location.pathname;
+        const segments = path.split('/').filter(segment => segment !== '');
+        
+        let breadcrumbs = [
+            { name: 'Home', path: '/' }
+        ];
+
+        let currentPath = '';
+        segments.forEach(segment => {
+            currentPath += `/${segment}`;
+            
+            // Convert segment to readable name
+            let name = segment.charAt(0).toUpperCase() + segment.slice(1);
+            name = name.replace(/-/g, ' ').replace('.html', '');
+            
+            breadcrumbs.push({ name, path: currentPath });
+        });
+
+        // Generate breadcrumb HTML
+        const breadcrumbHTML = breadcrumbs.map((crumb, index) => {
+            const isLast = index === breadcrumbs.length - 1;
+            
+            if (isLast) {
+                return `<span class="breadcrumb-item breadcrumb-current">${crumb.name}</span>`;
+            } else {
+                return `<span class="breadcrumb-item">
+                    <a href="${crumb.path}" class="breadcrumb-link">${crumb.name}</a>
+                </span>`;
+            }
+        }).join('');
+
+        breadcrumbContainer.innerHTML = breadcrumbHTML;
+    }
+}
+
+// Enhanced ResilioCommon with new features
+ResilioCommon.prototype.initBackToTop = function() {
+    new BackToTop();
+};
+
+ResilioCommon.prototype.initKeyboardNavigation = function() {
+    new KeyboardNavigation();
+};
+
+ResilioCommon.prototype.initFormLoading = function() {
+    new FormLoading();
+};
+
+ResilioCommon.prototype.initBreadcrumbs = function() {
+    new BreadcrumbNavigation();
+};
+
+// Make cache manager available globally
+window.CacheManager = CacheManager;
 
 // Export for module usage
 if (typeof module !== 'undefined' && module.exports) {

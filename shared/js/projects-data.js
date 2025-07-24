@@ -1,121 +1,144 @@
-// Projects data for the website
+// Projects data for the website - SRE/DevOps/MLOps focused
 const projectsData = [
     {
         id: 1,
-        title: "Cloud Migration & Modernization",
-        description: "Complete cloud migration strategy and implementation for a Fortune 500 company, reducing infrastructure costs by 40% while improving performance and scalability.",
-        technologies: ["AWS", "Kubernetes", "Docker", "Terraform", "Jenkins"],
-        icon: "cloud",
+        title: "MLOps Platform for AI Startup",
+        description: "Built end-to-end MLOps platform enabling automated model training, deployment, and monitoring for an early-stage AI startup, reducing model deployment time from weeks to hours.",
+        technologies: ["Kubernetes", "MLflow", "Kubeflow", "Prometheus", "Grafana", "TensorFlow", "Docker"],
+        icon: "cpu",
         outcomes: {
-            costReduction: "40%",
-            performance: "3x faster"
+            deploymentTime: "98% reduction",
+            modelAccuracy: "15% improvement"
         },
-        category: "Cloud Migration",
-        client: "Fortune 500 Company",
-        duration: "8 months",
-        teamSize: "12 members",
+        category: "MLOps",
+        client: "AI Startup",
+        duration: "4 months",
+        teamSize: "5 members",
         featured: true,
-        image: "/assets/images/projects/cloud-migration.jpg",
+        image: "/assets/images/projects/mlops-platform.jpg",
         link: "#",
-        githubRepo: "https://github.com/resiliotech/cloud-migration-toolkit",
-        details: "Led a comprehensive cloud migration initiative that transformed legacy infrastructure into a modern, scalable cloud environment. Implemented automated CI/CD pipelines, containerized applications, and established monitoring and observability systems."
+        githubRepo: "https://github.com/resiliotech/mlops-platform-starter",
+        details: "Designed and implemented a complete MLOps platform from scratch, including automated CI/CD for ML models, feature stores, model versioning, A/B testing infrastructure, and comprehensive monitoring for model drift and performance."
     },
     {
         id: 2,
-        title: "DevOps Transformation",
-        description: "Implemented comprehensive DevOps practices including CI/CD pipelines, automated testing, and infrastructure as code for a mid-size technology company.",
-        technologies: ["Jenkins", "Docker", "Ansible", "GitLab", "Prometheus"],
-        icon: "settings",
+        title: "SRE Implementation for E-commerce Scale-up",
+        description: "Established SRE practices and infrastructure reliability for a rapidly growing e-commerce platform, achieving 99.95% uptime during Black Friday traffic spikes.",
+        technologies: ["Kubernetes", "Terraform", "Prometheus", "Grafana", "ELK Stack", "AWS", "Istio"],
+        icon: "shield",
         outcomes: {
-            deployment: "10x faster",
-            uptime: "99.9%"
+            uptime: "99.95%",
+            incidentResponse: "80% faster"
         },
-        category: "DevOps",
-        client: "Tech Startup",
+        category: "SRE",
+        client: "E-commerce Scale-up",
         duration: "6 months",
-        teamSize: "8 members",
+        teamSize: "7 members",
         featured: true,
-        image: "/assets/images/projects/devops-transformation.jpg",
+        image: "/assets/images/projects/sre-implementation.jpg",
         link: "#",
-        githubRepo: "https://github.com/resiliotech/devops-automation-suite",
-        details: "Transformed development and deployment processes by implementing automated CI/CD pipelines, containerization strategies, and comprehensive monitoring solutions. Reduced deployment time from hours to minutes while improving system reliability."
+        githubRepo: "https://github.com/resiliotech/sre-toolkit",
+        details: "Implemented comprehensive SRE practices including SLI/SLO definitions, error budgets, automated incident response, chaos engineering practices, and established a robust on-call rotation with runbook automation."
     },
     {
         id: 3,
-        title: "Microservices Architecture",
-        description: "Redesigned monolithic application into microservices architecture, improving scalability and maintainability for a e-commerce platform.",
-        technologies: ["Node.js", "MongoDB", "Redis", "RabbitMQ", "Docker"],
-        icon: "layers",
+        title: "Multi-Cloud Kubernetes Platform",
+        description: "Designed and deployed a multi-cloud Kubernetes platform with automated failover and load balancing across AWS, Azure, and GCP for a fintech startup.",
+        technologies: ["Kubernetes", "Helm", "ArgoCD", "Crossplane", "Cilium", "Vault", "Terraform"],
+        icon: "globe",
         outcomes: {
-            scalability: "5x improved",
-            maintenance: "60% easier"
+            availability: "99.99%",
+            costReduction: "35%"
         },
-        category: "Architecture",
-        client: "E-commerce Platform",
-        duration: "10 months",
-        teamSize: "15 members",
+        category: "DevOps",
+        client: "Fintech Startup",
+        duration: "5 months",
+        teamSize: "6 members",
         featured: true,
-        image: "/assets/images/projects/microservices.jpg",
+        image: "/assets/images/projects/multi-cloud-k8s.jpg",
         link: "#",
-        details: "Architected and implemented a complete microservices transformation, breaking down a monolithic e-commerce platform into independently deployable services. Established service mesh, API gateways, and distributed monitoring systems."
+        githubRepo: "https://github.com/resiliotech/multi-cloud-k8s-platform",
+        details: "Architected and implemented a multi-cloud Kubernetes platform with GitOps workflows, automated disaster recovery, policy-as-code security, and unified observability across all cloud providers."
     },
     {
         id: 4,
-        title: "Site Reliability Engineering",
-        description: "Established SRE practices including incident response, monitoring, and performance optimization for a financial services company.",
-        technologies: ["Grafana", "Prometheus", "ELK Stack", "PagerDuty", "Terraform"],
-        icon: "shield",
+        title: "Real-time ML Model Serving Infrastructure",
+        description: "Built high-performance ML model serving infrastructure capable of handling 10M+ predictions per day with sub-100ms latency for a recommendation engine.",
+        technologies: ["Kubernetes", "NVIDIA Triton", "Redis", "Apache Kafka", "Prometheus", "Python", "TensorFlow"],
+        icon: "zap",
         outcomes: {
-            incidents: "80% reduction",
-            mttr: "5 minutes"
+            latency: "Sub-100ms",
+            throughput: "10M+ predictions/day"
         },
-        category: "SRE",
-        client: "Financial Services",
-        duration: "12 months",
-        teamSize: "6 members",
+        category: "MLOps",
+        client: "Media Streaming Startup",
+        duration: "3 months",
+        teamSize: "4 members",
         featured: false,
-        image: "/assets/images/projects/sre.jpg",
+        image: "/assets/images/projects/ml-serving.jpg",
         link: "#",
-        details: "Implemented comprehensive SRE practices including error budgets, SLIs/SLOs, automated incident response, and performance monitoring. Established a culture of reliability and continuous improvement."
+        githubRepo: "https://github.com/resiliotech/ml-serving-platform",
+        details: "Designed and implemented a high-performance ML model serving infrastructure with auto-scaling, A/B testing capabilities, real-time monitoring, and automated model deployment pipelines."
     },
     {
         id: 5,
-        title: "Kubernetes Orchestration",
-        description: "Deployed and managed Kubernetes clusters for container orchestration, enabling auto-scaling and improved resource utilization.",
-        technologies: ["Kubernetes", "Helm", "Istio", "Prometheus", "Grafana"],
-        icon: "cpu",
+        title: "DevOps Pipeline for CI/CD at Scale",
+        description: "Built enterprise-grade CI/CD pipelines supporting 100+ microservices with automated testing, security scanning, and progressive deployment strategies.",
+        technologies: ["GitLab CI", "ArgoCD", "Helm", "SonarQube", "Vault", "Tekton", "Terraform"],
+        icon: "git-branch",
         outcomes: {
-            efficiency: "70% improved",
-            scaling: "Automatic"
+            deploymentFrequency: "10x increase",
+            leadTime: "90% reduction"
         },
-        category: "Container Orchestration",
-        client: "Software Company",
-        duration: "4 months",
-        teamSize: "5 members",
+        category: "DevOps",
+        client: "Enterprise SaaS Company",
+        duration: "7 months",
+        teamSize: "8 members",
         featured: false,
-        image: "/assets/images/projects/kubernetes.jpg",
+        image: "/assets/images/projects/cicd-scale.jpg",
         link: "#",
-        githubRepo: "https://github.com/resiliotech/k8s-orchestration",
-        details: "Designed and implemented a production-ready Kubernetes environment with service mesh, automated scaling, and comprehensive monitoring. Enabled efficient resource utilization and improved application reliability."
+        githubRepo: "https://github.com/resiliotech/enterprise-cicd-pipeline",
+        details: "Implemented a comprehensive CI/CD platform with GitOps workflows, automated security scanning, progressive deployment strategies, and comprehensive testing automation supporting multiple development teams."
     },
     {
         id: 6,
-        title: "Security & Compliance",
-        description: "Implemented comprehensive security measures and compliance frameworks for a healthcare technology company.",
-        technologies: ["Vault", "Consul", "SIEM", "Terraform", "Ansible"],
-        icon: "lock",
+        title: "Automated Data Pipeline for ML Feature Engineering",
+        description: "Built robust data pipelines with automated feature engineering, data validation, and monitoring for a fintech ML platform handling 1TB+ daily data.",
+        technologies: ["Apache Airflow", "Apache Spark", "Kafka", "Delta Lake", "Great Expectations", "Python"],
+        icon: "database",
         outcomes: {
-            compliance: "100% SOC2",
-            security: "Zero breaches"
+            dataQuality: "99.9% accuracy",
+            processingTime: "70% reduction"
         },
-        category: "Security",
-        client: "Healthcare Tech",
-        duration: "9 months",
-        teamSize: "10 members",
+        category: "MLOps",
+        client: "Fintech Startup",
+        duration: "4 months",
+        teamSize: "5 members",
         featured: false,
-        image: "/assets/images/projects/security.jpg",
+        image: "/assets/images/projects/data-pipeline.jpg",
         link: "#",
-        details: "Established comprehensive security posture including secrets management, access controls, compliance monitoring, and incident response procedures. Achieved SOC2 Type II certification and implemented zero-trust architecture."
+        githubRepo: "https://github.com/resiliotech/ml-data-pipeline",
+        details: "Designed and implemented scalable data pipelines with automated feature engineering, real-time data validation, lineage tracking, and comprehensive monitoring for ML feature stores."
+    },
+    {
+        id: 7,
+        title: "Observability Stack for Microservices",
+        description: "Implemented comprehensive observability with distributed tracing, metrics, and logging for a microservices architecture serving 50M+ requests daily.",
+        technologies: ["Jaeger", "Prometheus", "Grafana", "ELK Stack", "OpenTelemetry", "Kubernetes"],
+        icon: "eye",
+        outcomes: {
+            debuggingTime: "85% reduction",
+            mttr: "Sub-5 minutes"
+        },
+        category: "SRE",
+        client: "E-commerce Platform",
+        duration: "5 months",
+        teamSize: "6 members",
+        featured: false,
+        image: "/assets/images/projects/observability.jpg",
+        link: "#",
+        githubRepo: "https://github.com/resiliotech/observability-stack",
+        details: "Built a comprehensive observability platform with distributed tracing, custom metrics, centralized logging, and automated alerting that provides complete visibility into microservices performance and health."
     }
 ];
 

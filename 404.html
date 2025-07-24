@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Resilio Tech</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Find what you need with our helpful navigation.">
+    
+    <!-- Mobile Browser Theme -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--background) 0%, var(--background-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .error-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+            padding: var(--spacing-8);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .error-code {
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3)); }
+            to { filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.6)); }
+        }
+        
+        .error-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: var(--spacing-6) 0 var(--spacing-4);
+        }
+        
+        .error-message {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-8);
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+            align-items: center;
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .error-actions .btn {
+            min-width: 200px;
+        }
+        
+        .search-container {
+            margin: var(--spacing-8) 0;
+        }
+        
+        .search-input {
+            width: 100%;
+            max-width: 400px;
+            padding: var(--spacing-4);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background: var(--background-light);
+            color: var(--text-primary);
+            font-size: var(--font-size-base);
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .helpful-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-6);
+            margin-top: var(--spacing-8);
+        }
+        
+        .link-card {
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-6);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .link-card-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-4);
+            color: white;
+        }
+        
+        .link-card-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .link-card-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .error-actions {
+                flex-direction: column;
+            }
+            
+            .helpful-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navigation-container"></div>
+    
+    <main class="error-page">
+        <div class="error-container">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Oops! Page Not Found</h2>
+            <p class="error-message">
+                The page you're looking for seems to have vanished into the digital void. 
+                Don't worry though – our infrastructure is still rock solid!
+            </p>
+            
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary">Take Me Home</a>
+                <button onclick="history.back()" class="btn btn-secondary">Go Back</button>
+            </div>
+            
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    placeholder="Search for what you need..."
+                    id="search-404"
+                    aria-label="Search our website"
+                >
+            </div>
+            
+            <div class="helpful-links">
+                <a href="/" class="link-card">
+                    <div class="link-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="link-card-title">Home</h3>
+                    <p class="link-card-description">
+                        Return to our homepage and explore our SRE consulting services
+                    </p>
+                </a>
+                
+                <a href="/resources/" class="link-card">
+                    <div class="link-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14,2 14,8 20,8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10,9 9,9 8,9"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="link-card-title">Resources</h3>
+                    <p class="link-card-description">
+                        Browse our comprehensive collection of SRE articles and tutorials
+                    </p>
+                </a>
+                
+                <a href="/projects/" class="link-card">
+                    <div class="link-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <rect x="7" y="7" width="3" height="3"></rect>
+                            <rect x="14" y="7" width="3" height="3"></rect>
+                            <rect x="7" y="14" width="3" height="3"></rect>
+                            <rect x="14" y="14" width="3" height="3"></rect>
+                        </svg>
+                    </div>
+                    <h3 class="link-card-title">Projects</h3>
+                    <p class="link-card-description">
+                        Explore our latest cloud migration and DevOps transformation projects
+                    </p>
+                </a>
+                
+                <a href="/#contact" class="link-card">
+                    <div class="link-card-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="link-card-title">Contact Us</h3>
+                    <p class="link-card-description">
+                        Get in touch for expert SRE consulting and infrastructure solutions
+                    </p>
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Scripts -->
+    <script src="shared/js/utils.js"></script>
+    <script src="shared/js/common.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Load navigation
+            try {
+                const navResponse = await fetch('./shared/components/navigation.html');
+                if (navResponse.ok) {
+                    let navHTML = await navResponse.text();
+                    navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, './');
+                    navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, './projects/');
+                    navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, './resources/');
+                    navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, './assets/images/logo.svg');
+                    navHTML = navHTML.replace(/\{\{homeActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
+                    document.getElementById('navigation-container').innerHTML = navHTML;
+                    
+                    // Initialize navigation
+                    if (window.ResilioCommon) {
+                        new ResilioCommon();
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading navigation:', error);
+            }
+            
+            // Search functionality
+            const searchInput = document.getElementById('search-404');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        const query = searchInput.value.trim();
+                        if (query) {
+                            // Redirect to resources page with search
+                            window.location.href = `/resources/?search=${encodeURIComponent(query)}`;
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

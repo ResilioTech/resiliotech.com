@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - ResilioTech</title>
+    <meta name="description" content="Explore our latest projects showcasing expertise in cloud migration, DevOps transformation, microservices architecture, and site reliability engineering.">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../shared/css/common.min.css">
+    <link rel="stylesheet" href="assets/css/projects.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="../shared/js/component-loader.js"></script>
+    <script src="../shared/js/page-config.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Resilio Tech Projects",
+        "description": "Explore our latest projects showcasing expertise in cloud migration, DevOps transformation, microservices architecture, and site reliability engineering.",
+        "url": "https://resiliotech.com/projects",
+        "logo": "https://resiliotech.com/assets/images/logo.svg",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Resilio Tech",
+            "url": "https://resiliotech.com",
+            "logo": "https://resiliotech.com/assets/images/logo.svg"
+        }
+    }
+    </script>
+</head>
+<body data-page-type="projects" data-auto-init-components="false">
+    <div id="navigation-container"></div>
+    <div class="progress-bar" id="progress-bar" style="position: fixed; top: 70px; left: 0; height: 3px; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); z-index: 999; transition: width 0.3s ease;"></div>
+    <main class="main">
+        <div id="header-container"></div>
+        <section class="breadcrumb-section">
+            <div class="container">
+                <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
+                </nav>
+            </div>
+        </section>
+        <section class="filters">
+            <div class="container">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-category="all">All Projects</button>
+                    <button class="filter-btn" data-category="Cloud Migration">Cloud Migration</button>
+                    <button class="filter-btn" data-category="DevOps">DevOps</button>
+                    <button class="filter-btn" data-category="Architecture">Architecture</button>
+                    <button class="filter-btn" data-category="SRE">SRE</button>
+                    <button class="filter-btn" data-category="Security">Security</button>
+                </div>
+            </div>
+        </section>
+        <section class="projects">
+            <div class="container">
+                <div class="projects-grid" id="projects-grid">
+                </div>
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Loading projects...</p>
+                </div>
+                <div class="no-results" id="no-results" style="display: none;">
+                    <h3>No projects found</h3>
+                    <p>Try adjusting your filters or check back later for new projects.</p>
+                </div>
+            </div>
+        </section>
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Start Your Project?</h2>
+                    <p>Let's discuss how we can help transform your infrastructure and accelerate your business growth.</p>
+                    <div class="cta-buttons">
+                        <a href="../index.html#contact" class="btn btn-primary">Get Started</a>
+                        <a href="mailto:contact@resiliotech.com" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <div id="footer-container"></div>
+    <script src="../shared/js/utils.min.js"></script>
+    <script src="../shared/js/common.min.js"></script>
+    <script src="../shared/js/performance-monitor.js"></script>
+    <script src="../shared/js/projects-data.js"></script>
+    <script src="assets/js/projects.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Load navigation
+            try {
+                const navResponse = await fetch('../shared/components/navigation.html');
+                if (navResponse.ok) {
+                    let navHTML = await navResponse.text();
+                    navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, '../');
+                    navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, './');
+                    navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, '../resources/');
+                    navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, '../assets/images/logo.svg');
+                    navHTML = navHTML.replace(/\{\{homeActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, 'active');
+                    navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
+                    document.getElementById('navigation-container').innerHTML = navHTML;
+                    // Initialize navigation after it's loaded
+                    if (window.initializeNavigation) {
+                        window.initializeNavigation();
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading navigation:', error);
+            }
+            // Load header
+            try {
+                const headerContainer = document.getElementById('header-container');
+                if (headerContainer && !headerContainer.innerHTML.trim()) {
+                    const headerResponse = await fetch('../shared/components/header.html');
+                    if (headerResponse.ok) {
+                        let headerHTML = await headerResponse.text();
+                        headerHTML = headerHTML.replace(/\{\{heroClass\}\}/g, 'projects-hero');
+                        headerHTML = headerHTML.replace(/\{\{heroId\}\}/g, '');
+                        headerHTML = headerHTML.replace(/\{\{heroContainerClass\}\}/g, 'hero-container');
+                        headerHTML = headerHTML.replace(/\{\{heroContentClass\}\}/g, 'hero-content');
+                        headerHTML = headerHTML.replace(/\{\{heroTitle\}\}/g, 'Our Projects');
+                        headerHTML = headerHTML.replace(/\{\{heroDescription\}\}/g, 'Discover our successful implementations and transformations across various industries. From cloud migrations to DevOps implementations, each project showcases our expertise in delivering reliable, scalable solutions.');
+                        headerHTML = headerHTML.replace(/\{\{heroAdditionalContent\}\}/g, `
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">50+</span>
+                                    <span class="stat-label">Projects Completed</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">98%</span>
+                                    <span class="stat-label">Success Rate</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Support</span>
+                                </div>
+                            </div>
+                        `);
+                        headerHTML = headerHTML.replace(/\{\{heroRightContent\}\}/g, '');
+                        headerHTML = headerHTML.replace(/\{\{heroBottomContent\}\}/g, '');
+                        headerContainer.innerHTML = headerHTML;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading header:', error);
+            }
+            // Load footer
+            try {
+                const footerContainer = document.getElementById('footer-container');
+                if (footerContainer) {
+                    const footerResponse = await fetch('../shared/components/footer.html');
+                    if (footerResponse.ok) {
+                        let footerHTML = await footerResponse.text();
+                        footerHTML = footerHTML.replace(/\{\{homeUrl\}\}/g, '../');
+                        footerHTML = footerHTML.replace(/\{\{projectsUrl\}\}/g, './');
+                        footerHTML = footerHTML.replace(/\{\{resourcesUrl\}\}/g, '../resources/');
+                        footerHTML = footerHTML.replace(/\{\{logoUrl\}\}/g, '../assets/images/logo.svg');
+                        footerContainer.innerHTML = footerHTML;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading footer:', error);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -177,7 +177,7 @@ class ResilioTechWebsite {
             setTimeout(() => {
                 // Simulate 95% success rate
                 if (Math.random() > 0.05) {
-                    console.log('Form data that would be sent:', data);
+                    // console.log('Form data that would be sent:', data);
                     resolve();
                 } else {
                     reject(new Error('Simulated network error'));
@@ -391,7 +391,6 @@ class ResilioTechWebsite {
      */
     preloadCriticalResources() {
         const criticalImages = [
-            'assets/images/hero-illustration.svg',
             'assets/images/logo.svg'
         ];
         
@@ -603,10 +602,10 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
         // Page is hidden, pause any non-essential animations or processes
-        console.log('Page hidden - pausing non-essential processes');
+        // console.log('Page hidden - pausing non-essential processes');
     } else {
         // Page is visible again
-        console.log('Page visible - resuming processes');
+        // console.log('Page visible - resuming processes');
     }
 });
 
