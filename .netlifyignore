@@ -1,0 +1,19 @@
+# Development files
+server.js
+package.json
+optimize.js
+build-prod.sh
+node_modules/
+
+# Build directory (we deploy source, not build)
+build/
+
+# Git and IDE files
+.git/
+.gitignore
+.vscode/
+.DS_Store
+
+# Documentation
+README.md
+CLEANUP_COMPLETE.md
