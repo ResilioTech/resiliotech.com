@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free DevOps Resources - Resiliotech | Templates, Calculators & Guides</title>
+    <meta name="description" content="Download free DevOps checklists, ROI calculators, scaling guides, and architecture templates. Expert resources for startup founders and technical teams.">
+    <meta name="keywords" content="free DevOps resources, startup infrastructure templates, DevOps checklists, ROI calculator, scaling guides, architecture templates">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://resiliotech.com/resources/gated-resources">
+    <meta property="og:title" content="Free DevOps Resources - Templates, Calculators & Guides">
+    <meta property="og:description" content="Download expert-created DevOps resources including checklists, calculators, and scaling guides. Trusted by 500+ startup founders.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/social/resources-og-1200x630.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Resiliotech">
+    
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@resiliotech">
+    <meta property="twitter:creator" content="@resiliotech">
+    <meta property="twitter:title" content="Free DevOps Resources - Templates, Calculators & Guides">
+    <meta property="twitter:description" content="Download expert-created DevOps resources including checklists, calculators, and scaling guides. Trusted by 500+ startup founders.">
+    <meta property="twitter:image" content="https://resiliotech.com/assets/images/social/resources-twitter-1200x630.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../shared/css/common.css">
+    <link rel="stylesheet" href="../assets/css/resource-gating.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "DevOps Resources for Startups",
+        "description": "Comprehensive collection of free DevOps resources including templates, calculators, checklists, and guides for startup founders and technical teams.",
+        "url": "https://resiliotech.com/resources/gated-resources",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Resiliotech",
+            "url": "https://resiliotech.com",
+            "logo": "https://resiliotech.com/assets/images/logo.svg"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": 5,
+            "itemListElement": [
+                {
+                    "@type": "DigitalDocument",
+                    "name": "Complete DevOps Checklist for Startups",
+                    "description": "50-point comprehensive checklist covering CI/CD, monitoring, security, and scaling",
+                    "url": "https://resiliotech.com/resources/gated-resources#devops-checklist"
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "DevOps Automation ROI Calculator",
+                    "description": "Interactive calculator to determine ROI of DevOps automation initiatives",
+                    "url": "https://resiliotech.com/resources/gated-resources#roi-calculator"
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="resources-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span class="hero-emoji">📚</span>
+                    Free DevOps Resources for Startups
+                </h1>
+                <p class="hero-description">
+                    Expert-created templates, checklists, calculators, and guides trusted by 500+ startup founders. 
+                    Build resilient infrastructure without the trial-and-error.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2,500+</span>
+                        <span class="stat-label">Downloads</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.8/5</span>
+                        <span class="stat-label">Avg Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Startups Helped</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resource Categories Filter -->
+    <section class="resource-filters">
+        <div class="container">
+            <div class="filter-header">
+                <h2>Browse by Category</h2>
+                <p>Find resources tailored to your needs and company stage</p>
+            </div>
+            
+            <div class="resource-categories" id="resource-categories">
+                <button class="category-btn active" data-category="all">All Resources</button>
+                <button class="category-btn" data-category="infrastructure">Infrastructure</button>
+                <button class="category-btn" data-category="business-case">Business Case</button>
+                <button class="category-btn" data-category="scaling">Scaling</button>
+                <button class="category-btn" data-category="product-development">Product Development</button>
+                <button class="category-btn" data-category="architecture">Architecture</button>
+            </div>
+            
+            <div class="filter-tags">
+                <div class="tag-group">
+                    <span class="tag-label">By Stage:</span>
+                    <button class="filter-tag" data-stage="pre-seed">Pre-seed</button>
+                    <button class="filter-tag" data-stage="seed">Seed</button>
+                    <button class="filter-tag" data-stage="series-a">Series A</button>
+                </div>
+                <div class="tag-group">
+                    <span class="tag-label">By Level:</span>
+                    <button class="filter-tag" data-level="beginner">Beginner</button>
+                    <button class="filter-tag" data-level="intermediate">Intermediate</button>
+                    <button class="filter-tag" data-level="advanced">Advanced</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Resources -->
+    <section class="featured-resources">
+        <div class="container">
+            <div class="section-header">
+                <h2>Most Popular Resources</h2>
+                <p>Our highest-rated and most downloaded resources</p>
+            </div>
+            
+            <div class="resources-grid" id="resources-grid">
+                <!-- DevOps Checklist -->
+                <div class="resource-card" data-resource-id="devops-checklist" data-category="infrastructure" data-stage="pre-seed seed series-a" data-level="beginner intermediate">
+                    <div class="gating-indicator">Free Download</div>
+                    <div class="resource-header">
+                        <span class="resource-type">Checklist</span>
+                        <h3>Complete DevOps Checklist for Startups</h3>
+                        <p class="resource-description">
+                            50-point comprehensive checklist covering CI/CD, monitoring, security, and scaling. 
+                            Perfect for founders who want to ensure nothing critical is missed.
+                        </p>
+                    </div>
+                    
+                    <div class="resource-meta">
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>4.8/5 rating</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span>847 downloads</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <span>15 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-testimonial">
+                        <blockquote>"This checklist helped us identify 12 critical infrastructure gaps before they became problems."</blockquote>
+                        <cite>— Sarah Chen, CTO at DataFlow</cite>
+                    </div>
+                    
+                    <div class="resource-actions">
+                        <button class="btn btn-primary btn-sm" data-resource-action="download" data-resource-id="devops-checklist">
+                            Download Free
+                        </button>
+                        <button class="btn btn-outline btn-sm" data-resource-action="preview" data-resource-id="devops-checklist">
+                            Preview
+                        </button>
+                        <button class="btn btn-ghost btn-sm" data-resource-action="bookmark" data-resource-id="devops-checklist">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- ROI Calculator -->
+                <div class="resource-card" data-resource-id="roi-calculator-template" data-category="business-case" data-stage="seed series-a series-b" data-level="all">
+                    <div class="gating-indicator">High Value</div>
+                    <div class="resource-header">
+                        <span class="resource-type">Calculator</span>
+                        <h3>DevOps Automation ROI Calculator</h3>
+                        <p class="resource-description">
+                            Interactive spreadsheet to calculate potential savings from DevOps automation. 
+                            Includes benchmarks and detailed analysis.
+                        </p>
+                    </div>
+                    
+                    <div class="resource-meta">
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>4.9/5 rating</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span>623 downloads</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <span>20 min setup</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-testimonial">
+                        <blockquote>"Helped us justify $200K DevOps investment with clear ROI projections."</blockquote>
+                        <cite>— Michael Rodriguez, Founder at TechScale</cite>
+                    </div>
+                    
+                    <div class="resource-actions">
+                        <button class="btn btn-primary btn-sm" data-resource-action="download" data-resource-id="roi-calculator-template">
+                            Get Calculator
+                        </button>
+                        <button class="btn btn-outline btn-sm" data-resource-action="preview" data-resource-id="roi-calculator-template">
+                            See Examples
+                        </button>
+                        <button class="btn btn-ghost btn-sm" data-resource-action="share" data-resource-id="roi-calculator-template">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16,6 12,2 8,6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Scaling Guide -->
+                <div class="resource-card" data-resource-id="startup-scaling-guide" data-category="scaling" data-stage="seed series-a" data-level="all">
+                    <div class="gating-indicator">Most Downloaded</div>
+                    <div class="resource-header">
+                        <span class="resource-type">Guide</span>
+                        <h3>Technical Scaling Guide for Growing Startups</h3>
+                        <p class="resource-description">
+                            Complete 40-page guide covering infrastructure scaling, team building, and technology decisions. 
+                            From 10 to 10,000 users.
+                        </p>
+                    </div>
+                    
+                    <div class="resource-meta">
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>4.7/5 rating</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span>1,205 downloads</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <span>40 min read</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-testimonial">
+                        <blockquote>"The scaling timeline saved us months of planning. Exactly what we needed."</blockquote>
+                        <cite>— Alex Kim, Lead Developer at InnovateLab</cite>
+                    </div>
+                    
+                    <div class="resource-actions">
+                        <button class="btn btn-primary btn-sm" data-resource-action="download" data-resource-id="startup-scaling-guide">
+                            Download Guide
+                        </button>
+                        <button class="btn btn-outline btn-sm" data-resource-action="preview" data-resource-id="startup-scaling-guide">
+                            Read Sample
+                        </button>
+                        <button class="btn btn-ghost btn-sm" data-resource-action="view-details" data-resource-id="startup-scaling-guide">
+                            Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- SaaS Development Timeline -->
+                <div class="resource-card" data-resource-id="saas-development-timeline" data-category="product-development" data-stage="pre-seed seed" data-level="intermediate advanced">
+                    <div class="gating-indicator">New</div>
+                    <div class="resource-header">
+                        <span class="resource-type">Template</span>
+                        <h3>SaaS Product Development Timeline</h3>
+                        <p class="resource-description">
+                            Detailed timeline template with milestones, dependencies, and resource allocation for building SaaS products.
+                        </p>
+                    </div>
+                    
+                    <div class="resource-meta">
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>4.6/5 rating</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span>456 downloads</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <span>25 min setup</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-testimonial">
+                        <blockquote>"Perfect roadmap for our SaaS launch. Hit every milestone on time."</blockquote>
+                        <cite>— Jennifer Park, Product Manager</cite>
+                    </div>
+                    
+                    <div class="resource-actions">
+                        <button class="btn btn-primary btn-sm" data-resource-action="download" data-resource-id="saas-development-timeline">
+                            Get Template
+                        </button>
+                        <button class="btn btn-outline btn-sm" data-resource-action="preview" data-resource-id="saas-development-timeline">
+                            Preview
+                        </button>
+                        <button class="btn btn-ghost btn-sm" data-resource-action="bookmark" data-resource-id="saas-development-timeline">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Architecture Templates -->
+                <div class="resource-card" data-resource-id="architecture-templates" data-category="architecture" data-stage="pre-seed seed series-a" data-level="intermediate advanced">
+                    <div class="gating-indicator">Premium</div>
+                    <div class="resource-header">
+                        <span class="resource-type">Templates Pack</span>
+                        <h3>Startup Technical Architecture Templates</h3>
+                        <p class="resource-description">
+                            Collection of 12 proven architecture diagrams and patterns for different startup stages. 
+                            Includes AWS, GCP, and Azure versions.
+                        </p>
+                    </div>
+                    
+                    <div class="resource-meta">
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>4.9/5 rating</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span>789 downloads</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <span>12 templates</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-testimonial">
+                        <blockquote>"These templates are gold. Saved us weeks of architecture planning."</blockquote>
+                        <cite>— David Liu, Senior Engineer</cite>
+                    </div>
+                    
+                    <div class="resource-actions">
+                        <button class="btn btn-primary btn-sm" data-resource-action="download" data-resource-id="architecture-templates">
+                            Get Templates
+                        </button>
+                        <button class="btn btn-outline btn-sm" data-resource-action="preview" data-resource-id="architecture-templates">
+                            See Examples
+                        </button>
+                        <button class="btn btn-ghost btn-sm" data-resource-action="share" data-resource-id="architecture-templates">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16,6 12,2 8,6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter CTA -->
+    <section class="newsletter-cta">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>🚀 Get New Resources First</h2>
+                <p>
+                    Join 500+ startup founders getting exclusive early access to our latest resources, 
+                    templates, and guides. Plus bi-monthly DevOps automation insights.
+                </p>
+                
+                <form data-form-type="newsletter" data-source="resources-page" class="newsletter-signup-form">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Enter your work email" required>
+                        <button type="submit">
+                            <span class="btn-text">Subscribe</span>
+                            <span class="btn-loading" style="display: none;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <div class="newsletter-benefits">
+                        <div class="benefit">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"/>
+                            </svg>
+                            <span>Early access to new resources</span>
+                        </div>
+                        <div class="benefit">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"/>
+                            </svg>
+                            <span>Bi-monthly automation insights</span>
+                        </div>
+                        <div class="benefit">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"/>
+                            </svg>
+                            <span>No spam, unsubscribe anytime</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- More Resources CTA -->
+    <section class="more-resources-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Custom Solutions?</h2>
+                <p>
+                    These resources not quite what you need? We create custom DevOps strategies, 
+                    automation plans, and architecture reviews for startups ready to scale.
+                </p>
+                <div class="cta-actions">
+                    <a href="../index.html#contact" class="btn btn-primary">Book Free Consultation</a>
+                    <a href="../products/" class="btn btn-outline">Join SaaS Tool Waitlist</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- JavaScript -->
+    <script src="../shared/js/common.js"></script>
+    <script src="../shared/js/page-config.js"></script>
+    <script src="../assets/js/resource-gating-system.js"></script>
+    <script src="../assets/js/newsletter-manager.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load components
+            window.PageConfig.initializePage('resources');
+            
+            // Initialize filtering
+            initializeResourceFilters();
+            
+            // Track page view
+            if (window.analyticsManager) {
+                window.analyticsManager.trackEvent('gated_resources_page_view', {
+                    source: 'direct',
+                    page: '/resources/gated-resources'
+                });
+            }
+        });
+        
+        /**
+         * Initialize resource filtering
+         */
+        function initializeResourceFilters() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const filterTags = document.querySelectorAll('.filter-tag');
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            // Category filtering
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const category = btn.dataset.category;
+                    filterResources({ category });
+                });
+            });
+            
+            // Tag filtering
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    tag.classList.toggle('active');
+                    applyActiveFilters();
+                });
+            });
+            
+            function filterResources(filters) {
+                resourceCards.forEach(card => {
+                    const shouldShow = checkResourceMatch(card, filters);
+                    card.style.display = shouldShow ? 'block' : 'none';
+                });
+                
+                updateResultsCount();
+            }
+            
+            function applyActiveFilters() {
+                const activeStages = Array.from(document.querySelectorAll('.filter-tag[data-stage].active'))
+                    .map(tag => tag.dataset.stage);
+                const activeLevels = Array.from(document.querySelectorAll('.filter-tag[data-level].active'))
+                    .map(tag => tag.dataset.level);
+                const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+                
+                resourceCards.forEach(card => {
+                    const shouldShow = checkResourceMatch(card, {
+                        category: activeCategory,
+                        stages: activeStages,
+                        levels: activeLevels
+                    });
+                    card.style.display = shouldShow ? 'block' : 'none';
+                });
+                
+                updateResultsCount();
+            }
+            
+            function checkResourceMatch(card, filters) {
+                const { category, stages, levels } = filters;
+                
+                // Check category
+                if (category && category !== 'all') {
+                    if (!card.dataset.category.includes(category)) {
+                        return false;
+                    }
+                }
+                
+                // Check stages
+                if (stages && stages.length > 0) {
+                    const cardStages = card.dataset.stage.split(' ');
+                    if (!stages.some(stage => cardStages.includes(stage))) {
+                        return false;
+                    }
+                }
+                
+                // Check levels
+                if (levels && levels.length > 0) {
+                    const cardLevel = card.dataset.level;
+                    if (cardLevel !== 'all' && !levels.some(level => cardLevel.includes(level))) {
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+            
+            function updateResultsCount() {
+                const visibleCards = document.querySelectorAll('.resource-card[style="display: block;"], .resource-card:not([style*="display: none"])');
+                const count = visibleCards.length;
+                
+                // You could add a results counter here
+                console.log(`Showing ${count} resources`);
+            }
+        }
+    </script>
+</body>
+</html>

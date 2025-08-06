@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Startup Tech Health Monitor - Real-time monitoring, alerting, and performance insights for startup infrastructure. Get instant alerts when issues arise.">
+    <meta name="keywords" content="infrastructure monitoring, startup monitoring, server monitoring, application monitoring, real-time alerts, performance monitoring">
+    <meta name="author" content="ResilioTech">
+    <meta property="og:title" content="Startup Tech Health Monitor - Real-time Infrastructure Monitoring">
+    <meta property="og:description" content="Monitor your startup's infrastructure health in real-time. Get instant alerts, detailed insights, and prevent issues before they impact your users.">
+    <meta property="og:image" content="/assets/images/health-monitor-og.png">
+    <meta property="og:url" content="https://resiliotech.com/products/health-monitor/">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Startup Tech Health Monitor - Real-time Infrastructure Monitoring | ResilioTech</title>
+    <link rel="canonical" href="https://resiliotech.com/products/health-monitor/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/shared/css/multi-brand.css">
+    <link rel="stylesheet" href="./assets/css/health-monitor.css">
+</head>
+<body class="product-page health-monitor-page">
+    <!-- Header -->
+    <div id="header-container">
+        <!-- Multi-brand header will be loaded here -->
+    </div>
+    
+    <!-- Notifications Container -->
+    <div id="notifications-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="hero-badge">
+                        <span class="badge-icon">📊</span>
+                        <span class="badge-text">Infrastructure Monitoring Platform</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Never Miss a Critical
+                        <span class="gradient-text">System Issue Again</span>
+                    </h1>
+                    <p class="hero-description">
+                        Real-time monitoring and intelligent alerting for startup infrastructure. 
+                        Get instant notifications, detailed insights, and prevent downtime before it impacts your users.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Uptime Accuracy</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15s</span>
+                            <span class="stat-label">Alert Response Time</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Fewer Incidents</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <a href="#pricing" class="btn btn-primary btn-lg" data-track="cta_click" data-source="hero">
+                            Start Free Trial
+                        </a>
+                        <a href="#live-demo" class="btn btn-outline btn-lg" data-track="demo_request" data-source="hero">
+                            View Live Dashboard
+                        </a>
+                    </div>
+                    
+                    <div class="hero-trust">
+                        <span class="trust-text">Monitoring 1000+ startup applications</span>
+                        <div class="trust-indicators">
+                            <div class="trust-item">
+                                <span class="trust-icon">⚡</span>
+                                <span class="trust-text">Sub-second monitoring</span>
+                            </div>
+                            <div class="trust-item">
+                                <span class="trust-icon">🔔</span>
+                                <span class="trust-text">Smart alerts</span>
+                            </div>
+                            <div class="trust-item">
+                                <span class="trust-icon">📱</span>
+                                <span class="trust-text">Mobile ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="hero-dashboard">
+                        <div class="dashboard-window">
+                            <div class="dashboard-header">
+                                <div class="dashboard-dots">
+                                    <span class="dot green"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot red"></span>
+                                </div>
+                                <span class="dashboard-title">Health Monitor Dashboard</span>
+                                <div class="dashboard-status">
+                                    <span class="status-indicator healthy"></span>
+                                    <span class="status-text">All Systems Operational</span>
+                                </div>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="metrics-overview">
+                                    <div class="metric-card">
+                                        <div class="metric-header">
+                                            <span class="metric-name">Server Response</span>
+                                            <span class="metric-status healthy">●</span>
+                                        </div>
+                                        <div class="metric-value">142ms</div>
+                                        <div class="metric-trend up">↗ 5% faster</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-header">
+                                            <span class="metric-name">Database</span>
+                                            <span class="metric-status healthy">●</span>
+                                        </div>
+                                        <div class="metric-value">98.5%</div>
+                                        <div class="metric-trend stable">→ Stable</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-header">
+                                            <span class="metric-name">API Endpoints</span>
+                                            <span class="metric-status warning">●</span>
+                                        </div>
+                                        <div class="metric-value">2.1s</div>
+                                        <div class="metric-trend down">↘ Investigating</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert-panel">
+                                    <div class="alert-header">
+                                        <span class="alert-title">Recent Alerts</span>
+                                        <span class="alert-count">3</span>
+                                    </div>
+                                    <div class="alert-list">
+                                        <div class="alert-item warning">
+                                            <div class="alert-icon">⚠️</div>
+                                            <div class="alert-content">
+                                                <div class="alert-message">API response time increased</div>
+                                                <div class="alert-time">2 minutes ago</div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-item resolved">
+                                            <div class="alert-icon">✅</div>
+                                            <div class="alert-content">
+                                                <div class="alert-message">Database connection restored</div>
+                                                <div class="alert-time">15 minutes ago</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Complete Infrastructure Visibility</h2>
+                <p>Monitor every aspect of your startup's tech stack with intelligent insights and proactive alerting</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span>📊</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Real-time Metrics</h3>
+                        <p>Get instant visibility into your application performance, server health, and user experience with sub-second precision.</p>
+                        <ul class="feature-benefits">
+                            <li>Server performance and resource usage</li>
+                            <li>Application response times and errors</li>
+                            <li>Database query performance</li>
+                            <li>Custom business metrics</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span>🚨</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Intelligent Alerting</h3>
+                        <p>Smart alerts that learn your patterns and reduce noise. Get notified through your preferred channels when it matters.</p>
+                        <ul class="feature-benefits">
+                            <li>ML-powered anomaly detection</li>
+                            <li>Customizable alert thresholds</li>
+                            <li>Multi-channel notifications (Slack, email, SMS)</li>
+                            <li>Alert correlation and grouping</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span>📈</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Performance Analytics</h3>
+                        <p>Deep dive into performance trends, identify bottlenecks, and make data-driven decisions about your infrastructure.</p>
+                        <ul class="feature-benefits">
+                            <li>Historical trend analysis</li>
+                            <li>Performance bottleneck identification</li>
+                            <li>Capacity planning insights</li>
+                            <li>Custom reporting and dashboards</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span>🔍</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Distributed Tracing</h3>
+                        <p>Follow requests across your entire stack. Identify slow components and optimize your application flow.</p>
+                        <ul class="feature-benefits">
+                            <li>End-to-end request tracing</li>
+                            <li>Service dependency mapping</li>
+                            <li>Error root cause analysis</li>
+                            <li>Performance optimization suggestions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span>🛡️</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Security Monitoring</h3>
+                        <p>Monitor for security threats, unusual access patterns, and potential vulnerabilities in real-time.</p>
+                        <ul class="feature-benefits">
+                            <li>Threat detection and monitoring</li>
+                            <li>Access pattern analysis</li>
+                            <li>Vulnerability scanning</li>
+                            <li>Security incident alerting</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span>📱</span>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Mobile & On-the-Go</h3>
+                        <p>Monitor your infrastructure from anywhere with our mobile app and responsive dashboard design.</p>
+                        <ul class="feature-benefits">
+                            <li>Native mobile app (iOS & Android)</li>
+                            <li>Push notifications for critical alerts</li>
+                            <li>Responsive web dashboard</li>
+                            <li>Offline alert viewing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Live Demo Section -->
+    <section class="live-demo-section" id="live-demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>See Your Infrastructure Health in Real-Time</h2>
+                <p>Experience our monitoring dashboard with live data from a real application</p>
+            </div>
+            
+            <div class="demo-dashboard">
+                <div class="demo-nav">
+                    <div class="demo-nav-item active" data-view="overview">Overview</div>
+                    <div class="demo-nav-item" data-view="servers">Servers</div>
+                    <div class="demo-nav-item" data-view="applications">Applications</div>
+                    <div class="demo-nav-item" data-view="alerts">Alerts</div>
+                </div>
+                
+                <div class="demo-content">
+                    <!-- Overview Tab -->
+                    <div class="demo-view active" data-panel="overview">
+                        <div class="overview-grid">
+                            <div class="overview-card">
+                                <h3>System Health</h3>
+                                <div class="health-indicator">
+                                    <div class="health-circle healthy" id="health-status"></div>
+                                    <span class="health-text">All Systems Operational</span>
+                                </div>
+                                <div class="health-metrics">
+                                    <div class="health-metric">
+                                        <span class="metric-label">Uptime</span>
+                                        <span class="metric-value">99.98%</span>
+                                    </div>
+                                    <div class="health-metric">
+                                        <span class="metric-label">Response Time</span>
+                                        <span class="metric-value" id="response-time">156ms</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <h3>Active Monitors</h3>
+                                <div class="monitor-list">
+                                    <div class="monitor-item">
+                                        <span class="monitor-name">Web Server</span>
+                                        <span class="monitor-status healthy">●</span>
+                                    </div>
+                                    <div class="monitor-item">
+                                        <span class="monitor-name">Database</span>
+                                        <span class="monitor-status healthy">●</span>
+                                    </div>
+                                    <div class="monitor-item">
+                                        <span class="monitor-name">API Gateway</span>
+                                        <span class="monitor-status warning">●</span>
+                                    </div>
+                                    <div class="monitor-item">
+                                        <span class="monitor-name">Cache Server</span>
+                                        <span class="monitor-status healthy">●</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <h3>Recent Activity</h3>
+                                <div class="activity-feed" id="activity-feed">
+                                    <div class="activity-item">
+                                        <span class="activity-time">2 min ago</span>
+                                        <span class="activity-message">API response time increased to 2.1s</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <span class="activity-time">15 min ago</span>
+                                        <span class="activity-message">Database connection restored</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <span class="activity-time">1 hour ago</span>
+                                        <span class="activity-message">System backup completed successfully</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Servers Tab -->
+                    <div class="demo-view" data-panel="servers">
+                        <div class="servers-grid">
+                            <div class="server-card">
+                                <div class="server-header">
+                                    <h4>Web Server 01</h4>
+                                    <span class="server-status healthy">●</span>
+                                </div>
+                                <div class="server-metrics">
+                                    <div class="server-metric">
+                                        <span class="metric-name">CPU</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 45%"></div>
+                                        </div>
+                                        <span class="metric-percent">45%</span>
+                                    </div>
+                                    <div class="server-metric">
+                                        <span class="metric-name">Memory</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 62%"></div>
+                                        </div>
+                                        <span class="metric-percent">62%</span>
+                                    </div>
+                                    <div class="server-metric">
+                                        <span class="metric-name">Disk</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 38%"></div>
+                                        </div>
+                                        <span class="metric-percent">38%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card">
+                                <div class="server-header">
+                                    <h4>Database Server</h4>
+                                    <span class="server-status healthy">●</span>
+                                </div>
+                                <div class="server-metrics">
+                                    <div class="server-metric">
+                                        <span class="metric-name">CPU</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 28%"></div>
+                                        </div>
+                                        <span class="metric-percent">28%</span>
+                                    </div>
+                                    <div class="server-metric">
+                                        <span class="metric-name">Memory</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span class="metric-percent">75%</span>
+                                    </div>
+                                    <div class="server-metric">
+                                        <span class="metric-name">Connections</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 52%"></div>
+                                        </div>
+                                        <span class="metric-percent">52%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Applications Tab -->
+                    <div class="demo-view" data-panel="applications">
+                        <div class="app-monitoring">
+                            <div class="app-card">
+                                <h4>Frontend Application</h4>
+                                <div class="app-metrics">
+                                    <div class="app-metric">
+                                        <span class="metric-label">Response Time</span>
+                                        <span class="metric-value">142ms</span>
+                                    </div>
+                                    <div class="app-metric">
+                                        <span class="metric-label">Error Rate</span>
+                                        <span class="metric-value">0.02%</span>
+                                    </div>
+                                    <div class="app-metric">
+                                        <span class="metric-label">Throughput</span>
+                                        <span class="metric-value">1.2k req/min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Alerts Tab -->
+                    <div class="demo-view" data-panel="alerts">
+                        <div class="alerts-panel">
+                            <div class="alert-filters">
+                                <button class="filter-btn active">All</button>
+                                <button class="filter-btn">Critical</button>
+                                <button class="filter-btn">Warning</button>
+                                <button class="filter-btn">Info</button>
+                            </div>
+                            <div class="alerts-list">
+                                <div class="alert-card warning">
+                                    <div class="alert-severity">⚠️</div>
+                                    <div class="alert-details">
+                                        <h5>High API Response Time</h5>
+                                        <p>Average response time exceeded 2000ms threshold</p>
+                                        <span class="alert-timestamp">2 minutes ago</span>
+                                    </div>
+                                    <button class="alert-action">Investigate</button>
+                                </div>
+                                <div class="alert-card resolved">
+                                    <div class="alert-severity">✅</div>
+                                    <div class="alert-details">
+                                        <h5>Database Connection Restored</h5>
+                                        <p>Connection pool has been restored to normal levels</p>
+                                        <span class="alert-timestamp">15 minutes ago</span>
+                                    </div>
+                                    <button class="alert-action">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-cta">
+                <p>This is a live demonstration with simulated data. Your actual dashboard would show your real infrastructure metrics.</p>
+                <a href="#pricing" class="btn btn-primary">Start Monitoring Your Infrastructure</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple Monitoring for Every Stage</h2>
+                <p>From MVP to enterprise scale - choose the plan that fits your startup journey</p>
+            </div>
+            
+            <div class="pricing-toggle">
+                <span class="toggle-label">Monthly</span>
+                <button class="pricing-switch" id="pricing-switch" aria-label="Toggle pricing period">
+                    <span class="switch-handle"></span>
+                </button>
+                <span class="toggle-label">Annual <span class="savings-badge">Save 25%</span></span>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <p class="pricing-description">Perfect for early-stage startups and side projects</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount" data-monthly="0" data-annual="0">$0</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>✅ 5 services monitored</li>
+                            <li>✅ Basic uptime monitoring</li>
+                            <li>✅ Email alerts</li>
+                            <li>✅ 1-day data retention</li>
+                            <li>✅ Community support</li>
+                            <li>❌ Custom dashboards</li>
+                            <li>❌ API access</li>
+                            <li>❌ Advanced integrations</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-action">
+                        <a href="#signup" class="btn btn-outline btn-block" data-plan="starter">
+                            Get Started Free
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <p class="pricing-description">For growing startups with multiple services</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount" data-monthly="29" data-annual="22">$29</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>✅ 50 services monitored</li>
+                            <li>✅ Advanced monitoring & alerting</li>
+                            <li>✅ Multi-channel notifications</li>
+                            <li>✅ 30-day data retention</li>
+                            <li>✅ Priority support</li>
+                            <li>✅ Custom dashboards</li>
+                            <li>✅ API access</li>
+                            <li>✅ Advanced integrations</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-action">
+                        <a href="#signup" class="btn btn-primary btn-block" data-plan="professional">
+                            Start Free Trial
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <p class="pricing-description">For scale-ups and enterprise applications</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount" data-monthly="99" data-annual="74">$99</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>✅ Unlimited services</li>
+                            <li>✅ AI-powered insights</li>
+                            <li>✅ Advanced integrations</li>
+                            <li>✅ 1-year data retention</li>
+                            <li>✅ Dedicated support</li>
+                            <li>✅ Custom SLAs</li>
+                            <li>✅ White-label options</li>
+                            <li>✅ On-premise deployment</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-action">
+                        <a href="#contact" class="btn btn-outline btn-block" data-plan="enterprise">
+                            Contact Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-faq">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>How quickly can I set up monitoring?</h4>
+                        <p>Most services can be monitored in under 2 minutes with our simple setup process and pre-built integrations.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>What types of alerts do you support?</h4>
+                        <p>Email, SMS, Slack, Discord, webhooks, and mobile push notifications. Set up escalation rules for critical issues.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Do you offer custom integrations?</h4>
+                        <p>Yes! Professional and Enterprise plans include custom integrations. We also provide a robust API and webhooks.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Is there a startup discount?</h4>
+                        <p>Absolutely! We offer special pricing for early-stage startups and accelerator participants. Contact us for details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Integrations Section -->
+    <section class="integrations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Works with Your Existing Stack</h2>
+                <p>Seamless integration with popular tools and services</p>
+            </div>
+            
+            <div class="integrations-grid">
+                <div class="integration-group">
+                    <h3>Cloud Providers</h3>
+                    <div class="integration-items">
+                        <div class="integration-item">AWS</div>
+                        <div class="integration-item">Google Cloud</div>
+                        <div class="integration-item">Azure</div>
+                        <div class="integration-item">DigitalOcean</div>
+                    </div>
+                </div>
+                
+                <div class="integration-group">
+                    <h3>Databases</h3>
+                    <div class="integration-items">
+                        <div class="integration-item">PostgreSQL</div>
+                        <div class="integration-item">MySQL</div>
+                        <div class="integration-item">MongoDB</div>
+                        <div class="integration-item">Redis</div>
+                    </div>
+                </div>
+                
+                <div class="integration-group">
+                    <h3>Notifications</h3>
+                    <div class="integration-items">
+                        <div class="integration-item">Slack</div>
+                        <div class="integration-item">Discord</div>
+                        <div class="integration-item">PagerDuty</div>
+                        <div class="integration-item">Webhooks</div>
+                    </div>
+                </div>
+                
+                <div class="integration-group">
+                    <h3>Development</h3>
+                    <div class="integration-items">
+                        <div class="integration-item">GitHub</div>
+                        <div class="integration-item">Docker</div>
+                        <div class="integration-item">Kubernetes</div>
+                        <div class="integration-item">Vercel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="final-cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start Monitoring in Minutes</h2>
+                <p>Join hundreds of startups who trust us to keep their infrastructure healthy</p>
+                <div class="cta-actions">
+                    <a href="#signup" class="btn btn-primary btn-lg" data-track="final_cta" data-source="bottom">
+                        Start Free Trial
+                    </a>
+                    <a href="https://status.resiliotech.com" class="btn btn-outline btn-lg">
+                        View Live Demo
+                    </a>
+                </div>
+                <div class="cta-guarantee">
+                    <p>🚀 2-minute setup • 📱 Mobile app included • 💰 14-day free trial • ⚡ No credit card required</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container">
+        <!-- Multi-brand footer will be loaded here -->
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/shared/js/common.js"></script>
+    <script src="/shared/js/multi-brand-system.js"></script>
+    <script src="/assets/js/lead-scoring-system.js"></script>
+    <script src="./assets/js/health-monitor.js"></script>
+</body>
+</html>

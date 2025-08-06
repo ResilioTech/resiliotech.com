@@ -3,67 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="We help startups scale tech through automation. Get resilient CI/CD, infrastructure automation, and incident intelligence without hiring full-time DevOps.">
-    <meta name="keywords" content="startup automation, DevOps automation, CI/CD automation, infrastructure automation, startup tech ops, early-stage startups, automation consultancy, resilient automation">
-    <meta name="author" content="Resilio Tech">
+    <meta name="description" content="Resilient automation for fast-moving startups. We help early-stage companies scale tech through automation & tooling without the full-time DevOps hire.">
+    <meta name="keywords" content="DevOps automation for startups, startup DevOps consulting, infrastructure automation for early-stage companies, CI/CD automation services, automated infrastructure for startups">
+    <meta name="author" content="Resiliotech">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://resiliotech.com/" />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resiliotech.com/">
-    <meta property="og:title" content="Resiliotech - Automating DevOps & Infrastructure for Early-Stage Startups">
-    <meta property="og:description" content="We help startups scale tech through automation. Get resilient CI/CD, infrastructure automation, and incident intelligence without hiring full-time DevOps.">
+    <meta property="og:title" content="Resiliotech - Resilient Automation for Fast-Moving Startups">
+    <meta property="og:description" content="We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.">
+
+    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://resiliotech.com/">
-    <meta property="twitter:title" content="Resiliotech - Automating DevOps & Infrastructure for Early-Stage Startups">
-    <meta property="twitter:description" content="We help startups scale tech through automation. Get resilient CI/CD, infrastructure automation, and incident intelligence without hiring full-time DevOps.">
-    <title>Resiliotech - Automating DevOps & Infrastructure for Early-Stage Startups</title>
+    <meta property="twitter:title" content="Resiliotech - Resilient Automation for Fast-Moving Startups">
+    <meta property="twitter:description" content="We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.">
+
+    <title>Resiliotech - DevOps Automation for Fast-Moving Startups</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
     <link rel="alternate icon" href="./assets/images/favicon.svg">
-    <link rel="preload" href="shared/css/common.min.css" as="style">
-    <link rel="preload" href="assets/css/styles.min.css" as="style">
-    <link rel="preload" href="assets/css/styles.min.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shared/css/common.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-    <link rel="stylesheet" href="shared/css/common.min.css">
+    
+    <!-- Preload critical assets for faster rendering -->
+    <link rel="preload" href="shared/css/common.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="shared/css/common.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+    
+    <!-- CSS is loaded via preload above for better performance -->
+    
+    <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    
+    <!-- Shared Component System -->
     <script src="shared/js/component-loader.js"></script>
     <script src="shared/js/page-config.js"></script>
+    
+    <!-- Enhanced Structured Data for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Resilio Tech",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://resiliotech.com/#organization",
+                "name": "Resiliotech",
+                "alternateName": "Resilio Tech",
+                "url": "https://resiliotech.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://resiliotech.com/assets/images/logo.svg",
+                    "width": 200,
+                    "height": 60
+                },
+                "description": "DevOps automation for startups. We help early-stage companies scale tech through automated infrastructure, CI/CD pipelines, and monitoring without hiring full-time DevOps engineers.",
+                "email": "contact@resiliotech.com",
+                "foundingDate": "2023",
+                "industry": "DevOps Automation Services",
+                "numberOfEmployees": "2-10",
+                "knowsAbout": [
+                    "DevOps automation for startups",
+                    "Infrastructure automation for early-stage companies", 
+                    "CI/CD automation services",
+                    "Startup DevOps consulting",
+                    "Automated infrastructure for startups"
+                ],
+                "serviceArea": {
+                    "@type": "Place",
+                    "name": "Global (Remote)"
+                },
+                "sameAs": [
+                    "https://blogs.resiliotech.com"
+                ],
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "US",
+                    "addressRegion": "Remote"
+                },
+                "contactPoint": [
+                    {
+                        "@type": "ContactPoint",
+                        "email": "contact@resiliotech.com",
+                        "contactType": "customer service",
+                        "availableLanguage": "English"
+                    }
+                ],
+                "areaServed": "Worldwide",
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Startup Automation Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "CI/CD Pipeline Automation",
+                                "description": "Automated continuous integration and deployment pipelines for startup development teams"
+                            }
+                        },
+                        {
+                            "@type": "Offer", 
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Infrastructure Automation",
+                                "description": "Infrastructure as code and automated provisioning for scalable startup infrastructure"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service", 
+                                "name": "Monitoring & Observability Setup",
+                                "description": "Automated monitoring, alerting, and observability systems for startup applications"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://resiliotech.com/#website",
+                "url": "https://resiliotech.com",
+                "name": "Resiliotech - DevOps Automation for Startups",
+                "description": "DevOps automation for startups. Infrastructure automation, CI/CD services, and startup DevOps consulting for early-stage companies.",
+                "publisher": {
+                    "@id": "https://resiliotech.com/#organization"
+                },
+                "inLanguage": "en-US",
+                "potentialAction": [
+                    {
+                        "@type": "SearchAction",
+                        "target": {
+                            "@type": "EntryPoint",
+                            "urlTemplate": "https://resiliotech.com/?s={search_term_string}"
+                        },
+                        "query-input": "required name=search_term_string"
+                    }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://resiliotech.com/#webpage",
+                "url": "https://resiliotech.com",
+                "name": "DevOps Automation for Startups | Resiliotech",
+                "isPartOf": {
+                    "@id": "https://resiliotech.com/#website"
+                },
+                "about": {
+                    "@id": "https://resiliotech.com/#organization"
+                },
+                "description": "DevOps automation for startups. We help early-stage companies scale tech through automated infrastructure, CI/CD automation services, and startup DevOps consulting.",
+                "breadcrumb": {
+                    "@id": "https://resiliotech.com/#breadcrumb"
+                },
+                "inLanguage": "en-US",
+                "potentialAction": [
+                    {
+                        "@type": "ReadAction",
+                        "target": ["https://resiliotech.com"]
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://resiliotech.com/#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://resiliotech.com"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <!-- Additional Structured Data for Services -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Resiliotech",
+        "description": "DevOps automation for startups specializing in infrastructure automation for early-stage companies, CI/CD automation services, and startup DevOps consulting.",
         "url": "https://resiliotech.com",
-        "logo": "https://resiliotech.com/assets/images/logo.svg",
-        "description": "We automate tech ops for early-stage startups. Resilient automation for fast moving startups - launch faster with CI/CD, infrastructure automation, and observability without full-time DevOps.",
-        "email": "contact@resiliotech.com",
-        "sameAs": [
-            "https://blogs.resiliotech.com"
-        ],
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "US"
+        "serviceType": "DevOps Automation Services",
+        "provider": {
+            "@type": "Organization",
+            "name": "Resiliotech",
+            "url": "https://resiliotech.com"
         },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "contact@resiliotech.com",
-            "contactType": "customer service"
+        "areaServed": "Worldwide",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Early-stage startups, founders, CTOs"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Startup Automation Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "name": "Free CI/CD Automation Audit",
+                    "description": "Comprehensive 5-point assessment of your CI/CD pipeline health",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                {
+                    "@type": "Offer", 
+                    "name": "Launch Sprint",
+                    "description": "2-4 week intensive automation implementation for startups",
+                    "category": "DevOps automation for startups"
+                }
+            ]
         }
     }
     </script>
 </head>
 <body data-page-type="home" data-auto-init-components="false">
+    <!-- Accessibility: Skip to main content link -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation will be loaded here -->
     <div id="navigation-container"></div>
+
+    <!-- Header will be loaded here -->
     <div id="header-container"></div>
-    <section id="value-prop" class="value-prop section-padding">
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <!-- Value Proposition Section -->
+        <section id="value-prop" class="value-prop section-padding">
         <div class="container">
             <div class="value-prop-content">
                 <div class="value-prop-header" data-aos="fade-up">
                     <h2 class="value-prop-title">Why Choose Resiliotech for Your Startup Automation?</h2>
                     <p class="value-prop-subtitle">
-                        We help early stage companies scale tech through automation and tooling—no full-time DevOps hire needed
+                        We provide DevOps automation for startups and help early stage companies scale tech through infrastructure automation—no full-time DevOps hire needed
                     </p>
                 </div>
+                
                 <div class="value-props-grid card-grid grid-gap-md">
                     <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-content">
@@ -76,6 +266,7 @@
                             <p>We understand lean startups. Get enterprise-grade automation without enterprise overhead. Launch faster, scale smarter, move with confidence.</p>
                         </div>
                     </div>
+                    
                     <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-content">
                             <div class="value-prop-icon">
@@ -87,6 +278,7 @@
                             <p>Deploy multiple times per day with confidence. Automated testing, seamless rollbacks, and zero-downtime deployments. Ship features, not bugs.</p>
                         </div>
                     </div>
+                    
                     <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="300">
                         <div class="card-content">
                             <div class="value-prop-icon">
@@ -103,6 +295,301 @@
             </div>
         </div>
     </section>
+
+    <!-- Lead Magnet Section -->
+    <section id="lead-magnet" class="lead-magnet section-padding">
+        <div class="container">
+            <div class="lead-magnet-content">
+                <!-- Free CI/CD Health Audit Tool -->
+                <div class="lead-tool-card primary-lead" data-aos="fade-up">
+                    <div class="tool-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                    </div>
+                    <div class="tool-content">
+                        <h2>Free 5-Point CI/CD Health Audit</h2>
+                        <p>Discover automation opportunities in your deployment process. Get a personalized report with actionable recommendations in 48 hours.</p>
+                        <div class="tool-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">⚡</span>
+                                <span>Deployment speed analysis</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔒</span>
+                                <span>Security vulnerability scan</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💰</span>
+                                <span>Cost optimization opportunities</span>
+                            </div>
+                        </div>
+                        <div class="tool-cta">
+                            <button class="btn btn-primary btn-large" onclick="openAuditModal()">
+                                Get Your Free Audit
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M5 12h14m-7-7l7 7-7 7"/>
+                                </svg>
+                            </button>
+                            <span class="tool-note">✓ No spam, actionable insights only</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Lead Magnets -->
+                <div class="secondary-leads">
+                    <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="tool-header">
+                            <div class="tool-icon-small">📋</div>
+                            <h3>Startup Infrastructure Checklist</h3>
+                        </div>
+                        <p>25-point checklist to launch your startup on bulletproof infrastructure</p>
+                        <button class="btn btn-secondary" onclick="openChecklistModal()">
+                            Download Free Checklist
+                        </button>
+                    </div>
+
+                    <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="tool-header">
+                            <div class="tool-icon-small">📅</div>
+                            <h3>15-Min Strategy Call</h3>
+                        </div>
+                        <p>Quick chat about your automation challenges and immediate next steps</p>
+                        <button class="btn btn-secondary" onclick="openCalendlyModal()">
+                            Schedule Free Call
+                        </button>
+                    </div>
+
+                    <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="tool-header">
+                            <div class="tool-icon-small">⚡</div>
+                            <h3>Automation ROI Calculator</h3>
+                        </div>
+                        <p>Calculate potential time and cost savings from automating your deployments</p>
+                        <button class="btn btn-secondary" onclick="openCalculatorModal()">
+                            Calculate Savings
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Modals -->
+    <div id="audit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Get Your Free CI/CD Health Audit</h2>
+                <button class="modal-close" onclick="closeModal('audit-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="audit-form" class="lead-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="audit-name">Full Name *</label>
+                            <input type="text" id="audit-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="audit-email">Email Address *</label>
+                            <input type="email" id="audit-email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="audit-company">Company Name *</label>
+                            <input type="text" id="audit-company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="audit-role">Your Role *</label>
+                            <select id="audit-role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="founder">Founder/CEO</option>
+                                <option value="cto">CTO</option>
+                                <option value="engineering-lead">Engineering Lead</option>
+                                <option value="developer">Developer</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="audit-deployment">Current Deployment Process *</label>
+                        <textarea id="audit-deployment" name="deployment" rows="3" 
+                                placeholder="Briefly describe how you currently deploy code (e.g., manual FTP, GitHub Actions, etc.)" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="audit-challenges">Biggest Deployment Challenge</label>
+                        <textarea id="audit-challenges" name="challenges" rows="2" 
+                                placeholder="What's your biggest pain point with deployments? (optional)"></textarea>
+                    </div>
+                    <div class="form-consent">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consent" required>
+                            <span class="checkmark"></span>
+                            I agree to receive the audit report and occasional automation tips via email
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span class="btn-text">Get My Free Audit</span>
+                        <span class="btn-loading" style="display: none;">
+                            <div class="spinner"></div>
+                            Submitting...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div id="checklist-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Download Infrastructure Checklist</h2>
+                <button class="modal-close" onclick="closeModal('checklist-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="checklist-preview">
+                    <h3>What's included:</h3>
+                    <ul class="preview-list">
+                        <li>✓ Pre-launch infrastructure setup (8 items)</li>
+                        <li>✓ Security hardening checklist (6 items)</li>
+                        <li>✓ Monitoring & alerting setup (5 items)</li>
+                        <li>✓ Cost optimization tips (4 items)</li>
+                        <li>✓ Scaling preparation (2 items)</li>
+                    </ul>
+                </div>
+                <form id="checklist-form" class="lead-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checklist-name">Full Name *</label>
+                            <input type="text" id="checklist-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checklist-email">Email Address *</label>
+                            <input type="email" id="checklist-email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="checklist-company">Company Name</label>
+                        <input type="text" id="checklist-company" name="company">
+                    </div>
+                    <div class="form-consent">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consent" required>
+                            <span class="checkmark"></span>
+                            Send me the checklist and occasional startup automation tips
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span class="btn-text">Download Checklist</span>
+                        <span class="btn-loading" style="display: none;">
+                            <div class="spinner"></div>
+                            Sending...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendly Modal -->
+    <div id="calendly-modal" class="modal">
+        <div class="modal-content calendly-modal-content">
+            <div class="modal-header">
+                <h2>Schedule Your Free Strategy Call</h2>
+                <button class="modal-close" onclick="closeModal('calendly-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="calendly-embed">
+                    <!-- Calendly integration would go here -->
+                    <div class="calendly-placeholder">
+                        <h3>📅 Schedule a 15-minute strategy call</h3>
+                        <p>We'll discuss your current setup and identify quick automation wins.</p>
+                        <div class="call-benefits">
+                            <div class="benefit-item">✓ Identify immediate automation opportunities</div>
+                            <div class="benefit-item">✓ Get expert recommendations</div>
+                            <div class="benefit-item">✓ No sales pitch, just value</div>
+                        </div>
+                        <a href="https://calendly.com/resiliotech/strategy-call" target="_blank" class="btn btn-primary btn-large">
+                            Open Scheduling Link
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROI Calculator Modal -->
+    <div id="calculator-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Automation ROI Calculator</h2>
+                <button class="modal-close" onclick="closeModal('calculator-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="roi-calculator" class="calculator-form">
+                    <div class="calculator-section">
+                        <h3>Current State</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="deployments-per-week">Deployments per week</label>
+                                <input type="number" id="deployments-per-week" name="deployments" min="1" value="2" oninput="calculateROI()">
+                            </div>
+                            <div class="form-group">
+                                <label for="time-per-deployment">Hours per deployment</label>
+                                <input type="number" id="time-per-deployment" name="deployment-time" min="0.5" step="0.5" value="2" oninput="calculateROI()">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="team-size">Development team size</label>
+                                <input type="number" id="team-size" name="team-size" min="1" value="3" oninput="calculateROI()">
+                            </div>
+                            <div class="form-group">
+                                <label for="avg-salary">Average developer salary ($)</label>
+                                <input type="number" id="avg-salary" name="salary" min="50000" step="5000" value="120000" oninput="calculateROI()">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="roi-results">
+                        <h3>Potential Savings with Automation</h3>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-number" id="weekly-savings">$960</div>
+                                <div class="result-label">Weekly Savings</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number" id="monthly-savings">$4,160</div>
+                                <div class="result-label">Monthly Savings</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number" id="annual-savings">$49,920</div>
+                                <div class="result-label">Annual Savings</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number" id="time-savings">6 hours</div>
+                                <div class="result-label">Weekly Time Saved</div>
+                            </div>
+                        </div>
+                        <div class="roi-note">
+                            <p><strong>Based on 80% deployment time reduction through automation</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="calculator-cta">
+                        <p>Ready to realize these savings? Get a personalized automation plan.</p>
+                        <button type="button" class="btn btn-primary" onclick="openAuditModal(); closeModal('calculator-modal');">
+                            Get Free Audit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Resiliotech Section -->
     <section id="why-resiliotech" class="why-resiliotech section-padding">
         <div class="container">
             <div class="section-header">
@@ -111,7 +598,9 @@
                     Purpose-built for early-stage startups. We understand your constraints and deliver automation that accelerates growth without breaking the bank.
                 </p>
             </div>
+            
             <div class="differentiators-grid">
+                <!-- Founder-Led Boutique -->
                 <div class="differentiator-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="diff-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -125,6 +614,8 @@
                         <span class="highlight-text">Direct access to senior expertise</span>
                     </div>
                 </div>
+
+                <!-- Automation-First Approach -->
                 <div class="differentiator-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="diff-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -139,6 +630,8 @@
                         <span class="highlight-text">90% fewer manual processes</span>
                     </div>
                 </div>
+
+                <!-- Sprint-Based Delivery -->
                 <div class="differentiator-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="diff-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -152,6 +645,8 @@
                         <span class="highlight-text">Results in days, not months</span>
                     </div>
                 </div>
+
+                <!-- Startup-Friendly Pricing -->
                 <div class="differentiator-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="diff-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -166,6 +661,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Success Metrics -->
             <div class="success-metrics" data-aos="fade-up" data-aos-delay="500">
                 <h3>Proven Results for Startups</h3>
                 <div class="metrics-grid">
@@ -191,6 +688,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Who We Help -->
             <div class="target-examples" data-aos="fade-up" data-aos-delay="600">
                 <h3>Perfect for These Startup Types</h3>
                 <div class="examples-grid">
@@ -218,6 +717,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Services Section -->
     <section id="services" class="services section-padding">
         <div class="container">
             <div class="section-header">
@@ -226,7 +727,10 @@
                     Launch faster, scale effortlessly, and sleep soundly with resilient automation. From CI/CD pipelines to infrastructure automation, we help early-stage companies build tech that grows with them—without the full-time DevOps hire.
                 </p>
             </div>
+            
+            <!-- Three Automation Pillars -->
             <div class="automation-pillars">
+                <!-- Pillar 1: CI/CD Automation -->
                 <div class="pillar-card pillar-primary" data-aos="fade-up" data-aos-delay="100">
                     <div class="pillar-header">
                         <div class="pillar-icon">
@@ -262,6 +766,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Pillar 2: Infrastructure Automation -->
                 <div class="pillar-card pillar-secondary" data-aos="fade-up" data-aos-delay="200">
                     <div class="pillar-header">
                         <div class="pillar-icon">
@@ -297,6 +803,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Pillar 3: Incident Intelligence -->
                 <div class="pillar-card pillar-tertiary" data-aos="fade-up" data-aos-delay="300">
                     <div class="pillar-header">
                         <div class="pillar-icon">
@@ -334,6 +842,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="services-cta" data-aos="fade-up" data-aos-delay="700">
                 <h3>Ready to Launch Faster with Automation?</h3>
                 <p>Get startup-focused automation designed to help you scale tech without scaling headcount. Move fast, break nothing.</p>
@@ -341,6 +850,8 @@
             </div>
         </div>
     </section>
+
+    <!-- How We Work Section -->
     <section id="how-we-work" class="how-we-work section-padding">
         <div class="container">
             <div class="section-header">
@@ -349,7 +860,9 @@
                     Three simple steps to transform your startup's tech operations. Fast, focused, and designed for early-stage companies.
                 </p>
             </div>
+            
             <div class="work-process">
+                <!-- Step 1: Assessment Sprint -->
                 <div class="process-phase" data-aos="fade-right">
                     <div class="phase-content">
                         <div class="phase-header">
@@ -379,6 +892,8 @@
                         </svg>
                     </div>
                 </div>
+
+                <!-- Step 2: Automation Build -->
                 <div class="process-phase phase-reverse" data-aos="fade-left">
                     <div class="phase-visual">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -407,6 +922,8 @@
                         </ul>
                     </div>
                 </div>
+
+                <!-- Step 3: Health Dashboard -->
                 <div class="process-phase" data-aos="fade-right">
                     <div class="phase-content">
                         <div class="phase-header">
@@ -443,6 +960,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Pricing Approach -->
             <div class="pricing-approach" data-aos="fade-up">
                 <h3>Transparent, Startup-Friendly Pricing</h3>
                 <div class="pricing-options">
@@ -459,6 +978,7 @@
                             <li>1-hour strategy call</li>
                         </ul>
                     </div>
+                    
                     <div class="pricing-option pricing-featured">
                         <div class="pricing-header">
                             <h4>Launch Sprint</h4>
@@ -472,6 +992,7 @@
                             <li>30-day support included</li>
                         </ul>
                     </div>
+                    
                     <div class="pricing-option">
                         <div class="pricing-header">
                             <h4>Full Stack Setup</h4>
@@ -486,12 +1007,15 @@
                         </ul>
                     </div>
                 </div>
+                
                 <div class="pricing-note">
                     <p><strong>Startup-friendly approach:</strong> We work with your timeline and budget. Payment plans available. No long-term contracts.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Key Capabilities Section -->
     <section id="capabilities" class="capabilities section-padding">
         <div class="container">
             <div class="section-header">
@@ -500,6 +1024,7 @@
                     The essential automation stack that helps early-stage companies launch faster and scale effortlessly
                 </p>
             </div>
+            
             <div class="capabilities-grid card-grid grid-gap-md">
                 <div class="capability-item card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-content">
@@ -513,6 +1038,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="capability-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="capability-number">02</div>
                     <h3>Container & Scaling Automation</h3>
@@ -523,6 +1049,7 @@
                         <span class="tag">Istio</span>
                     </div>
                 </div>
+                
                 <div class="capability-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="capability-number">03</div>
                     <h3>CI/CD Pipeline Automation</h3>
@@ -533,6 +1060,7 @@
                         <span class="tag">Zero Downtime</span>
                     </div>
                 </div>
+                
                 <div class="capability-item" data-aos="fade-up" data-aos-delay="400">
                     <div class="capability-number">04</div>
                     <h3>Smart Monitoring & Alerts</h3>
@@ -543,6 +1071,7 @@
                         <span class="tag">Performance</span>
                     </div>
                 </div>
+                
                 <div class="capability-item" data-aos="fade-up" data-aos-delay="500">
                     <div class="capability-number">05</div>
                     <h3>Developer Experience Automation</h3>
@@ -553,6 +1082,7 @@
                         <span class="tag">Dev Tools</span>
                     </div>
                 </div>
+                
                 <div class="capability-item" data-aos="fade-up" data-aos-delay="600">
                     <div class="capability-number">06</div>
                     <h3>Reliability & Incident Automation</h3>
@@ -566,14 +1096,19 @@
             </div>
         </div>
     </section>
+
+    <!-- Social Proof Section -->
     <section id="social-proof" class="social-proof section-padding">
         <div class="container">
+            <!-- Technology Stack -->
             <div class="tech-stack-section" data-aos="fade-up">
                 <h2 class="section-title">Built on Best-in-Class Tools</h2>
                 <p class="section-description">
                     We use battle-tested technologies that startups trust to scale from MVP to millions of users.
                 </p>
+                
                 <div class="tech-stack-categories">
+                    <!-- Infrastructure -->
                     <div class="tech-category">
                         <h3>Infrastructure & Cloud</h3>
                         <div class="tech-badges">
@@ -595,6 +1130,8 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- CI/CD -->
                     <div class="tech-category">
                         <h3>CI/CD & Automation</h3>
                         <div class="tech-badges">
@@ -616,6 +1153,8 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Monitoring -->
                     <div class="tech-category">
                         <h3>Monitoring & Observability</h3>
                         <div class="tech-badges">
@@ -639,6 +1178,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Customer Testimonials -->
             <div class="testimonials-section" data-aos="fade-up" data-aos-delay="200">
                 <h2 class="section-title">What Startup Founders Say</h2>
                 <div class="testimonials-grid">
@@ -657,6 +1198,7 @@
                             <span class="metric-highlight">90% faster deployments</span>
                         </div>
                     </div>
+
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <p>"The automated monitoring caught a critical issue before our users even noticed. The incident intelligence saved us from what could have been our worst outage."</p>
@@ -672,6 +1214,7 @@
                             <span class="metric-highlight">99.9% uptime achieved</span>
                         </div>
                     </div>
+
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <p>"Our infrastructure costs dropped by 40% after Resiliotech optimized our auto-scaling. The ROI was clear within the first month."</p>
@@ -689,9 +1232,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Before/After Scenarios -->
             <div class="before-after-section" data-aos="fade-up" data-aos-delay="400">
                 <h2 class="section-title">From Manual Chaos to Automated Confidence</h2>
                 <div class="scenario-comparison">
+                    <!-- Before -->
                     <div class="scenario-card before-scenario">
                         <div class="scenario-header">
                             <h3>❌ Before Resiliotech</h3>
@@ -708,6 +1254,8 @@
                             </ul>
                         </div>
                     </div>
+
+                    <!-- After -->
                     <div class="scenario-card after-scenario">
                         <div class="scenario-header">
                             <h3>✅ After Resiliotech</h3>
@@ -725,6 +1273,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="transformation-stats">
                     <div class="stat-item">
                         <span class="stat-number">10x</span>
@@ -742,6 +1291,8 @@
             </div>
         </div>
     </section>
+
+    <!-- MLOps Specialty Section (Subtle) -->
     <section class="mlops-specialty">
         <div class="container">
             <div class="specialty-content" data-aos="fade-up">
@@ -767,6 +1318,8 @@
             </div>
         </div>
     </section>
+
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
@@ -796,6 +1349,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Projects Section -->
     <section id="projects" class="projects section-padding">
         <div class="container">
             <div class="section-header">
@@ -805,6 +1360,7 @@
                 </p>
             </div>
             <div class="projects-grid card-grid grid-gap-md" id="home-projects-grid">
+                <!-- Projects will be dynamically loaded here -->
             </div>
             <div class="resources-cta">
                 <a href="./projects/" class="btn">
@@ -816,6 +1372,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Resources Section -->
     <section id="resources" class="resources section-padding">
         <div class="container">
             <div class="section-header">
@@ -825,6 +1383,7 @@
                 </p>
             </div>
             <div class="resources-grid card-grid grid-gap-md" id="home-resources-grid">
+                <!-- Featured resources will be dynamically loaded here -->
             </div>
             <div class="resources-cta">
                 <a href="./resources/" class="btn btn-outline">
@@ -836,6 +1395,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-header">
@@ -882,10 +1443,14 @@
                 </div>
                 <div class="contact-form-container" data-aos="fade-left">
                     <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html">
+                        <!-- Hidden field for Netlify Forms -->
                         <input type="hidden" name="form-name" value="contact" />
+                        
+                        <!-- Netlify honeypot field for spam protection -->
                         <p style="display: none;">
                             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                         </p>
+                        
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" required>
@@ -915,7 +1480,10 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project, current challenges, or how we can help..."></textarea>
                         </div>
+                        
+                        <!-- Hidden field for form identification -->
                         <input type="hidden" name="form-name" value="contact">
+                        
                         <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
                             <span class="btn-text">Send Message</span>
                             <span class="btn-loading" style="display: none;">
@@ -928,26 +1496,40 @@
                                 Sending...
                             </span>
                         </button>
+                        
                         <div class="form-status" id="form-status" style="display: none;"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
+    
+    <!-- Footer will be loaded here -->
     <div id="footer-container"></div>
-    <script src="shared/js/utils.min.js"></script>
-    <script src="shared/js/common.min.js"></script>
+
+    <!-- Scripts -->
+    <!-- Shared Scripts -->
+    <script src="shared/js/utils.js"></script>
+    <script src="shared/js/common.js"></script>
     <script src="shared/js/performance-monitor.js"></script>
+    <!-- Page-specific Scripts -->
     <script src="shared/js/resources-data.js"></script>
     <script src="shared/js/projects-data.js"></script>
-    <script src="assets/js/main.min.js"></script>
-    <script src="assets/js/contact-form.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contact-form.js"></script>
+    
+    <!-- Initialize page -->
     <script>
         let componentsLoaded = false;
+        
         document.addEventListener('DOMContentLoaded', async () => {
             if (componentsLoaded) return;
             componentsLoaded = true;
+            
             console.log('Initializing main page components...');
+            
             // Load navigation
             try {
                 const navContainer = document.getElementById('navigation-container');
@@ -956,16 +1538,21 @@
                     if (navResponse.ok) {
                         let navHTML = await navResponse.text();
                         navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, './');
+                        navHTML = navHTML.replace(/\{\{productsUrl\}\}/g, './products/');
+                        navHTML = navHTML.replace(/\{\{blogUrl\}\}/g, './blog/');
                         navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, './projects/');
                         navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, './resources/');
                         navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, './assets/images/logo.svg');
                         navHTML = navHTML.replace(/\{\{homeActive\}\}/g, 'active');
                         navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{productsActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{blogActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
                         navContainer.innerHTML = navHTML;
+                        
                         // Initialize navigation after it's loaded
                         if (window.initializeNavigation) {
                             window.initializeNavigation();
@@ -975,6 +1562,7 @@
             } catch (error) {
                 console.error('Error loading navigation:', error);
             }
+            
             // Load header
             try {
                 const headerContainer = document.getElementById('header-container');
@@ -1087,6 +1675,7 @@
             } catch (error) {
                 console.error('Error loading header:', error);
             }
+            
             // Load footer
             try {
                 const footerContainer = document.getElementById('footer-container');
@@ -1105,5 +1694,25 @@
             }
         });
     </script>
+    
+    <!-- Critical scripts - Load immediately -->
+    <script src="./assets/js/performance-optimizer.js"></script>
+    
+    <!-- Non-critical scripts - Defer for better performance -->
+    <script defer src="./assets/js/lead-magnets.js"></script>
+    <script defer src="./assets/js/analytics.js"></script>
+    <script defer src="./assets/js/interactive-demos.js"></script>
+    
+    <!-- Content Data Sources - Defer as these are not needed for initial render -->
+    <script defer src="./assets/data/case-studies.js"></script>
+    <script defer src="./assets/data/resources-library.js"></script>
+    <script defer src="./assets/data/blog-content.js"></script>
+    
+    <!-- Advanced features - Load after initial page render -->
+    <script defer src="./assets/js/content-manager.js"></script>
+    <script defer src="./assets/js/crm-integration.js"></script>
+    <script defer src="./assets/js/email-automation.js"></script>
+    <script defer src="./assets/js/analytics-dashboard.js"></script>
+    <script defer src="./assets/js/customer-success-tracker.js"></script>
 </body>
 </html>

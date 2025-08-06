@@ -590,6 +590,45 @@ function debounce(func, wait, immediate) {
 }
 
 /**
+ * Global navigation initialization function for dynamically loaded navigation
+ */
+window.initializeNavigation = function() {
+    // Re-initialize navigation functionality for dynamically loaded navigation
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (navToggle && navMenu) {
+        // Remove any existing event listeners by cloning the elements
+        const newNavToggle = navToggle.cloneNode(true);
+        navToggle.parentNode.replaceChild(newNavToggle, navToggle);
+        
+        // Add click event listener for mobile menu toggle
+        newNavToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            newNavToggle.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on navigation links
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                newNavToggle.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!newNavToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                newNavToggle.classList.remove('active');
+            }
+        });
+    }
+};
+
+/**
  * Initialize website when DOM is ready
  */
 document.addEventListener('DOMContentLoaded', () => {

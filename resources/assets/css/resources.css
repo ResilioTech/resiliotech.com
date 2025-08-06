@@ -1,5 +1,10 @@
 /* Resources Page Specific Styles */
 
+/* Ensure body has proper padding for fixed navbar */
+body[data-page-type="resources"] {
+    padding-top: 70px !important;
+}
+
 /* Breadcrumb Section */
 .breadcrumb-section {
     padding: var(--spacing-4) 0;
@@ -19,15 +24,14 @@
     }
 }
 
-/* Main content spacing */
+/* Main content spacing - removed margin-top since body now has padding-top */
 .main-content {
-    margin-top: 70px;
     min-height: calc(100vh - 70px);
 }
 
 /* Hero Section */
 .resources-hero {
-    padding: 140px 0 var(--spacing-20);
+    padding: 70px 0 var(--spacing-20); /* Reduced top padding since body now has padding-top */
     background: var(--background);
     position: relative;
     overflow: hidden;

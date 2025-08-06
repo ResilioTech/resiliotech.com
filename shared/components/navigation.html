@@ -9,12 +9,17 @@
         </div>
         <div class="nav-menu" id="nav-menu">
             <a href="{{homeUrl}}" class="nav-link {{homeActive}}">Home</a>
-            <a href="{{homeUrl}}#services" class="nav-link {{servicesActive}}">Services</a>
-            <a href="{{homeUrl}}#how-we-work" class="nav-link {{howWeWorkActive}}">How We Work</a>
+            <a href="{{consultingUrl}}" class="nav-link {{consultingActive}}">Consulting</a>
+            <a href="{{projectsUrl}}" class="nav-link {{projectsActive}}">Projects</a>
+            <a href="{{productsUrl}}" class="nav-link {{productsActive}} nav-link-with-badge">
+                <span class="nav-link-text">Products</span>
+                <span class="nav-badge">Coming Soon</span>
+            </a>
+            <a href="{{blogUrl}}" class="nav-link {{blogActive}}">Blog</a>
             <a href="{{resourcesUrl}}" class="nav-link {{resourcesActive}}">Resources</a>
             <a href="{{homeUrl}}#about" class="nav-link {{aboutActive}}">About</a>
             <a href="{{homeUrl}}#contact" class="nav-link {{contactActive}}">Contact</a>
-            <a href="{{homeUrl}}#contact" class="nav-cta">Get Free Audit</a>
+            <a href="{{homeUrl}}#contact" class="nav-cta" data-track="cta_click" data-source="navigation">Book Free Audit</a>
         </div>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
             <span class="bar"></span>

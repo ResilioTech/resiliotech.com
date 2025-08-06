@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps ROI Calculator - Resiliotech | Calculate Your Automation Savings</title>
+    <meta name="description" content="Calculate your potential DevOps automation savings with our comprehensive ROI calculator. Get personalized recommendations and implementation roadmap.">
+    <meta name="keywords" content="DevOps ROI calculator, automation savings calculator, infrastructure cost analysis, DevOps investment calculator">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://resiliotech.com/tools/roi-calculator">
+    <meta property="og:title" content="DevOps ROI Calculator - Calculate Your Automation Savings">
+    <meta property="og:description" content="Discover how much time and money you can save with DevOps automation. Interactive calculator with personalized results and recommendations.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/social/roi-calculator-og-1200x630.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Resiliotech">
+    
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@resiliotech">
+    <meta property="twitter:creator" content="@resiliotech">
+    <meta property="twitter:title" content="DevOps ROI Calculator - Calculate Your Automation Savings">
+    <meta property="twitter:description" content="Discover how much time and money you can save with DevOps automation. Interactive calculator with personalized results and recommendations.">
+    <meta property="twitter:image" content="https://resiliotech.com/assets/images/social/roi-calculator-twitter-1200x630.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../shared/css/common.css">
+    <link rel="stylesheet" href="../assets/css/resource-gating.css">
+    <link rel="stylesheet" href="assets/css/roi-calculator.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DevOps ROI Calculator",
+        "description": "Comprehensive ROI calculator for DevOps automation initiatives with personalized recommendations and implementation roadmap.",
+        "url": "https://resiliotech.com/tools/roi-calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Resiliotech",
+            "url": "https://resiliotech.com",
+            "logo": "https://resiliotech.com/assets/images/logo.svg"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="calculator-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span class="hero-emoji">🚀</span>
+                    DevOps Automation ROI Calculator
+                </h1>
+                <p class="hero-description">
+                    Discover exactly how much time and money you'll save with DevOps automation. 
+                    Get personalized recommendations and a step-by-step implementation roadmap.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">Average 67%</span>
+                        <span class="stat-label">Time Savings</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$2.4M+</span>
+                        <span class="stat-label">Total Saved</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Companies Analyzed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Multi-Step Calculator -->
+    <section class="calculator-main">
+        <div class="container">
+            <div class="calculator-container">
+                <!-- Progress Bar -->
+                <div class="calculator-progress" id="calculator-progress">
+                    <div class="progress-steps">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Company Info</div>
+                        </div>
+                        <div class="progress-connector"></div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Current Process</div>
+                        </div>
+                        <div class="progress-connector"></div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Pain Points</div>
+                        </div>
+                        <div class="progress-connector"></div>
+                        <div class="progress-step" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Results</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <!-- Calculator Form -->
+                <div class="calculator-form-container">
+                    <form id="roi-calculator-form" class="multi-step-calculator">
+                        
+                        <!-- Step 1: Company Information -->
+                        <div class="calculator-step active" id="step-1">
+                            <div class="step-header">
+                                <h2>Tell us about your company</h2>
+                                <p>This helps us provide more accurate ROI calculations tailored to your business</p>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="company-stage">Company Stage</label>
+                                    <select id="company-stage" name="company-stage" required>
+                                        <option value="">Select stage</option>
+                                        <option value="pre-seed">Pre-seed (Idea/MVP)</option>
+                                        <option value="seed">Seed (Product-Market Fit)</option>
+                                        <option value="series-a">Series A (Scaling)</option>
+                                        <option value="series-b">Series B+ (Growth)</option>
+                                        <option value="established">Established (Mature)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="team-size">Development Team Size</label>
+                                    <input type="number" id="team-size" name="team-size" min="1" max="500" required>
+                                    <small class="field-hint">Number of engineers, including contractors</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="monthly-revenue">Monthly Revenue (USD)</label>
+                                    <select id="monthly-revenue" name="monthly-revenue" required>
+                                        <option value="">Select range</option>
+                                        <option value="0-10k">$0 - $10K</option>
+                                        <option value="10k-50k">$10K - $50K</option>
+                                        <option value="50k-100k">$50K - $100K</option>
+                                        <option value="100k-500k">$100K - $500K</option>
+                                        <option value="500k-1m">$500K - $1M</option>
+                                        <option value="1m+">$1M+</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="industry">Industry</label>
+                                    <select id="industry" name="industry" required>
+                                        <option value="">Select industry</option>
+                                        <option value="saas">SaaS/Software</option>
+                                        <option value="fintech">Fintech</option>
+                                        <option value="ecommerce">E-commerce</option>
+                                        <option value="healthcare">Healthcare/Biotech</option>
+                                        <option value="marketplace">Marketplace</option>
+                                        <option value="gaming">Gaming</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="step-navigation">
+                                <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                    Next Step
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Current Development Process -->
+                        <div class="calculator-step" id="step-2">
+                            <div class="step-header">
+                                <h2>Current development process</h2>
+                                <p>Help us understand your current workflow and deployment practices</p>
+                            </div>
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="deployments-frequency">How often do you deploy?</label>
+                                    <select id="deployments-frequency" name="deployments-frequency" required>
+                                        <option value="">Select frequency</option>
+                                        <option value="daily">Multiple times per day</option>
+                                        <option value="few-per-week">Few times per week</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="bi-weekly">Bi-weekly</option>
+                                        <option value="monthly">Monthly or less</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="deployment-time">Average time per deployment (hours)</label>
+                                    <input type="number" id="deployment-time" name="deployment-time" min="0.25" max="40" step="0.25" required>
+                                    <small class="field-hint">Including testing, approvals, and deployment</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="rollback-frequency">How often do deployments fail or require rollback?</label>
+                                    <select id="rollback-frequency" name="rollback-frequency" required>
+                                        <option value="">Select frequency</option>
+                                        <option value="rarely">Rarely (< 5%)</option>
+                                        <option value="sometimes">Sometimes (5-15%)</option>
+                                        <option value="often">Often (15-30%)</option>
+                                        <option value="frequently">Frequently (> 30%)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="avg-salary">Average developer salary (USD)</label>
+                                    <select id="avg-salary" name="avg-salary" required>
+                                        <option value="">Select range</option>
+                                        <option value="60000">$60K - $80K</option>
+                                        <option value="90000">$80K - $100K</option>
+                                        <option value="120000">$100K - $140K</option>
+                                        <option value="160000">$140K - $180K</option>
+                                        <option value="200000">$180K+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="step-navigation">
+                                <button type="button" class="btn btn-outline" onclick="previousStep()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                                    </svg>
+                                    Previous
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                    Next Step
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Pain Points & Goals -->
+                        <div class="calculator-step" id="step-3">
+                            <div class="step-header">
+                                <h2>What are your biggest challenges?</h2>
+                                <p>Select all that apply to help us prioritize recommendations</p>
+                            </div>
+                            
+                            <div class="checkbox-grid">
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="slow-deployments" name="pain-points" value="slow-deployments">
+                                    <label for="slow-deployments" class="checkbox-card-label">
+                                        <div class="checkbox-icon">⏱️</div>
+                                        <div class="checkbox-content">
+                                            <h4>Slow Deployments</h4>
+                                            <p>Deployments take too long and block the team</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="frequent-failures" name="pain-points" value="frequent-failures">
+                                    <label for="frequent-failures" class="checkbox-card-label">
+                                        <div class="checkbox-icon">🔥</div>
+                                        <div class="checkbox-content">
+                                            <h4>Frequent Failures</h4>
+                                            <p>Production issues and rollbacks happen often</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="manual-processes" name="pain-points" value="manual-processes">
+                                    <label for="manual-processes" class="checkbox-card-label">
+                                        <div class="checkbox-icon">🤖</div>
+                                        <div class="checkbox-content">
+                                            <h4>Too Much Manual Work</h4>
+                                            <p>Repetitive tasks that should be automated</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="poor-monitoring" name="pain-points" value="poor-monitoring">
+                                    <label for="poor-monitoring" class="checkbox-card-label">
+                                        <div class="checkbox-icon">📊</div>
+                                        <div class="checkbox-content">
+                                            <h4>Limited Visibility</h4>
+                                            <p>Hard to debug issues and monitor performance</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="scaling-issues" name="pain-points" value="scaling-issues">
+                                    <label for="scaling-issues" class="checkbox-card-label">
+                                        <div class="checkbox-icon">📈</div>
+                                        <div class="checkbox-content">
+                                            <h4>Scaling Challenges</h4>
+                                            <p>Infrastructure can't handle growth efficiently</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="checkbox-card">
+                                    <input type="checkbox" id="security-concerns" name="pain-points" value="security-concerns">
+                                    <label for="security-concerns" class="checkbox-card-label">
+                                        <div class="checkbox-icon">🔒</div>
+                                        <div class="checkbox-content">
+                                            <h4>Security Gaps</h4>
+                                            <p>Worried about security vulnerabilities</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="priority-goal">What's your top priority for the next 6 months?</label>
+                                <select id="priority-goal" name="priority-goal" required>
+                                    <option value="">Select priority</option>
+                                    <option value="faster-delivery">Faster feature delivery</option>
+                                    <option value="better-reliability">Better reliability/uptime</option>
+                                    <option value="cost-reduction">Reduce infrastructure costs</option>
+                                    <option value="team-productivity">Improve team productivity</option>
+                                    <option value="scale-preparation">Prepare for scaling</option>
+                                    <option value="security-compliance">Security & compliance</option>
+                                </select>
+                            </div>
+                            
+                            <div class="step-navigation">
+                                <button type="button" class="btn btn-outline" onclick="previousStep()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                                    </svg>
+                                    Previous
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="calculateResults()">
+                                    Calculate ROI
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4: Results -->
+                        <div class="calculator-step" id="step-4">
+                            <div class="results-container">
+                                <div class="results-header">
+                                    <h2>Your DevOps Automation ROI</h2>
+                                    <p>Based on your inputs, here's what you can expect with proper automation</p>
+                                </div>
+                                
+                                <!-- ROI Summary Cards -->
+                                <div class="results-summary">
+                                    <div class="result-card highlight">
+                                        <div class="result-icon">💰</div>
+                                        <div class="result-content">
+                                            <div class="result-number" id="annual-savings">$0</div>
+                                            <div class="result-label">Annual Savings</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="result-card">
+                                        <div class="result-icon">⚡</div>
+                                        <div class="result-content">
+                                            <div class="result-number" id="time-savings">0%</div>
+                                            <div class="result-label">Time Reduction</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="result-card">
+                                        <div class="result-icon">📈</div>
+                                        <div class="result-content">
+                                            <div class="result-number" id="productivity-gain">0%</div>
+                                            <div class="result-label">Productivity Boost</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="result-card">
+                                        <div class="result-icon">🎯</div>
+                                        <div class="result-content">
+                                            <div class="result-number" id="roi-percentage">0%</div>
+                                            <div class="result-label">ROI in Year 1</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Detailed Breakdown -->
+                                <div class="results-breakdown">
+                                    <div class="breakdown-section">
+                                        <h3>Savings Breakdown</h3>
+                                        <div class="breakdown-chart" id="savings-chart">
+                                            <div class="chart-item">
+                                                <div class="chart-label">Deployment Time</div>
+                                                <div class="chart-bar">
+                                                    <div class="chart-fill" id="deployment-savings-bar"></div>
+                                                </div>
+                                                <div class="chart-value" id="deployment-savings">$0</div>
+                                            </div>
+                                            <div class="chart-item">
+                                                <div class="chart-label">Reduced Failures</div>
+                                                <div class="chart-bar">
+                                                    <div class="chart-fill" id="failure-savings-bar"></div>
+                                                </div>
+                                                <div class="chart-value" id="failure-savings">$0</div>
+                                            </div>
+                                            <div class="chart-item">
+                                                <div class="chart-label">Developer Productivity</div>
+                                                <div class="chart-bar">
+                                                    <div class="chart-fill" id="productivity-savings-bar"></div>
+                                                </div>
+                                                <div class="chart-value" id="productivity-savings">$0</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="breakdown-section">
+                                        <h3>Implementation Timeline</h3>
+                                        <div class="timeline" id="implementation-timeline">
+                                            <!-- Timeline items will be generated by JavaScript -->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Personalized Recommendations -->
+                                <div class="recommendations-section">
+                                    <h3>Recommended Actions</h3>
+                                    <div class="recommendations-list" id="recommendations-list">
+                                        <!-- Recommendations will be generated by JavaScript -->
+                                    </div>
+                                </div>
+                                
+                                <!-- CTA Section -->
+                                <div class="results-cta">
+                                    <div class="cta-content">
+                                        <h3>Ready to realize these savings?</h3>
+                                        <p>Get a personalized DevOps automation plan with detailed implementation steps and ROI projections.</p>
+                                    </div>
+                                    <div class="cta-actions">
+                                        <button type="button" class="btn btn-primary" onclick="downloadReport()">
+                                            Download Full Report
+                                        </button>
+                                        <button type="button" class="btn btn-outline" onclick="bookConsultation()">
+                                            Book Free Consultation
+                                        </button>
+                                        <button type="button" class="btn btn-ghost" onclick="shareResults()">
+                                            Share Results
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Information (for lead generation) -->
+                        <div class="calculator-step" id="step-contact" style="display: none;">
+                            <div class="step-header">
+                                <h2>Get your personalized report</h2>
+                                <p>Enter your details to receive a detailed ROI analysis and implementation roadmap</p>
+                            </div>
+                            
+                            <div class="contact-form">
+                                <div class="form-group">
+                                    <label for="contact-name">Full Name</label>
+                                    <input type="text" id="contact-name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact-email">Work Email</label>
+                                    <input type="email" id="contact-email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact-company">Company Name</label>
+                                    <input type="text" id="contact-company" name="company" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact-role">Your Role</label>
+                                    <select id="contact-role" name="role" required>
+                                        <option value="">Select role</option>
+                                        <option value="founder-ceo">Founder/CEO</option>
+                                        <option value="cto-vp-eng">CTO/VP Engineering</option>
+                                        <option value="engineering-manager">Engineering Manager</option>
+                                        <option value="devops-engineer">DevOps Engineer</option>
+                                        <option value="developer">Developer</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="consultation-interest" name="consultation-interest">
+                                        <span>I'm interested in a free consultation to discuss implementation</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-privacy">
+                                    <p>By submitting this form, you agree to receive communications from Resiliotech. We respect your privacy and will never share your information.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-navigation">
+                                <button type="button" class="btn btn-outline" onclick="backToResults()">
+                                    Back to Results
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="submitCalculator()">
+                                    Get My Report
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof Section -->
+    <section class="social-proof-section">
+        <div class="container">
+            <div class="social-proof-header">
+                <h2>Trusted by 500+ Growing Companies</h2>
+                <p>See what other startups have achieved with DevOps automation</p>
+            </div>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <blockquote>"We reduced deployment time from 4 hours to 15 minutes and haven't had a failed deployment in 6 months."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <cite>Sarah Chen, CTO</cite>
+                                <span class="company">DataFlow (Series A)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-label">Time Saved</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">$180K</span>
+                            <span class="stat-label">Annual Savings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <blockquote>"The ROI calculator was spot-on. We achieved the projected savings in just 4 months."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <cite>Michael Rodriguez, Founder</cite>
+                                <span class="company">TechScale (Seed)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat">
+                            <span class="stat-number">400%</span>
+                            <span class="stat-label">ROI Year 1</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">75%</span>
+                            <span class="stat-label">Faster Delivery</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <blockquote>"Our team can now focus on building features instead of fighting with deployments."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <cite>Alex Kim, Lead Developer</cite>
+                                <span class="company">InnovateLab (Pre-seed)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat">
+                            <span class="stat-number">60%</span>
+                            <span class="stat-label">More Features</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">$95K</span>
+                            <span class="stat-label">Cost Avoided</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- JavaScript -->
+    <script src="../shared/js/common.js"></script>
+    <script src="../shared/js/page-config.js"></script>
+    <script src="../assets/js/newsletter-manager.js"></script>
+    <script src="assets/js/roi-calculator.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load components
+            window.PageConfig.initializePage('roi-calculator');
+            
+            // Initialize calculator
+            if (window.roiCalculator) {
+                window.roiCalculator.init();
+            }
+            
+            // Track page view
+            if (window.analyticsManager) {
+                window.analyticsManager.trackEvent('roi_calculator_page_view', {
+                    source: 'direct',
+                    page: '/tools/roi-calculator'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

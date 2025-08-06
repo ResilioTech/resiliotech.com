@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevOps automation insights, tutorials, and guides for startups. Learn how to implement CI/CD, infrastructure automation, and scale your technical operations.">
+    <meta name="keywords" content="DevOps blog, startup automation guides, CI/CD tutorials, infrastructure automation, startup DevOps consulting">
+    <meta name="author" content="Resiliotech">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://resiliotech.com/blog/" />
+    
+    <!-- Hreflang for international SEO -->
+    <link rel="alternate" hreflang="en" href="https://resiliotech.com/blog/" />
+    <link rel="alternate" hreflang="x-default" href="https://resiliotech.com/blog/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://resiliotech.com/blog/">
+    <meta property="og:title" content="DevOps & Automation Blog - Resiliotech">
+    <meta property="og:description" content="DevOps automation insights, tutorials, and guides for startups. Learn how to implement CI/CD, infrastructure automation, and scale your technical operations.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/blog-og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://resiliotech.com/blog/">
+    <meta property="twitter:title" content="DevOps & Automation Blog - Resiliotech">
+    <meta property="twitter:description" content="DevOps automation insights, tutorials, and guides for startups. Learn how to implement CI/CD, infrastructure automation, and scale your technical operations.">
+    <meta property="twitter:image" content="https://resiliotech.com/assets/images/blog-twitter-card.jpg">
+    <meta property="twitter:site" content="@resiliotech">
+    <meta property="twitter:creator" content="@resiliotech">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="application-name" content="Resiliotech Blog">
+    
+    <!-- Article Tags -->
+    <meta property="article:publisher" content="https://resiliotech.com">
+    <meta property="article:section" content="DevOps and Automation">
+    <meta property="article:tag" content="DevOps, Automation, Startups, CI/CD, Infrastructure">
+
+    <title>DevOps & Automation Blog - Resiliotech | Startup Automation Guides</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+    <link rel="alternate icon" href="../assets/images/favicon.svg">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../shared/css/common.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="../shared/css/common.css">
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+    
+    <!-- Blog-specific CSS -->
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .blog-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .blog-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 24px;
+            border: 2px solid var(--color-gray-300);
+            background: white;
+            color: var(--text-primary);
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+        
+        .blog-search {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            position: relative;
+        }
+        
+        .blog-search input {
+            width: 100%;
+            padding: 16px 60px 16px 20px;
+            border: 2px solid var(--color-gray-300);
+            border-radius: 50px;
+            font-size: var(--font-size-base);
+            transition: border-color var(--transition-fast);
+        }
+        
+        .blog-search input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .blog-search button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+        
+        .blog-search button:hover {
+            background: var(--color-primary-dark);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-normal);
+            height: fit-content;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8zm0-20c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .blog-category-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+        
+        .blog-card-content {
+            padding: 30px;
+        }
+        
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: var(--font-size-sm);
+            color: var(--text-light);
+        }
+        
+        .blog-card-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .blog-card-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .blog-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .blog-tag {
+            background: var(--color-gray-100);
+            color: var(--text-secondary);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: var(--font-size-sm);
+        }
+        
+        .blog-card-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        .blog-stats-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: var(--font-size-sm);
+            color: var(--text-light);
+        }
+        
+        .newsletter-signup {
+            background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 80px 0;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 30px auto 0;
+            gap: 15px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 16px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+        
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .newsletter-form .btn {
+            background: white;
+            color: var(--color-primary);
+            border: none;
+            padding: 16px 32px;
+            font-weight: 600;
+            border-radius: 50px;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .load-more .btn {
+            padding: 16px 40px;
+            font-size: var(--font-size-base);
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                padding: 60px 0;
+            }
+            
+            .blog-filters {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 10px 16px;
+                font-size: var(--font-size-sm);
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+    
+    <!-- Shared Component System -->
+    <script src="../shared/js/component-loader.js"></script>
+    <script src="../shared/js/page-config.js"></script>
+    
+    <!-- Enhanced Structured Data for Blog -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://resiliotech.com/blog/#webpage",
+                "url": "https://resiliotech.com/blog/",
+                "name": "DevOps & Automation Blog - Resiliotech",
+                "description": "DevOps automation insights, tutorials, and guides for startups. Learn how to implement CI/CD, infrastructure automation, and scale your technical operations.",
+                "isPartOf": {
+                    "@id": "https://resiliotech.com/#website"
+                },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://resiliotech.com/assets/images/blog-hero.jpg"
+                },
+                "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://resiliotech.com/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Blog",
+                            "item": "https://resiliotech.com/blog/"
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "Blog",
+                "name": "Resiliotech DevOps Blog",
+                "description": "Expert insights on DevOps automation, CI/CD implementation, and infrastructure scaling for startups.",
+                "url": "https://resiliotech.com/blog/",
+                "publisher": {
+                    "@id": "https://resiliotech.com/#organization"
+                },
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://resiliotech.com/#organization",
+                "name": "Resiliotech",
+                "url": "https://resiliotech.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://resiliotech.com/assets/images/logo.svg"
+                },
+                "sameAs": [
+                    "https://github.com/resiliotech",
+                    "https://linkedin.com/company/resiliotech"
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body data-page-type="blog" data-auto-init-components="false">
+    <!-- Accessibility: Skip to main content link -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation will be loaded here -->
+    <div id="navigation-container"></div>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <!-- Blog Hero Section -->
+        <section class="blog-hero">
+            <div class="container">
+                <h1>DevOps & Automation Insights</h1>
+                <p class="subtitle">Expert guides, tutorials, and insights to help your startup implement automation and scale technical operations efficiently.</p>
+            </div>
+        </section>
+
+        <!-- Blog Content Section -->
+        <section class="section-padding">
+            <div class="container">
+                <!-- Search and Filters -->
+                <div class="blog-search">
+                    <input type="text" id="blog-search-input" placeholder="Search articles, tutorials, and guides..." aria-label="Search blog posts">
+                    <button type="button" onclick="searchBlog()" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-filter="all">All Articles</button>
+                    <button class="filter-btn" data-filter="devops-fundamentals">DevOps Fundamentals</button>
+                    <button class="filter-btn" data-filter="automation-strategies">Automation Strategies</button>
+                    <button class="filter-btn" data-filter="case-studies">Case Studies</button>
+                    <button class="filter-btn" data-filter="tools-tutorials">Tools & Tutorials</button>
+                    <button class="filter-btn" data-filter="startup-growth">Startup Growth</button>
+                </div>
+
+                <!-- Blog Posts Grid -->
+                <div class="blog-grid" id="blog-posts-container">
+                    <!-- Blog posts will be dynamically loaded here -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more">
+                    <button class="btn btn-outline" id="load-more-btn" onclick="loadMorePosts()">
+                        Load More Articles
+                    </button>
+                </div>
+
+                <!-- Newsletter Signup -->
+                <div class="newsletter-signup">
+                    <h3>Stay Updated with Latest DevOps Insights</h3>
+                    <p>Get weekly tips, tutorials, and industry insights delivered to your inbox. Join 500+ startup founders and technical leaders.</p>
+                    <form class="newsletter-form" id="blog-newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                    <p style="font-size: var(--font-size-sm); margin-top: 15px; opacity: 0.8;">
+                        No spam. Unsubscribe anytime. We respect your privacy.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Initialize page configuration
+                if (window.PageConfig) {
+                    await window.PageConfig.initializePage('blog');
+                }
+                
+                // Initialize blog functionality
+                if (window.blogManager) {
+                    window.blogManager.init();
+                }
+            } catch (error) {
+                console.error('Error initializing blog page:', error);
+            }
+        });
+        
+        // Blog search functionality
+        function searchBlog() {
+            const query = document.getElementById('blog-search-input').value;
+            if (window.blogManager) {
+                window.blogManager.search(query);
+            }
+        }
+        
+        // Load more posts
+        function loadMorePosts() {
+            if (window.blogManager) {
+                window.blogManager.loadMore();
+            }
+        }
+        
+        // Search on Enter key
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('blog-search-input');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        searchBlog();
+                    }
+                });
+            }
+        });
+    </script>
+    
+    <!-- Blog Management JavaScript -->
+    <script defer src="assets/js/blog-manager.js"></script>
+    <script defer src="../assets/data/blog-content.js"></script>
+    <!-- Component Loading Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('Initializing blog page components...');
+            
+            // Load navigation
+            try {
+                const navContainer = document.getElementById('navigation-container');
+                if (navContainer && !navContainer.innerHTML.trim()) {
+                    const navResponse = await fetch('../shared/components/navigation.html');
+                    if (navResponse.ok) {
+                        let navHTML = await navResponse.text();
+                        navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, '../');
+                        navHTML = navHTML.replace(/\{\{consultingUrl\}\}/g, '../consulting/');
+                        navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, '../projects/');
+                        navHTML = navHTML.replace(/\{\{productsUrl\}\}/g, '../products/');
+                        navHTML = navHTML.replace(/\{\{blogUrl\}\}/g, './');
+                        navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, '../resources/');
+                        navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, '../assets/images/logo.svg');
+                        navHTML = navHTML.replace(/\{\{homeActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{consultingActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{productsActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{blogActive\}\}/g, 'active');
+                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
+                        navContainer.innerHTML = navHTML;
+                        
+                        // Initialize navigation after it's loaded
+                        if (window.initializeNavigation) {
+                            window.initializeNavigation();
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading navigation:', error);
+            }
+        });
+    </script>
+
+    <!-- Enhanced Blog Content Management -->
+    <script defer src="../assets/js/content-manager.js"></script>
+    
+    <!-- Enhanced Analytics & Tracking -->
+    <script defer src="../assets/js/analytics.js"></script>
+    <script defer src="../assets/js/analytics-dashboard.js"></script>
+    <script defer src="../assets/js/gtm-config.js"></script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+/* Products Page Specific Styles */
+
+/* Override default theme for products section */
+:root {
+    /* Products-specific color overrides */
+    --products-primary: #6366f1;
+    --products-secondary: #8b5cf6;
+    --products-accent: #06b6d4;
+}
+
+/* Products Hero Enhancements */
+.products-hero {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+    color: white;
+}
+
+.products-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.products-hero .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.products-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    color: white;
+}
+
+.products-hero .subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+.products-hero .timeline {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.products-hero .timeline-icon {
+    font-size: 1.2rem;
+}
+
+/* Product Cards Enhancements */
+.product-card {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.product-card:hover::after {
+    opacity: 1;
+}
+
+/* Product Status Badge Animation */
+.product-status {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-status::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Enhanced Waitlist Form */
+.waitlist-form {
+    background: var(--color-gray-50);
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px dashed var(--color-gray-300);
+    transition: all var(--transition-fast);
+}
+
+.waitlist-form:hover {
+    border-color: var(--products-primary);
+    background: rgba(99, 102, 241, 0.02);
+}
+
+.waitlist-form input[type="email"] {
+    background: white;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.waitlist-form input[type="email"]:focus {
+    border-color: var(--products-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.waitlist-form .btn {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.waitlist-form .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.waitlist-form .btn:hover::before {
+    left: 100%;
+}
+
+/* Form Success States */
+.waitlist-form.success {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.waitlist-form .success-message {
+    color: #10b981;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+/* Compare Table Enhancements */
+.compare-table {
+    margin-top: 80px;
+    position: relative;
+}
+
+.compare-table::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, var(--products-primary) 0%, var(--products-secondary) 100%);
+    border-radius: 2px;
+}
+
+.compare-table table {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.compare-table th {
+    background: linear-gradient(135deg, var(--products-primary) 0%, var(--products-secondary) 100%);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.compare-table th:first-child {
+    text-align: left;
+}
+
+.compare-table td {
+    text-align: center;
+    transition: background-color var(--transition-fast);
+}
+
+.compare-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.compare-table tr:hover td {
+    background-color: rgba(99, 102, 241, 0.02);
+}
+
+.compare-table .feature-available {
+    color: #10b981;
+    font-weight: 600;
+    position: relative;
+}
+
+.compare-table .feature-available::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #10b981;
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+/* Loading States */
+.product-card.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.product-card.loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: loading 1.5s infinite;
+    z-index: 1;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    padding: 20px 0;
+    background: var(--color-gray-50);
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-size-sm);
+}
+
+.breadcrumb-list li {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+    content: '›';
+    margin: 0 12px;
+    color: var(--text-light);
+    font-weight: bold;
+}
+
+.breadcrumb-list a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.breadcrumb-list a:hover {
+    color: var(--products-primary);
+}
+
+.breadcrumb-list .current {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Newsletter Integration */
+.newsletter-signup {
+    background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-signup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+}
+
+.newsletter-signup .content {
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-signup h3 {
+    margin-bottom: 15px;
+    font-size: var(--font-size-2xl);
+}
+
+.newsletter-signup p {
+    opacity: 0.9;
+    margin-bottom: 30px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 12px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form .btn {
+    background: white;
+    color: var(--products-primary);
+    border: none;
+    padding: 14px 20px;
+    font-weight: 600;
+}
+
+.newsletter-form .btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .products-hero {
+        min-height: 50vh;
+        padding: 60px 0;
+    }
+    
+    .products-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .products-hero .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .products-hero .timeline {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .compare-table {
+        margin-top: 60px;
+    }
+    
+    .compare-table table {
+        font-size: var(--font-size-sm);
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .breadcrumb-list {
+        font-size: 14px;
+    }
+    
+    .breadcrumb-list li:not(:last-child)::after {
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        padding: 30px 20px;
+    }
+    
+    .waitlist-form {
+        padding: 20px;
+    }
+    
+    .newsletter-signup {
+        padding: 40px 20px;
+        margin-top: 60px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .products-hero {
+        background: none !important;
+        color: black !important;
+        padding: 20px 0 !important;
+    }
+    
+    .product-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+    }
+    
+    .waitlist-form {
+        display: none !important;
+    }
+    
+    .compare-table table {
+        box-shadow: none !important;
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Calculator Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-input { margin: 10px 0; }
+        .test-result { margin: 10px 0; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>ROI Calculator Debug Test</h1>
+    
+    <div class="test-input">
+        <label>Team Size: <input type="number" id="team-size" value="5"></label>
+    </div>
+    <div class="test-input">
+        <label>Deploy Frequency: <input type="number" id="deploy-frequency" value="10"></label>
+    </div>
+    <div class="test-input">
+        <label>Deploy Time (min): <input type="number" id="deploy-time" value="45"></label>
+    </div>
+    <div class="test-input">
+        <label>Incident Frequency: <input type="number" id="incident-frequency" value="4"></label>
+    </div>
+    <div class="test-input">
+        <label>Resolution Time (hrs): <input type="number" id="resolution-time" value="4"></label>
+    </div>
+    <div class="test-input">
+        <label>Hourly Rate ($): <input type="number" id="hourly-rate" value="100"></label>
+    </div>
+    
+    <button onclick="testCalculation()">Calculate ROI</button>
+    
+    <div id="results"></div>
+
+    <script>
+        function testCalculation() {
+            // Get inputs
+            const inputs = {
+                teamSize: parseInt(document.getElementById('team-size').value),
+                deployFrequency: parseInt(document.getElementById('deploy-frequency').value),
+                deployTime: parseInt(document.getElementById('deploy-time').value),
+                incidentFrequency: parseInt(document.getElementById('incident-frequency').value),
+                resolutionTime: parseInt(document.getElementById('resolution-time').value),
+                hourlyRate: parseInt(document.getElementById('hourly-rate').value)
+            };
+            
+            console.log('Inputs:', inputs);
+            
+            // Calculate ROI using the same logic
+            const weeklyDeployMinutes = inputs.deployFrequency * inputs.deployTime;
+            const monthlyDeployMinutes = weeklyDeployMinutes * 4.33;
+            const monthlyDeployHours = monthlyDeployMinutes / 60;
+            const monthlyIncidentHours = inputs.incidentFrequency * inputs.resolutionTime;
+            
+            const deployTimeSavedHours = monthlyDeployHours * 0.75;
+            const incidentTimeSavedHours = monthlyIncidentHours * 0.60;
+            const totalTimeSavedHours = deployTimeSavedHours + incidentTimeSavedHours;
+            
+            const monthlySavings = totalTimeSavedHours * inputs.hourlyRate;
+            const annualSavings = monthlySavings * 12;
+            
+            const totalMonthlyWorkHours = 40 * 4.33 * inputs.teamSize;
+            const currentWastedHours = monthlyDeployHours + monthlyIncidentHours;
+            const currentProductiveHours = Math.max(totalMonthlyWorkHours - currentWastedHours, 1);
+            
+            const efficiencyBoost = currentProductiveHours * 0.25;
+            const totalProductivityGain = totalTimeSavedHours + efficiencyBoost;
+            const productivityIncrease = (totalProductivityGain / currentProductiveHours) * 100;
+            
+            const results = {
+                timeSaved: Math.round(totalTimeSavedHours),
+                deployTimeSaved: Math.round(deployTimeSavedHours),
+                incidentTimeSaved: Math.round(incidentTimeSavedHours),
+                monthlySavings: Math.round(monthlySavings),
+                annualSavings: Math.round(annualSavings),
+                productivityIncrease: Math.round(Math.max(productivityIncrease, 0)),
+                reliabilityImprovement: 60
+            };
+            
+            console.log('Results:', results);
+            
+            // Display results
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `
+                <h3>Calculation Results:</h3>
+                <div class="test-result">Time Saved: ${results.timeSaved} hours/month</div>
+                <div class="test-result">Deploy Time Saved: ${results.deployTimeSaved} hours/month</div>
+                <div class="test-result">Incident Time Saved: ${results.incidentTimeSaved} hours/month</div>
+                <div class="test-result">Monthly Savings: $${results.monthlySavings.toLocaleString()}</div>
+                <div class="test-result">Annual Savings: $${results.annualSavings.toLocaleString()}</div>
+                <div class="test-result">Productivity Increase: ${results.productivityIncrease}%</div>
+                <div class="test-result">Reliability Improvement: ${results.reliabilityImprovement}%</div>
+                
+                <h4>Intermediate Values:</h4>
+                <div>Weekly deploy minutes: ${weeklyDeployMinutes}</div>
+                <div>Monthly deploy minutes: ${monthlyDeployMinutes}</div>
+                <div>Monthly deploy hours: ${monthlyDeployHours}</div>
+                <div>Monthly incident hours: ${monthlyIncidentHours}</div>
+                <div>Total monthly work hours: ${totalMonthlyWorkHours}</div>
+                <div>Current productive hours: ${currentProductiveHours}</div>
+            `;
+        }
+    </script>
+</body>
+</html>

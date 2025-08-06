@@ -7,16 +7,24 @@ class PageConfig {
     constructor() {
         this.configs = {
             home: {
-                title: 'Resilio Tech - Expert SRE Consulting | Infrastructure Resilience',
-                description: 'Resilio Tech - Expert SRE consulting that transforms your tech stack from fragile to fortress-strong. Infrastructure resilience, monitoring, and DevOps acceleration.',
-                keywords: 'SRE consulting, infrastructure resilience, DevOps, monitoring, observability, site reliability engineering',
+                title: 'Resiliotech - DevOps Automation for Fast-Moving Startups',
+                description: 'Resilient automation for fast-moving startups. We help early-stage companies scale tech through automation & tooling without the full-time DevOps hire.',
+                keywords: 'DevOps automation for startups, startup DevOps consulting, infrastructure automation for early-stage companies, CI/CD automation services, automated infrastructure for startups',
                 ogType: 'website',
-                ogTitle: 'Resilio Tech - Bulletproof Infrastructure. Zero-Downtime Dreams.',
-                ogDescription: 'Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.',
-                ogImage: 'https://resiliotech.com/assets/images/og-image.jpg',
-                twitterTitle: 'Resilio Tech - Bulletproof Infrastructure. Zero-Downtime Dreams.',
-                twitterDescription: 'Expert SRE consulting that transforms your tech stack from fragile to fortress-strong.',
-                twitterImage: 'https://resiliotech.com/assets/images/twitter-card.jpg',
+                ogTitle: 'Resiliotech - Resilient Automation for Fast-Moving Startups',
+                ogDescription: 'We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.',
+                ogImage: 'https://resiliotech.com/assets/images/social/homepage-og-1200x630.jpg',
+                ogImageWidth: '1200',
+                ogImageHeight: '630',
+                ogSiteName: 'Resiliotech',
+                twitterTitle: 'Resiliotech - Resilient Automation for Fast-Moving Startups',
+                twitterDescription: 'We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.',
+                twitterImage: 'https://resiliotech.com/assets/images/social/homepage-twitter-1200x630.jpg',
+                twitterCard: 'summary_large_image',
+                twitterSite: '@resiliotech',
+                twitterCreator: '@resiliotech',
+                linkedinTitle: 'Resiliotech - Resilient Automation for Fast-Moving Startups',
+                linkedinDescription: 'We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.',
                 css: [
                     'assets/css/styles.css'
                 ],
@@ -50,22 +58,22 @@ class PageConfig {
                     ]
                 }
             },
-            projects: {
-                title: 'Projects - Resilio Tech | SRE Success Stories',
-                description: 'Explore our latest projects showcasing expertise in cloud migration, DevOps transformation, microservices architecture, and site reliability engineering.',
-                keywords: 'SRE projects, cloud migration, DevOps transformation, microservices, Kubernetes, infrastructure projects',
+            products: {
+                title: 'Products - Resiliotech | Coming Soon: SaaS Automation Tools',
+                description: 'Revolutionary SaaS automation tools for startups. Be first to access our DevOps Health Monitor and Automation Audit Tool. Join the waitlist today.',
+                keywords: 'SaaS automation tools, DevOps automation software, startup automation platform, automated DevOps monitoring, infrastructure automation SaaS',
                 ogType: 'website',
-                ogTitle: 'Resilio Tech Projects - SRE Success Stories',
-                ogDescription: 'Discover our successful implementations across cloud infrastructure, DevOps, and site reliability engineering.',
-                ogImage: 'https://resiliotech.com/assets/images/projects-og-image.jpg',
-                twitterTitle: 'Resilio Tech Projects - SRE Success Stories',
-                twitterDescription: 'Discover our successful implementations across cloud infrastructure, DevOps, and site reliability engineering.',
-                twitterImage: 'https://resiliotech.com/assets/images/projects-twitter-card.jpg',
+                ogTitle: 'Resiliotech Products - SaaS Automation Tools Coming Soon',
+                ogDescription: 'Revolutionary SaaS automation tools for startups. Be first to access our DevOps Health Monitor and Automation Audit Tool.',
+                ogImage: 'https://resiliotech.com/assets/images/products-og-image.jpg',
+                twitterTitle: 'Resiliotech Products - SaaS Automation Tools Coming Soon',
+                twitterDescription: 'Revolutionary SaaS automation tools for startups. Be first to access our DevOps Health Monitor and Automation Audit Tool.',
+                twitterImage: 'https://resiliotech.com/assets/images/products-twitter-card.jpg',
                 css: [
-                    'assets/css/projects.css'
+                    'assets/css/products.css'
                 ],
                 js: [
-                    'assets/js/projects.js'
+                    'assets/js/products.js'
                 ]
             },
             resources: {
@@ -84,6 +92,84 @@ class PageConfig {
                 ],
                 js: [
                     'assets/js/resources.js'
+                ]
+            },
+            newsletter: {
+                title: 'Resilient Startups Newsletter - Resiliotech | DevOps Automation Insights',
+                description: 'Subscribe to Resilient Startups newsletter for bi-monthly insights on startup automation, DevOps best practices, and early access to our SaaS tools.',
+                keywords: 'DevOps newsletter, startup automation newsletter, DevOps insights, infrastructure best practices, startup automation tips',
+                ogType: 'website',
+                ogTitle: 'Resilient Startups Newsletter - DevOps Automation Insights',
+                ogDescription: 'Get bi-monthly insights on startup automation, DevOps best practices, case studies, and early access to our SaaS tools.',
+                ogImage: 'https://resiliotech.com/assets/images/social/newsletter-og-1200x630.jpg',
+                ogImageWidth: '1200',
+                ogImageHeight: '630',
+                ogSiteName: 'Resiliotech',
+                twitterTitle: 'Resilient Startups Newsletter - DevOps Automation Insights',
+                twitterDescription: 'Get bi-monthly insights on startup automation, DevOps best practices, case studies, and early access to our SaaS tools.',
+                twitterImage: 'https://resiliotech.com/assets/images/social/newsletter-twitter-1200x630.jpg',
+                twitterCard: 'summary_large_image',
+                twitterSite: '@resiliotech',
+                twitterCreator: '@resiliotech',
+                css: [
+                    'assets/css/newsletter.css'
+                ],
+                js: [
+                    'assets/js/newsletter-manager.js'
+                ]
+            },
+            consulting: {
+                title: 'DevOps Automation Consulting for Startups - Resiliotech',
+                description: 'DevOps automation consulting for startups. We help early-stage companies scale through automated infrastructure, CI/CD pipelines, and monitoring without hiring full-time DevOps engineers.',
+                keywords: 'DevOps automation consulting, startup DevOps services, infrastructure automation for startups, CI/CD automation services, startup DevOps consulting',
+                ogType: 'website',
+                ogTitle: 'DevOps Automation Consulting for Startups - Resiliotech',
+                ogDescription: 'Launch faster, scale effortlessly with startup-focused DevOps automation. From CI/CD pipelines to infrastructure automation - no full-time DevOps hire needed.',
+                ogImage: 'https://resiliotech.com/assets/images/social/consulting-og-1200x630.jpg',
+                ogImageWidth: '1200',
+                ogImageHeight: '630',
+                ogSiteName: 'Resiliotech',
+                twitterTitle: 'DevOps Automation Consulting for Startups - Resiliotech',
+                twitterDescription: 'Launch faster, scale effortlessly with startup-focused DevOps automation. From CI/CD pipelines to infrastructure automation - no full-time DevOps hire needed.',
+                twitterImage: 'https://resiliotech.com/assets/images/social/consulting-twitter-1200x630.jpg',
+                twitterCard: 'summary_large_image',
+                twitterSite: '@resiliotech',
+                twitterCreator: '@resiliotech',
+                css: [
+                    'assets/css/styles.css'
+                ],
+                js: [
+                    'assets/js/enhanced-forms.js',
+                    'assets/js/contact-form.js',
+                    'shared/js/common.js',
+                    'assets/js/analytics.js'
+                ]
+            },
+            
+            blog: {
+                title: 'DevOps & Automation Blog - Resiliotech | Startup Automation Guides',
+                description: 'DevOps automation insights, tutorials, and guides for startups. Learn how to implement CI/CD, infrastructure automation, and scale your technical operations.',
+                keywords: 'DevOps blog, startup automation guides, CI/CD tutorials, infrastructure automation, startup DevOps consulting',
+                ogType: 'website',
+                ogTitle: 'DevOps & Automation Blog - Resiliotech',
+                ogDescription: 'DevOps automation insights, tutorials, and guides for startups. Learn how to implement CI/CD, infrastructure automation, and scale your technical operations.',
+                ogImage: 'https://resiliotech.com/assets/images/social/blog-og-1200x630.jpg',
+                ogImageWidth: '1200',
+                ogImageHeight: '630',
+                ogSiteName: 'Resiliotech',
+                twitterTitle: 'DevOps & Automation Blog - Resiliotech',
+                twitterDescription: 'DevOps automation insights, tutorials, and guides for startups. Learn how to implement CI/CD, infrastructure automation, and scale your technical operations.',
+                twitterImage: 'https://resiliotech.com/assets/images/social/blog-twitter-1200x630.jpg',
+                twitterCard: 'summary_large_image',
+                twitterSite: '@resiliotech',
+                twitterCreator: '@resiliotech',
+                css: [
+                    'blog/assets/css/blog.css'
+                ],
+                js: [
+                    'blog/assets/js/blog-manager.js',
+                    'assets/data/blog-content.js',
+                    'assets/js/content-manager.js'
                 ]
             }
         };
@@ -116,10 +202,18 @@ class PageConfig {
             ogTitle: config.ogTitle,
             ogDescription: config.ogDescription,
             ogImage: config.ogImage,
+            ogImageWidth: config.ogImageWidth || '1200',
+            ogImageHeight: config.ogImageHeight || '630',
+            ogSiteName: config.ogSiteName || 'Resiliotech',
             twitterUrl: this.getCurrentUrl(),
             twitterTitle: config.twitterTitle,
             twitterDescription: config.twitterDescription,
             twitterImage: config.twitterImage,
+            twitterCard: config.twitterCard || 'summary_large_image',
+            twitterSite: config.twitterSite || '@resiliotech',
+            twitterCreator: config.twitterCreator || '@resiliotech',
+            linkedinTitle: config.linkedinTitle,
+            linkedinDescription: config.linkedinDescription,
             faviconUrl: basePath + 'assets/images/favicon.svg',
             commonCssUrl: basePath + 'shared/css/common.css',
             additionalCss: this.generateCssLinks(config.css, basePath, config.external?.css),
@@ -138,12 +232,19 @@ class PageConfig {
         
         return {
             homeUrl: basePath,
+            consultingUrl: basePath + 'consulting/',
+            productsUrl: basePath + 'products/',
+            projectsUrl: basePath + 'projects/',
+            resourcesUrl: basePath + 'resources/',
             blogUrl: basePath + 'blog/',
+            newsletterUrl: basePath + 'newsletter/',
             logoUrl: basePath + 'assets/images/logo.svg',
             homeActive: pageType === 'home' ? 'active' : '',
-            servicesActive: '',
+            consultingActive: pageType === 'consulting' ? 'active' : '',
+            productsActive: pageType === 'products' ? 'active' : '',
+            projectsActive: pageType === 'projects' ? 'active' : '',
+            resourcesActive: pageType === 'resources' ? 'active' : '',
             aboutActive: '',
-            projectsActive: '',
             blogActive: pageType === 'blog' ? 'active' : '',
             contactActive: '',
             ...overrides
@@ -161,7 +262,11 @@ class PageConfig {
         
         return {
             homeUrl: basePath,
+            consultingUrl: basePath + 'consulting/',
             blogUrl: basePath + 'blog/',
+            productsUrl: basePath + 'products/',
+            resourcesUrl: basePath + 'resources/',
+            newsletterUrl: basePath + 'newsletter/',
             logoUrl: basePath + 'assets/images/logo.svg',
             ...overrides
         };
@@ -322,47 +427,46 @@ class PageConfig {
                 heroId: ' id="home"',
                 heroContainerClass: 'hero-container',
                 heroContentClass: 'hero-content',
-                heroTitle: '<span class="hero-title-main">Bulletproof Infrastructure.</span><span class="hero-title-accent">Zero-Downtime Dreams.</span>',
-                heroDescription: 'Expert SRE consulting that transforms your tech stack from fragile to fortress-strong. Sleep better knowing your systems won\'t wake you at 3 AM.',
+                heroTitle: '<span class="hero-title-main">Resilient automation</span><span class="hero-title-accent">for fast-moving startups.</span>',
+                heroDescription: 'We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.',
                 heroAdditionalContent: `
                     <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">Get Your Free Infrastructure Health Check</a>
-                        <a href="#services" class="btn btn-secondary">Learn More</a>
+                        <a href="#contact" class="btn btn-primary" data-track="hero-cta">Book Free Automation Audit</a>
                     </div>
                     <div class="hero-stats">
                         <div class="stat">
-                            <span class="stat-number">99.99%</span>
-                            <span class="stat-label">Uptime Delivered</span>
+                            <span class="stat-number">3x</span>
+                            <span class="stat-label">Faster Deployments</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Companies Served</span>
+                            <span class="stat-number">80%</span>
+                            <span class="stat-label">Fewer Incidents</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">Monitoring</span>
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Startups Automated</span>
                         </div>
                     </div>
                 `,
                 heroRightContent: `
                     <div class="tech-grid-container">
-                        <div class="tech-grid">
-                            <div class="tech-item" title="Kubernetes"><img src="${basePath}assets/images/1-kubernetes.svg" alt="Kubernetes" loading="lazy"></div>
-                            <div class="tech-item" title="Docker"><img src="${basePath}assets/images/2-docker.svg" alt="Docker" loading="lazy"></div>
-                            <div class="tech-item" title="AWS"><img src="${basePath}assets/images/3-aws.svg" alt="AWS" loading="lazy"></div>
-                            <div class="tech-item" title="Azure"><img src="${basePath}assets/images/4-azure.svg" alt="Azure" loading="lazy"></div>
-                            <div class="tech-item" title="Google Cloud"><img src="${basePath}assets/images/5-google-cloud.svg" alt="Google Cloud" loading="lazy"></div>
-                            <div class="tech-item" title="Terraform"><img src="${basePath}assets/images/6-terraform.svg" alt="Terraform" loading="lazy"></div>
-                            <div class="tech-item" title="Ansible"><img src="${basePath}assets/images/7-ansible.svg" alt="Ansible" loading="lazy"></div>
-                            <div class="tech-item" title="Jenkins"><img src="${basePath}assets/images/8-jenkins.svg" alt="Jenkins" loading="lazy"></div>
-                            <div class="tech-item" title="GitHub Actions"><img src="${basePath}assets/images/9-gitHub-actions.svg" alt="GitHub Actions" loading="lazy"></div>
-                            <div class="tech-item" title="Prometheus"><img src="${basePath}assets/images/10-prometheus.svg" alt="Prometheus" loading="lazy"></div>
-                            <div class="tech-item" title="Grafana"><img src="${basePath}assets/images/11-grafana.svg" alt="Grafana" loading="lazy"></div>
-                            <div class="tech-item" title="Helm"><img src="${basePath}assets/images/12-helm.svg" alt="Helm" loading="lazy"></div>
-                            <div class="tech-item" title="ArgoCD"><img src="${basePath}assets/images/13-argocd.svg" alt="ArgoCD" loading="lazy"></div>
-                            <div class="tech-item" title="Elasticsearch"><img src="${basePath}assets/images/14-elasticsearch.svg" alt="Elasticsearch" loading="lazy"></div>
-                            <div class="tech-item" title="HashiCorp Vault"><img src="${basePath}assets/images/15-vault.svg" alt="HashiCorp Vault" loading="lazy"></div>
-                            <div class="tech-item" title="Blockchain"><img src="${basePath}assets/images/16-bitcoin.svg" alt="Blockchain" loading="lazy"></div>
+                        <div class="tech-grid" role="img" aria-label="Technologies we use for startup automation">
+                            <div class="tech-item" title="Kubernetes container orchestration"><img src="${basePath}assets/images/1-kubernetes.svg" alt="Kubernetes logo - Container orchestration for scalable applications" loading="lazy"></div>
+                            <div class="tech-item" title="Docker containerization"><img src="${basePath}assets/images/2-docker.svg" alt="Docker logo - Application containerization platform" loading="lazy"></div>
+                            <div class="tech-item" title="Amazon Web Services"><img src="${basePath}assets/images/3-aws.svg" alt="AWS logo - Amazon Web Services cloud platform" loading="lazy"></div>
+                            <div class="tech-item" title="Microsoft Azure cloud"><img src="${basePath}assets/images/4-azure.svg" alt="Microsoft Azure logo - Cloud computing platform" loading="lazy"></div>
+                            <div class="tech-item" title="Google Cloud Platform"><img src="${basePath}assets/images/5-google-cloud.svg" alt="Google Cloud logo - Google Cloud Platform services" loading="lazy"></div>
+                            <div class="tech-item" title="Terraform infrastructure as code"><img src="${basePath}assets/images/6-terraform.svg" alt="Terraform logo - Infrastructure as code tool" loading="lazy"></div>
+                            <div class="tech-item" title="Ansible automation"><img src="${basePath}assets/images/7-ansible.svg" alt="Ansible logo - IT automation platform" loading="lazy"></div>
+                            <div class="tech-item" title="Jenkins CI/CD"><img src="${basePath}assets/images/8-jenkins.svg" alt="Jenkins logo - Continuous integration and deployment" loading="lazy"></div>
+                            <div class="tech-item" title="GitHub Actions workflows"><img src="${basePath}assets/images/9-gitHub-actions.svg" alt="GitHub Actions logo - Automated CI/CD workflows" loading="lazy"></div>
+                            <div class="tech-item" title="Prometheus monitoring"><img src="${basePath}assets/images/10-prometheus.svg" alt="Prometheus logo - Application monitoring and alerting" loading="lazy"></div>
+                            <div class="tech-item" title="Grafana dashboards"><img src="${basePath}assets/images/11-grafana.svg" alt="Grafana logo - Data visualization and monitoring dashboards" loading="lazy"></div>
+                            <div class="tech-item" title="Helm Kubernetes packages"><img src="${basePath}assets/images/12-helm.svg" alt="Helm logo - Kubernetes package manager" loading="lazy"></div>
+                            <div class="tech-item" title="ArgoCD GitOps"><img src="${basePath}assets/images/13-argocd.svg" alt="ArgoCD logo - GitOps continuous delivery" loading="lazy"></div>
+                            <div class="tech-item" title="Elasticsearch search engine"><img src="${basePath}assets/images/14-elasticsearch.svg" alt="Elasticsearch logo - Search and analytics engine" loading="lazy"></div>
+                            <div class="tech-item" title="HashiCorp Vault security"><img src="${basePath}assets/images/15-vault.svg" alt="HashiCorp Vault logo - Secrets management" loading="lazy"></div>
+                            <div class="tech-item" title="Blockchain technology"><img src="${basePath}assets/images/16-bitcoin.svg" alt="Bitcoin logo - Blockchain and cryptocurrency technology" loading="lazy"></div>
                         </div>
                     </div>
                 `,

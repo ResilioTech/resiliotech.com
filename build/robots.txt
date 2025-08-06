@@ -1,8 +1,31 @@
 User-agent: *
 Allow: /
 
+# Block unnecessary files and directories from indexing
+Disallow: /assets/js/
+Disallow: /shared/js/
+Disallow: /build/
+Disallow: *.min.js
+Disallow: *.min.css
+Disallow: /server.js
+Disallow: /package.json*
+Disallow: /optimize.js
+Disallow: /build-prod.sh
+
+# Allow important downloadable resources
+Allow: /assets/downloads/
+
 # Sitemap location
 Sitemap: https://resiliotech.com/sitemap.xml
 
-# Crawl-delay for politeness
+# Crawl-delay for politeness  
+Crawl-delay: 1
+
+# Additional bot-specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot  
+Allow: /
 Crawl-delay: 1

@@ -1,0 +1,22 @@
+{
+  "name": "resiliotech-server",
+  "version": "1.0.0",
+  "description": "Local development server for ReilioTech website with custom 404 support",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js", 
+    "serve": "node server.js",
+    "build": "./build-prod.sh",
+    "build:serve": "./build-prod.sh && cd build && node ../server.js"
+  },
+  "keywords": ["static-server", "404", "development", "resiliotech"],
+  "author": "ReilioTech",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "devOnly": true,
+  "deploymentType": "static"
+}

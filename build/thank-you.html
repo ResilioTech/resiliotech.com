@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - Resilio Tech</title>
     <meta name="description" content="Thank you for contacting Resilio Tech. We'll get back to you soon!">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
-    <link rel="stylesheet" href="./shared/css/common.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="./shared/css/common.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         .thank-you-section {
             min-height: 100vh;
@@ -21,6 +28,7 @@
             position: relative;
             padding: var(--spacing-8) var(--spacing-4);
         }
+        
         .thank-you-section::before {
             content: '';
             position: absolute;
@@ -33,6 +41,7 @@
                 radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
+        
         .thank-you-content {
             text-align: center;
             max-width: 600px;
@@ -44,6 +53,7 @@
             position: relative;
             z-index: 1;
         }
+        
         .thank-you-icon {
             width: 80px;
             height: 80px;
@@ -55,11 +65,13 @@
             margin: 0 auto var(--spacing-6);
             box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
         }
+        
         .thank-you-icon svg {
             width: 40px;
             height: 40px;
             color: white;
         }
+        
         .thank-you-title {
             font-size: var(--font-size-4xl);
             font-weight: 800;
@@ -67,12 +79,14 @@
             margin-bottom: var(--spacing-4);
             line-height: 1.2;
         }
+        
         .thank-you-subtitle {
             font-size: var(--font-size-lg);
             color: var(--text-secondary);
             margin-bottom: var(--spacing-8);
             line-height: 1.6;
         }
+        
         .thank-you-details {
             background: rgba(99, 102, 241, 0.05);
             border: 1px solid rgba(99, 102, 241, 0.2);
@@ -80,24 +94,28 @@
             padding: var(--spacing-6);
             margin-bottom: var(--spacing-8);
         }
+        
         .thank-you-details h3 {
             color: var(--primary-color);
             font-size: var(--font-size-lg);
             font-weight: 600;
             margin-bottom: var(--spacing-3);
         }
+        
         .thank-you-details ul {
             list-style: none;
             padding: 0;
             margin: 0;
             text-align: left;
         }
+        
         .thank-you-details li {
             color: var(--text-secondary);
             margin-bottom: var(--spacing-2);
             position: relative;
             padding-left: var(--spacing-6);
         }
+        
         .thank-you-details li::before {
             content: '✓';
             position: absolute;
@@ -105,24 +123,29 @@
             color: var(--primary-color);
             font-weight: 600;
         }
+        
         .thank-you-actions {
             display: flex;
             gap: var(--spacing-4);
             justify-content: center;
             flex-wrap: wrap;
         }
+        
         @media (max-width: 640px) {
             .thank-you-content {
                 padding: var(--spacing-8);
                 margin: var(--spacing-4);
             }
+            
             .thank-you-title {
                 font-size: var(--font-size-3xl);
             }
+            
             .thank-you-actions {
                 flex-direction: column;
                 align-items: center;
             }
+            
             .thank-you-actions .btn {
                 width: 100%;
                 max-width: 280px;
@@ -131,7 +154,9 @@
     </style>
 </head>
 <body>
+    <!-- Navigation will be loaded here -->
     <div id="navigation-container"></div>
+    
     <section class="thank-you-section">
         <div class="thank-you-content">
             <div class="thank-you-icon">
@@ -139,10 +164,12 @@
                     <polyline points="20,6 9,17 4,12"></polyline>
                 </svg>
             </div>
+            
             <h1 class="thank-you-title">Thank You!</h1>
             <p class="thank-you-subtitle">
                 Your message has been successfully sent. We appreciate you reaching out to Resilio Tech!
             </p>
+            
             <div class="thank-you-details">
                 <h3>What happens next?</h3>
                 <ul>
@@ -152,14 +179,19 @@
                     <li>You'll receive tailored recommendations for your infrastructure needs</li>
                 </ul>
             </div>
+            
             <div class="thank-you-actions">
                 <a href="./" class="btn btn-primary">Back to Home</a>
                 <a href="./resources/" class="btn btn-secondary">Explore Resources</a>
             </div>
         </div>
     </section>
-    <script src="./shared/js/utils.min.js"></script>
-    <script src="./shared/js/common.min.js"></script>
+    
+    <!-- Scripts -->
+    <script src="./shared/js/utils.js"></script>
+    <script src="./shared/js/common.js"></script>
+    
+    <!-- Load navigation -->
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
             try {
@@ -179,6 +211,7 @@
                         navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
                         navContainer.innerHTML = navHTML;
+                        
                         if (window.initializeNavigation) {
                             window.initializeNavigation();
                         }
@@ -188,6 +221,7 @@
                 console.error('Error loading navigation:', error);
             }
         });
+        
         // Auto-redirect to home after 30 seconds
         setTimeout(() => {
             window.location.href = './';

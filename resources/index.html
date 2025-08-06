@@ -47,15 +47,64 @@
     </script>
 </head>
 <body data-page-type="resources" data-auto-init-components="false">
-    <!-- Navigation will be loaded here -->
-    <div id="navigation-container"></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../" class="nav-logo-link">
+                    <img src="../assets/images/logo.svg" alt="Resiliotech Logo" class="logo-img">
+                    <span class="nav-tagline">Resilient automation for fast moving startups</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../" class="nav-link">Home</a>
+                <a href="../consulting/" class="nav-link">Consulting</a>
+                <a href="../projects/" class="nav-link">Projects</a>
+                <a href="../products/" class="nav-link nav-link-with-badge">
+                    <span class="nav-link-text">Products</span>
+                    <span class="nav-badge">Coming Soon</span>
+                </a>
+                <a href="../blog/" class="nav-link">Blog</a>
+                <a href="../resources/" class="nav-link active">Resources</a>
+                <a href="../#about" class="nav-link">About</a>
+                <a href="../#contact" class="nav-link">Contact</a>
+                <a href="../#contact" class="nav-cta" data-track="cta_click" data-source="navigation">Book Free Audit</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
 
     <!-- Progress Bar -->
     <div class="progress-bar" id="progress-bar" style="position: fixed; top: 70px; left: 0; height: 3px; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); z-index: 999; transition: width 0.3s ease;"></div>
 
     <main class="main">
-        <!-- Header will be loaded here -->
-        <div id="header-container"></div>
+        <!-- Resources Hero Section -->
+        <section class="resources-hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Resources & Insights</h1>
+                    <p class="hero-description">Articles, videos, and tutorials covering SRE practices, DevOps workflows, and infrastructure resilience from real-world experience.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Articles</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Videos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Tutorials</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Breadcrumb Navigation -->
         <section class="breadcrumb-section">
@@ -377,72 +426,9 @@
             
             console.log('Initializing resources page components...');
             
-            // Load navigation
-            try {
-                const navContainer = document.getElementById('navigation-container');
-                if (navContainer && !navContainer.innerHTML.trim()) {
-                    const navResponse = await fetch('../shared/components/navigation.html');
-                    if (navResponse.ok) {
-                        let navHTML = await navResponse.text();
-                        navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, '../');
-                        navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, '../resources/');
-                        navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, '../projects/');
-                        navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, '../assets/images/logo.svg');
-                        navHTML = navHTML.replace(/\{\{homeActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, 'active');
-                        navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
-                        navContainer.innerHTML = navHTML;
-                        
-                        // Initialize navigation after it's loaded
-                        if (window.initializeNavigation) {
-                            window.initializeNavigation();
-                        }
-                    }
-                }
-            } catch (error) {
-                console.error('Error loading navigation:', error);
-            }
+            // Navigation is now static, no need to load dynamically
             
-            // Load header
-            try {
-                const headerContainer = document.getElementById('header-container');
-                if (headerContainer && !headerContainer.innerHTML.trim()) {
-                    const headerResponse = await fetch('../shared/components/header.html');
-                    if (headerResponse.ok) {
-                        let headerHTML = await headerResponse.text();
-                        headerHTML = headerHTML.replace(/\{\{heroClass\}\}/g, 'resources-hero');
-                        headerHTML = headerHTML.replace(/\{\{heroId\}\}/g, '');
-                        headerHTML = headerHTML.replace(/\{\{heroContainerClass\}\}/g, 'hero-container');
-                        headerHTML = headerHTML.replace(/\{\{heroContentClass\}\}/g, 'hero-content');
-                        headerHTML = headerHTML.replace(/\{\{heroTitle\}\}/g, 'Resources & Insights');
-                        headerHTML = headerHTML.replace(/\{\{heroDescription\}\}/g, 'Articles, videos, and tutorials covering SRE practices, DevOps workflows, and infrastructure resilience from real-world experience.');
-                        headerHTML = headerHTML.replace(/\{\{heroAdditionalContent\}\}/g, `
-                            <div class="hero-stats">
-                                <div class="stat-item">
-                                    <div class="stat-number">50+</div>
-                                    <div class="stat-label">Articles</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">20+</div>
-                                    <div class="stat-label">Videos</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">10+</div>
-                                    <div class="stat-label">Tutorials</div>
-                                </div>
-                            </div>
-                        `);
-                        headerHTML = headerHTML.replace(/\{\{heroRightContent\}\}/g, '');
-                        headerHTML = headerHTML.replace(/\{\{heroBottomContent\}\}/g, '');
-                        headerContainer.innerHTML = headerHTML;
-                    }
-                }
-            } catch (error) {
-                console.error('Error loading header:', error);
-            }
+            // Header is now static, no need to load dynamically
             
             // Load footer
             try {

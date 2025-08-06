@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | Resilio Tech</title>
     <meta name="description" content="The page you're looking for doesn't exist. Find what you need with our helpful navigation.">
+    
+    <!-- Mobile Browser Theme -->
     <meta name="theme-color" content="#6366f1">
     <meta name="msapplication-TileColor" content="#6366f1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shared/css/common.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    
     <style>
         .error-page {
             min-height: 100vh;
@@ -21,6 +30,7 @@
             position: relative;
             overflow: hidden;
         }
+        
         .error-page::before {
             content: '';
             position: absolute;
@@ -31,10 +41,12 @@
             background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
             animation: float 20s infinite;
         }
+        
         @keyframes float {
             0%, 100% { transform: rotate(0deg); }
             50% { transform: rotate(180deg); }
         }
+        
         .error-container {
             text-align: center;
             max-width: 600px;
@@ -42,6 +54,7 @@
             position: relative;
             z-index: 1;
         }
+        
         .error-code {
             font-size: clamp(6rem, 15vw, 12rem);
             font-weight: 700;
@@ -54,22 +67,26 @@
             background-clip: text;
             animation: glow 2s ease-in-out infinite alternate;
         }
+        
         @keyframes glow {
             from { filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3)); }
             to { filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.6)); }
         }
+        
         .error-title {
             font-size: var(--font-size-3xl);
             font-weight: 600;
             color: var(--text-primary);
             margin: var(--spacing-6) 0 var(--spacing-4);
         }
+        
         .error-message {
             font-size: var(--font-size-lg);
             color: var(--text-secondary);
             margin-bottom: var(--spacing-8);
             line-height: 1.6;
         }
+        
         .error-actions {
             display: flex;
             flex-direction: column;
@@ -77,12 +94,15 @@
             align-items: center;
             margin-bottom: var(--spacing-8);
         }
+        
         .error-actions .btn {
             min-width: 200px;
         }
+        
         .search-container {
             margin: var(--spacing-8) 0;
         }
+        
         .search-input {
             width: 100%;
             max-width: 400px;
@@ -94,17 +114,20 @@
             font-size: var(--font-size-base);
             transition: all 0.3s ease;
         }
+        
         .search-input:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
         }
+        
         .helpful-links {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--spacing-6);
             margin-top: var(--spacing-8);
         }
+        
         .link-card {
             background: var(--background-light);
             border: 1px solid var(--border-color);
@@ -114,11 +137,13 @@
             transition: all 0.3s ease;
             display: block;
         }
+        
         .link-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             border-color: var(--primary-color);
         }
+        
         .link-card-icon {
             width: 40px;
             height: 40px;
@@ -130,21 +155,25 @@
             margin-bottom: var(--spacing-4);
             color: white;
         }
+        
         .link-card-title {
             font-size: var(--font-size-lg);
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: var(--spacing-2);
         }
+        
         .link-card-description {
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
             line-height: 1.5;
         }
+        
         @media (max-width: 768px) {
             .error-actions {
                 flex-direction: column;
             }
+            
             .helpful-links {
                 grid-template-columns: 1fr;
             }
@@ -152,7 +181,9 @@
     </style>
 </head>
 <body>
+    <!-- Navigation will be loaded here -->
     <div id="navigation-container"></div>
+    
     <main class="error-page">
         <div class="error-container">
             <h1 class="error-code">404</h1>
@@ -161,10 +192,12 @@
                 The page you're looking for seems to have vanished into the digital void. 
                 Don't worry though – our infrastructure is still rock solid!
             </p>
+            
             <div class="error-actions">
                 <a href="/" class="btn btn-primary">Take Me Home</a>
                 <button onclick="history.back()" class="btn btn-secondary">Go Back</button>
             </div>
+            
             <div class="search-container">
                 <input 
                     type="text" 
@@ -174,6 +207,7 @@
                     aria-label="Search our website"
                 >
             </div>
+            
             <div class="helpful-links">
                 <a href="/" class="link-card">
                     <div class="link-card-icon">
@@ -187,6 +221,7 @@
                         Return to our homepage and explore our SRE consulting services
                     </p>
                 </a>
+                
                 <a href="/resources/" class="link-card">
                     <div class="link-card-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -202,6 +237,7 @@
                         Browse our comprehensive collection of SRE articles and tutorials
                     </p>
                 </a>
+                
                 <a href="/projects/" class="link-card">
                     <div class="link-card-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -217,6 +253,7 @@
                         Explore our latest cloud migration and DevOps transformation projects
                     </p>
                 </a>
+                
                 <a href="/#contact" class="link-card">
                     <div class="link-card-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -232,8 +269,11 @@
             </div>
         </div>
     </main>
-    <script src="shared/js/utils.min.js"></script>
-    <script src="shared/js/common.min.js"></script>
+    
+    <!-- Scripts -->
+    <script src="shared/js/utils.js"></script>
+    <script src="shared/js/common.js"></script>
+    
     <script>
         // Initialize page
         document.addEventListener('DOMContentLoaded', async () => {
@@ -253,6 +293,7 @@
                     navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
                     navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
                     document.getElementById('navigation-container').innerHTML = navHTML;
+                    
                     // Initialize navigation
                     if (window.ResilioCommon) {
                         new ResilioCommon();
@@ -261,6 +302,7 @@
             } catch (error) {
                 console.error('Error loading navigation:', error);
             }
+            
             // Search functionality
             const searchInput = document.getElementById('search-404');
             if (searchInput) {

@@ -137,11 +137,16 @@
                 if (navResponse.ok) {
                     let navHTML = await navResponse.text();
                     navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, '../');
+                    navHTML = navHTML.replace(/\{\{consultingUrl\}\}/g, '../consulting/');
+                    navHTML = navHTML.replace(/\{\{productsUrl\}\}/g, '../products/');
+                    navHTML = navHTML.replace(/\{\{blogUrl\}\}/g, '../blog/');
                     navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, './');
                     navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, '../resources/');
                     navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, '../assets/images/logo.svg');
                     navHTML = navHTML.replace(/\{\{homeActive\}\}/g, '');
-                    navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{consultingActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{productsActive\}\}/g, '');
+                    navHTML = navHTML.replace(/\{\{blogActive\}\}/g, '');
                     navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
                     navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, 'active');
                     navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');

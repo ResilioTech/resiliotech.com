@@ -1,0 +1,755 @@
+<!-- Lead Magnet Forms for Resiliotech -->
+
+<!-- CI/CD Implementation Guide Lead Capture Form -->
+<div id="cicd-guide-modal" class="lead-magnet-modal" style="display: none;">
+    <div class="modal-overlay" onclick="closeLead MagnetModal('cicd-guide-modal')"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="modal-close" onclick="closeLeadMagnetModal('cicd-guide-modal')" aria-label="Close modal">×</button>
+            <h3>Get Your Free CI/CD Implementation Guide</h3>
+            <p>Complete step-by-step guide to implementing CI/CD automation in your startup. Includes templates, checklists, and real-world examples.</p>
+        </div>
+        
+        <form data-form-type="lead-capture" data-lead-magnet="cicd-guide" data-download-url="/assets/downloads/cicd-implementation-guide.pdf" class="lead-capture-form">
+            <div class="form-group">
+                <label for="cicd-firstName">First Name *</label>
+                <input type="text" id="cicd-firstName" name="firstName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cicd-email">Work Email *</label>
+                <input type="email" id="cicd-email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cicd-company">Company</label>
+                <input type="text" id="cicd-company" name="company">
+            </div>
+            
+            <div class="form-group">
+                <label for="cicd-role">Role</label>
+                <select id="cicd-role" name="role">
+                    <option value="">Select your role</option>
+                    <option value="founder">Founder/CEO</option>
+                    <option value="cto">CTO</option>
+                    <option value="engineering-manager">Engineering Manager</option>
+                    <option value="lead-developer">Lead Developer</option>
+                    <option value="devops-engineer">DevOps Engineer</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="cicd-team-size">Team Size</label>
+                <select id="cicd-team-size" name="teamSize">
+                    <option value="">Select team size</option>
+                    <option value="1-5">1-5 people</option>
+                    <option value="6-15">6-15 people</option>
+                    <option value="16-50">16-50 people</option>
+                    <option value="50+">50+ people</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">
+                Download Free Guide
+            </button>
+            
+            <p class="form-note">Get instant access + join 500+ startup founders receiving automation tips weekly.</p>
+        </form>
+        
+        <div class="modal-trust-signals">
+            <div class="trust-signal">
+                <span class="trust-icon">📥</span>
+                <span>1,200+ downloads</span>
+            </div>
+            <div class="trust-signal">
+                <span class="trust-icon">⭐</span>
+                <span>4.8/5 rating</span>
+            </div>
+            <div class="trust-signal">
+                <span class="trust-icon">🚀</span>
+                <span>Used by 100+ startups</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Infrastructure Checklist Lead Capture Form -->
+<div id="infrastructure-checklist-modal" class="lead-magnet-modal" style="display: none;">
+    <div class="modal-overlay" onclick="closeLeadMagnetModal('infrastructure-checklist-modal')"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="modal-close" onclick="closeLeadMagnetModal('infrastructure-checklist-modal')" aria-label="Close modal">×</button>
+            <h3>Free Startup Infrastructure Checklist</h3>
+            <p>Comprehensive 50-point checklist to ensure your startup's infrastructure is production-ready, secure, and scalable.</p>
+        </div>
+        
+        <form data-form-type="lead-capture" data-lead-magnet="infrastructure-checklist" data-download-url="/assets/downloads/infrastructure-checklist.pdf" class="lead-capture-form">
+            <div class="form-group">
+                <label for="checklist-firstName">First Name *</label>
+                <input type="text" id="checklist-firstName" name="firstName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="checklist-email">Work Email *</label>
+                <input type="email" id="checklist-email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="checklist-company">Company</label>
+                <input type="text" id="checklist-company" name="company">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">
+                Get Free Checklist
+            </button>
+            
+            <p class="form-note">Instant download + weekly automation insights for startup founders.</p>
+        </form>
+    </div>
+</div>
+
+<!-- ROI Calculator Lead Capture Form -->
+<div id="roi-calculator-modal" class="lead-magnet-modal" style="display: none;">
+    <div class="modal-overlay" onclick="closeLeadMagnetModal('roi-calculator-modal')"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="modal-close" onclick="closeLeadMagnetModal('roi-calculator-modal')" aria-label="Close modal">×</button>
+            <h3>DevOps Automation ROI Calculator</h3>
+            <p>Calculate the exact ROI of your DevOps automation initiatives. Get a custom report showing potential savings and implementation costs.</p>
+        </div>
+        
+        <form data-form-type="multi-step" data-lead-value="15" data-business-model="consulting" class="multi-step-form">
+            <!-- Step 1: Basic Information -->
+            <div class="form-step active" data-step="1">
+                <h4>Tell us about your company</h4>
+                
+                <div class="form-group">
+                    <label for="roi-email">Work Email *</label>
+                    <input type="email" id="roi-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="roi-company">Company Name *</label>
+                    <input type="text" id="roi-company" name="company" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="roi-employees">Number of Employees *</label>
+                    <select id="roi-employees" name="employees" required>
+                        <option value="">Select range</option>
+                        <option value="1-10">1-10</option>
+                        <option value="11-25">11-25</option>
+                        <option value="26-50">26-50</option>
+                        <option value="51-100">51-100</option>
+                        <option value="100+">100+</option>
+                    </select>
+                </div>
+                
+                <button type="button" class="btn btn-primary next-step">Next Step →</button>
+            </div>
+            
+            <!-- Step 2: Current State -->
+            <div class="form-step" data-step="2">
+                <h4>Current DevOps Maturity</h4>
+                
+                <div class="form-group">
+                    <label for="roi-deployments">How often do you deploy to production?</label>
+                    <select id="roi-deployments" name="deploymentFrequency">
+                        <option value="">Select frequency</option>
+                        <option value="weekly">Less than weekly</option>
+                        <option value="daily">Daily</option>
+                        <option value="multiple-daily">Multiple times per day</option>
+                        <option value="on-demand">On-demand</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="roi-incidents">How many production incidents per month?</label>
+                    <select id="roi-incidents" name="monthlyIncidents">
+                        <option value="">Select range</option>
+                        <option value="0-1">0-1</option>
+                        <option value="2-5">2-5</option>
+                        <option value="6-10">6-10</option>
+                        <option value="10+">10+</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="roi-automation">Current automation level</label>
+                    <select id="roi-automation" name="automationLevel">
+                        <option value="">Select level</option>
+                        <option value="none">Mostly manual</option>
+                        <option value="basic">Basic CI/CD</option>
+                        <option value="intermediate">Intermediate automation</option>
+                        <option value="advanced">Advanced automation</option>
+                    </select>
+                </div>
+                
+                <div class="form-step-navigation">
+                    <button type="button" class="btn btn-outline prev-step">← Previous</button>
+                    <button type="button" class="btn btn-primary next-step">Next Step →</button>
+                </div>
+            </div>
+            
+            <!-- Step 3: Goals & Priorities -->
+            <div class="form-step" data-step="3">
+                <h4>Your Automation Goals</h4>
+                
+                <div class="form-group">
+                    <label>What are your top priorities? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="priorities" value="deployment-speed"> Faster deployments</label>
+                        <label><input type="checkbox" name="priorities" value="reliability"> Improved reliability</label>
+                        <label><input type="checkbox" name="priorities" value="cost-reduction"> Cost reduction</label>
+                        <label><input type="checkbox" name="priorities" value="team-productivity"> Team productivity</label>
+                        <label><input type="checkbox" name="priorities" value="compliance"> Compliance & security</label>
+                        <label><input type="checkbox" name="priorities" value="monitoring"> Better monitoring</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="roi-timeline">Desired implementation timeline</label>
+                    <select id="roi-timeline" name="timeline">
+                        <option value="">Select timeline</option>
+                        <option value="immediate">ASAP (within 1 month)</option>
+                        <option value="quarter">This quarter</option>
+                        <option value="6-months">Next 6 months</option>
+                        <option value="year">Within a year</option>
+                    </select>
+                </div>
+                
+                <div class="form-step-navigation">
+                    <button type="button" class="btn btn-outline prev-step">← Previous</button>
+                    <button type="submit" class="btn btn-primary">Get My ROI Report</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Newsletter Signup Form (Enhanced) -->
+<div id="newsletter-signup-enhanced" class="newsletter-signup-enhanced">
+    <div class="newsletter-content">
+        <h3>Weekly DevOps Automation Insights</h3>
+        <p>Join 500+ startup founders and technical leaders getting practical automation tips, case studies, and industry insights.</p>
+        
+        <form data-form-type="newsletter" data-source="homepage" class="newsletter-form-enhanced">
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Enter your work email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
+            
+            <div class="newsletter-preferences">
+                <label class="preference-label">I'm interested in:</label>
+                <div class="preference-group">
+                    <label><input type="checkbox" name="interests" value="consulting" checked> Consulting insights</label>
+                    <label><input type="checkbox" name="interests" value="saas-tools" checked> SaaS tool updates</label>
+                    <label><input type="checkbox" name="interests" value="case-studies"> Case studies</label>
+                    <label><input type="checkbox" name="interests" value="tutorials"> Technical tutorials</label>
+                </div>
+            </div>
+            
+            <p class="newsletter-note">No spam. Unsubscribe anytime. We respect your privacy.</p>
+        </form>
+        
+        <div class="newsletter-social-proof">
+            <div class="social-proof-item">
+                <span class="proof-icon">👥</span>
+                <span>500+ subscribers</span>
+            </div>
+            <div class="social-proof-item">
+                <span class="proof-icon">📊</span>
+                <span>4.9/5 rating</span>
+            </div>
+            <div class="social-proof-item">
+                <span class="proof-icon">📧</span>
+                <span>Weekly delivery</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Lead Magnet Modal Styles */
+.lead-magnet-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    padding: 20px;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-light);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+    background: var(--color-gray-100);
+    color: var(--text-primary);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-header h3 {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: var(--font-size-xl);
+}
+
+.modal-header p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.lead-capture-form .form-group {
+    margin-bottom: 20px;
+}
+
+.lead-capture-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.lead-capture-form input,
+.lead-capture-form select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--color-gray-300);
+    border-radius: 8px;
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast);
+}
+
+.lead-capture-form input:focus,
+.lead-capture-form select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.lead-capture-form .btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+}
+
+.form-note {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.modal-trust-signals {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid var(--color-gray-200);
+}
+
+.trust-signal {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.trust-icon {
+    font-size: 16px;
+}
+
+/* Multi-Step Form Styles */
+.multi-step-form .form-step {
+    display: none;
+}
+
+.multi-step-form .form-step.active {
+    display: block;
+}
+
+.form-step-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-step-navigation .btn {
+    flex: 1;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background var(--transition-fast);
+}
+
+.checkbox-group label:hover {
+    background: var(--color-gray-50);
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+/* Enhanced Newsletter Form */
+.newsletter-signup-enhanced {
+    background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 0;
+}
+
+.newsletter-content h3 {
+    margin-bottom: 10px;
+    font-size: var(--font-size-xl);
+}
+
+.newsletter-content p {
+    opacity: 0.9;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.newsletter-form-enhanced .form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.newsletter-form-enhanced input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.newsletter-form-enhanced input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-form-enhanced input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-preferences {
+    margin-bottom: 20px;
+}
+
+.preference-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+}
+
+.preference-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.preference-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.newsletter-note {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.newsletter-social-proof {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-proof-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+}
+
+.proof-icon {
+    font-size: 16px;
+}
+
+/* Progress Indicator for Multi-Step Forms */
+.step-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.step-indicator {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-gray-300);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.step-indicator.active {
+    background: var(--color-primary);
+}
+
+.step-indicator.completed {
+    background: var(--color-success);
+}
+
+.step-connector {
+    width: 40px;
+    height: 2px;
+    background: var(--color-gray-300);
+    transition: background var(--transition-fast);
+}
+
+.step-connector.completed {
+    background: var(--color-success);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    
+    .modal-trust-signals {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .newsletter-form-enhanced .form-group {
+        flex-direction: column;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .preference-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .newsletter-social-proof {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
+</style>
+
+<script>
+// Lead Magnet Modal Management
+function openLeadMagnetModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Track modal open
+        if (window.analyticsManager) {
+            window.analyticsManager.trackEvent('lead_magnet_modal_opened', {
+                modal_id: modalId,
+                lead_magnet: modalId.replace('-modal', '')
+            });
+        }
+    }
+}
+
+function closeLeadMagnetModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        
+        // Track modal close
+        if (window.analyticsManager) {
+            window.analyticsManager.trackEvent('lead_magnet_modal_closed', {
+                modal_id: modalId,
+                lead_magnet: modalId.replace('-modal', '')
+            });
+        }
+    }
+}
+
+// Multi-Step Form Navigation
+document.addEventListener('DOMContentLoaded', () => {
+    // Set up multi-step form navigation
+    document.querySelectorAll('.multi-step-form').forEach(form => {
+        const steps = form.querySelectorAll('.form-step');
+        const nextButtons = form.querySelectorAll('.next-step');
+        const prevButtons = form.querySelectorAll('.prev-step');
+        
+        let currentStep = 1;
+        
+        nextButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep < steps.length) {
+                    steps[currentStep - 1].classList.remove('active');
+                    currentStep++;
+                    steps[currentStep - 1].classList.add('active');
+                    updateStepProgress(form, currentStep, steps.length);
+                }
+            });
+        });
+        
+        prevButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    steps[currentStep - 1].classList.remove('active');
+                    currentStep--;
+                    steps[currentStep - 1].classList.add('active');
+                    updateStepProgress(form, currentStep, steps.length);
+                }
+            });
+        });
+        
+        // Add progress indicator
+        addStepProgressIndicator(form, steps.length);
+    });
+});
+
+function addStepProgressIndicator(form, totalSteps) {
+    const progressHTML = `
+        <div class="step-progress">
+            ${Array.from({length: totalSteps}, (_, i) => `
+                <div class="step-indicator ${i === 0 ? 'active' : ''}" data-step="${i + 1}">
+                    ${i + 1}
+                </div>
+                ${i < totalSteps - 1 ? '<div class="step-connector"></div>' : ''}
+            `).join('')}
+        </div>
+    `;
+    
+    form.insertAdjacentHTML('afterbegin', progressHTML);
+}
+
+function updateStepProgress(form, currentStep, totalSteps) {
+    const indicators = form.querySelectorAll('.step-indicator');
+    const connectors = form.querySelectorAll('.step-connector');
+    
+    indicators.forEach((indicator, index) => {
+        indicator.classList.remove('active', 'completed');
+        
+        if (index + 1 < currentStep) {
+            indicator.classList.add('completed');
+        } else if (index + 1 === currentStep) {
+            indicator.classList.add('active');
+        }
+    });
+    
+    connectors.forEach((connector, index) => {
+        connector.classList.remove('completed');
+        
+        if (index + 1 < currentStep) {
+            connector.classList.add('completed');
+        }
+    });
+}
+
+// Close modals on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.lead-magnet-modal[style*="flex"]').forEach(modal => {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+    }
+});
+
+// Make functions global for onclick handlers
+window.openLeadMagnetModal = openLeadMagnetModal;
+window.closeLeadMagnetModal = closeLeadMagnetModal;
+</script>

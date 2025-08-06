@@ -234,6 +234,9 @@ class InteractiveDemos {
                 this.updateSliderValue(e.target);
                 this.calculateROI();
             });
+            
+            // Initialize slider fill on page load
+            this.updateSliderValue(slider);
         });
 
         // Scenario tabs
@@ -258,6 +261,18 @@ class InteractiveDemos {
     updateSliderValue(slider) {
         const valueSpan = document.getElementById(`${slider.id}-value`);
         if (!valueSpan) return;
+
+        // Calculate percentage for fill and update slider background
+        const percentage = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+        
+        // Create gradient background for filled effect
+        const gradientBg = `linear-gradient(90deg, 
+            var(--primary-color) 0%, 
+            var(--primary-light) ${percentage}%, 
+            var(--background-dark) ${percentage}%, 
+            var(--background-dark) 100%)`;
+        
+        slider.style.background = gradientBg;
 
         let displayValue;
         switch (slider.id) {
@@ -318,40 +333,62 @@ class InteractiveDemos {
     }
 
     computeROIMetrics(inputs) {
-        // Current monthly costs
-        const weeklyDeployTime = inputs.deployFrequency * inputs.deployTime;
-        const monthlyDeployTime = weeklyDeployTime * 4.33; // Average weeks per month
-        const monthlyIncidentTime = inputs.incidentFrequency * inputs.resolutionTime;
+        // Validate inputs
+        if (!inputs.teamSize || !inputs.deployFrequency || !inputs.hourlyRate) {
+            console.warn('Missing required inputs for ROI calculation');
+            return this.getDefaultResults();
+        }
         
-        // Automation improvements (conservative estimates)
-        const deployTimeReduction = 0.75; // 75% reduction in deployment time
-        const incidentReduction = 0.60; // 60% reduction in incidents
-        const productivityGain = 0.25; // 25% more productive time
+        // Convert deployment time from minutes to hours monthly
+        const weeklyDeployMinutes = inputs.deployFrequency * inputs.deployTime;
+        const monthlyDeployMinutes = weeklyDeployMinutes * 4.33; // Average weeks per month
+        const monthlyDeployHours = monthlyDeployMinutes / 60;
         
-        // Calculate savings
-        const deployTimeSaved = (monthlyDeployTime * deployTimeReduction) / 60; // Convert to hours
-        const incidentTimeSaved = monthlyIncidentTime * incidentReduction;
-        const totalTimeSaved = deployTimeSaved + incidentTimeSaved;
+        // Monthly incident resolution time in hours
+        const monthlyIncidentHours = inputs.incidentFrequency * inputs.resolutionTime;
         
-        const monthlySavings = totalTimeSaved * inputs.hourlyRate;
+        // Automation savings (75% deployment time reduction, 60% incident reduction)
+        const deployTimeSavedHours = monthlyDeployHours * 0.75;
+        const incidentTimeSavedHours = monthlyIncidentHours * 0.60;
+        const totalTimeSavedHours = deployTimeSavedHours + incidentTimeSavedHours;
+        
+        // Calculate monetary savings
+        const monthlySavings = totalTimeSavedHours * inputs.hourlyRate;
         const annualSavings = monthlySavings * 12;
         
-        // Productivity metrics
-        const currentProductiveTime = (40 * 4.33 * inputs.teamSize) - (monthlyDeployTime / 60) - monthlyIncidentTime;
-        const newProductiveTime = currentProductiveTime + totalTimeSaved + (currentProductiveTime * productivityGain);
-        const productivityIncrease = ((newProductiveTime - currentProductiveTime) / currentProductiveTime) * 100;
+        // Productivity calculation: time saved as % of total productive time
+        const totalMonthlyWorkHours = 40 * 4.33 * inputs.teamSize; // Total team hours per month
+        const currentWastedHours = monthlyDeployHours + monthlyIncidentHours;
+        const currentProductiveHours = Math.max(totalMonthlyWorkHours - currentWastedHours, 1); // Prevent division by zero
         
-        // Reliability improvement
-        const reliabilityImprovement = incidentReduction * 100;
+        // Productivity increase: saved time + 25% efficiency boost
+        const efficiencyBoost = currentProductiveHours * 0.25;
+        const totalProductivityGain = totalTimeSavedHours + efficiencyBoost;
+        const productivityIncrease = (totalProductivityGain / currentProductiveHours) * 100;
+        
+        // Reliability improvement (60% incident reduction)
+        const reliabilityImprovement = 60;
         
         return {
-            timeSaved: Math.round(totalTimeSaved),
-            deployTimeSaved: Math.round(deployTimeSaved),
-            incidentTimeSaved: Math.round(incidentTimeSaved),
+            timeSaved: Math.round(totalTimeSavedHours),
+            deployTimeSaved: Math.round(deployTimeSavedHours),
+            incidentTimeSaved: Math.round(incidentTimeSavedHours),
             monthlySavings: Math.round(monthlySavings),
             annualSavings: Math.round(annualSavings),
-            productivityIncrease: Math.round(productivityIncrease),
-            reliabilityImprovement: Math.round(reliabilityImprovement)
+            productivityIncrease: Math.round(Math.max(productivityIncrease, 0)), // Ensure non-negative
+            reliabilityImprovement: reliabilityImprovement
+        };
+    }
+
+    getDefaultResults() {
+        return {
+            timeSaved: 0,
+            deployTimeSaved: 0,
+            incidentTimeSaved: 0,
+            monthlySavings: 0,
+            annualSavings: 0,
+            productivityIncrease: 0,
+            reliabilityImprovement: 0
         };
     }
 

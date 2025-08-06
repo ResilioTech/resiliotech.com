@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resilient Startups Newsletter - DevOps Automation Insights | Resiliotech</title>
+    <meta name="description" content="Subscribe to Resilient Startups newsletter for bi-monthly insights on startup automation, DevOps best practices, case studies, and early access to our SaaS tools.">
+    <meta name="keywords" content="DevOps newsletter, startup automation newsletter, DevOps insights, infrastructure best practices, startup automation tips">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://resiliotech.com/newsletter/">
+    <meta property="og:title" content="Resilient Startups Newsletter - DevOps Automation Insights">
+    <meta property="og:description" content="Get bi-monthly insights on startup automation, DevOps best practices, case studies, and early access to our SaaS tools.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/social/newsletter-og-1200x630.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Resiliotech">
+    
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@resiliotech">
+    <meta property="twitter:creator" content="@resiliotech">
+    <meta property="twitter:title" content="Resilient Startups Newsletter - DevOps Automation Insights">
+    <meta property="twitter:description" content="Get bi-monthly insights on startup automation, DevOps best practices, case studies, and early access to our SaaS tools.">
+    <meta property="twitter:image" content="https://resiliotech.com/assets/images/social/newsletter-twitter-1200x630.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../shared/css/common.css">
+    <link rel="stylesheet" href="../assets/css/newsletter.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsMediaOrganization",
+        "name": "Resilient Startups Newsletter",
+        "url": "https://resiliotech.com/newsletter/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://resiliotech.com/assets/images/logo.svg"
+        },
+        "sameAs": [
+            "https://resiliotech.substack.com",
+            "https://www.linkedin.com/company/resiliotech",
+            "https://x.com/resiliotech"
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "Resiliotech",
+            "url": "https://resiliotech.com"
+        },
+        "description": "Bi-monthly insights on startup automation, DevOps best practices, case studies, and early access to SaaS tools for fast-moving startups."
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Newsletter Hero Section -->
+    <section class="newsletter-hero">
+        <div class="container">
+            <div class="newsletter-hero-content">
+                <div class="newsletter-hero-text">
+                    <h1>
+                        <span class="newsletter-emoji">📧</span>
+                        Resilient Startups Newsletter
+                    </h1>
+                    <p class="newsletter-hero-description">
+                        Join 500+ startup founders and technical leaders getting practical DevOps automation insights, 
+                        case studies, and early access to our SaaS tools. Delivered bi-monthly to your inbox.
+                    </p>
+                    
+                    <div class="newsletter-stats">
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Subscribers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.9/5</span>
+                            <span class="stat-label">Reader Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">Bi-monthly</span>
+                            <span class="stat-label">Delivery</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="newsletter-hero-form">
+                    <form data-form-type="newsletter" data-source="newsletter-page" class="newsletter-signup-form">
+                        <h3>Subscribe Now</h3>
+                        
+                        <div class="form-group">
+                            <label for="newsletter-email">Work Email *</label>
+                            <input type="email" id="newsletter-email" name="email" placeholder="Enter your work email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newsletter-name">First Name (Optional)</label>
+                            <input type="text" id="newsletter-name" name="firstName" placeholder="Your first name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>I'm interested in:</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="consulting" checked>
+                                    <span>Consulting insights & case studies</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="saas-tools" checked>
+                                    <span>SaaS tool updates & early access</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="tutorials">
+                                    <span>Technical tutorials & guides</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="industry-news">
+                                    <span>Industry news & trends</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label consent-checkbox">
+                                <input type="checkbox" name="consent" required>
+                                <span>I agree to receive email updates from Resiliotech. I can unsubscribe at any time.</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary newsletter-submit">
+                            <span class="btn-text">Subscribe to Newsletter</span>
+                            <span class="btn-loading" style="display: none;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                                </svg>
+                            </span>
+                        </button>
+                        
+                        <p class="form-privacy">
+                            We respect your privacy. No spam, unsubscribe anytime. 
+                            Read our <a href="/privacy">Privacy Policy</a>.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Content Preview -->
+    <section class="newsletter-content">
+        <div class="container">
+            <div class="newsletter-content-header">
+                <h2>What You'll Get</h2>
+                <p>Our newsletter delivers actionable insights that help startup founders and technical leaders build resilient, automated infrastructure.</p>
+            </div>
+            
+            <div class="newsletter-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Practical Automation Guides</h3>
+                    <p>Step-by-step tutorials on implementing CI/CD, infrastructure as code, monitoring, and more.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real Startup Case Studies</h3>
+                    <p>Behind-the-scenes look at how we've helped startups scale their infrastructure from fragile to resilient.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Early Tool Access</h3>
+                    <p>Be first to try our DevOps Health Monitor, Automation Audit Tool, and other SaaS products.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Industry Insights</h3>
+                    <p>Curated DevOps trends, tool recommendations, and strategic advice for startup technical leaders.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>ROI-Focused Content</h3>
+                    <p>Every article includes practical takeaways that directly impact your startup's efficiency and reliability.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Community Highlights</h3>
+                    <p>Success stories, Q&As, and insights from our growing community of startup technical leaders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Archive Preview -->
+    <section class="newsletter-archive">
+        <div class="container">
+            <div class="archive-header">
+                <h2>Recent Newsletter Issues</h2>
+                <p>Get a taste of what we share with our subscribers</p>
+            </div>
+            
+            <div class="archive-grid" id="newsletter-archive">
+                <!-- Newsletter issues will be loaded here by JavaScript -->
+                <div class="archive-card coming-soon">
+                    <div class="archive-header">
+                        <h3>Issue #1: Foundation First</h3>
+                        <span class="archive-date">Coming December 2024</span>
+                    </div>
+                    <p>How to build a resilient DevOps foundation for your startup. Includes infrastructure audit checklist and CI/CD implementation guide.</p>
+                    <div class="archive-topics">
+                        <span class="topic-tag">Infrastructure</span>
+                        <span class="topic-tag">CI/CD</span>
+                        <span class="topic-tag">Monitoring</span>
+                    </div>
+                </div>
+                
+                <div class="archive-card coming-soon">
+                    <div class="archive-header">
+                        <h3>Issue #2: Scaling Smart</h3>
+                        <span class="archive-date">Coming January 2025</span>
+                    </div>
+                    <p>Automation strategies that scale with your team. Case study: How a 15-person startup reduced deployment time by 80%.</p>
+                    <div class="archive-topics">
+                        <span class="topic-tag">Automation</span>
+                        <span class="topic-tag">Case Study</span>
+                        <span class="topic-tag">Scaling</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="archive-cta">
+                <p>Subscribe now to get these issues delivered directly to your inbox!</p>
+                <a href="#newsletter-signup" class="btn btn-outline">Subscribe to Newsletter</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof Section -->
+    <section class="newsletter-testimonials">
+        <div class="container">
+            <h2>What Our Subscribers Say</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The automation guides are incredibly practical. We implemented the CI/CD recommendations and cut our deployment time from 2 hours to 15 minutes."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <strong>Sarah Chen</strong>
+                            <span>CTO, DataFlow Startup</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Finally, DevOps content that's written for startups. No enterprise bloat, just practical advice that works for small teams."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <strong>Michael Rodriguez</strong>
+                            <span>Founder, TechScale</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The case studies are gold. Seeing how other startups solve infrastructure challenges saves us weeks of research time."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <strong>Alex Kim</strong>
+                            <span>Lead Developer, InnovateLab</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter FAQ -->
+    <section class="newsletter-faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How often do you send emails?</h3>
+                    <p>We send the newsletter bi-monthly (every two months). We respect your inbox and only send when we have valuable content to share.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What type of content do you share?</h3>
+                    <p>Practical DevOps automation guides, startup infrastructure case studies, tool recommendations, and early access to our SaaS products.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is it really free?</h3>
+                    <p>Yes! The newsletter is completely free. We occasionally mention our consulting services and SaaS tools, but the content is always valuable regardless.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I unsubscribe anytime?</h3>
+                    <p>Absolutely. Every email includes a one-click unsubscribe link. We make it easy to leave if our content isn't valuable for you.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you share subscriber data?</h3>
+                    <p>Never. We respect your privacy and will never share, sell, or rent your email address. Read our <a href="/privacy">Privacy Policy</a> for details.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Who writes the newsletter?</h3>
+                    <p>Our team of DevOps consultants and startup advisors, led by the Resiliotech founding team. All content is based on real client work and industry experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="newsletter-final-cta">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2>Ready to Build Resilient Infrastructure?</h2>
+                <p>Join 500+ startup founders getting practical DevOps insights delivered to their inbox.</p>
+                <a href="#newsletter-signup" class="btn btn-primary btn-large">Subscribe to Newsletter</a>
+                <p class="cta-note">Free forever. Unsubscribe anytime. No spam, ever.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- JavaScript -->
+    <script src="../shared/js/common.js"></script>
+    <script src="../shared/js/page-config.js"></script>
+    <script src="../assets/js/newsletter-manager.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load components
+            window.PageConfig.initializePage('newsletter');
+            
+            // Smooth scroll for CTA links
+            document.querySelectorAll('a[href="#newsletter-signup"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.querySelector('.newsletter-hero-form').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                });
+            });
+            
+            // Track page view
+            if (window.analyticsManager) {
+                window.analyticsManager.trackEvent('newsletter_page_view', {
+                    source: 'direct',
+                    page: '/newsletter/'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
