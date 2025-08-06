@@ -1,7 +1,19 @@
-// Service Worker for Resilio Tech Website
-// Provides offline support and performance caching
+// Enhanced Service Worker for Resilio Tech Website
+// Provides offline support, performance caching, and advanced optimization
 
-const CACHE_NAME = 'resilio-tech-v1.0.0';
+const CACHE_VERSION = '2.0.0';
+const CACHE_NAME = `resiliotech-v${CACHE_VERSION}`;
+const RUNTIME_CACHE = 'resiliotech-runtime';
+const IMAGES_CACHE = 'resiliotech-images';
+const API_CACHE = 'resiliotech-api';
+
+// Cache strategies
+const CACHE_STRATEGIES = {
+    CACHE_FIRST: 'cache-first',
+    NETWORK_FIRST: 'network-first',
+    STALE_WHILE_REVALIDATE: 'stale-while-revalidate'
+};
+
 const CACHE_ASSETS = [
     '/',
     '/index.html',

@@ -162,6 +162,16 @@ a:hover {
 .nav-logo-link {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.nav-tagline {
+    font-size: var(--font-size-xs);
+    color: var(--text-light);
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 1;
 }
 
 .logo-img {
@@ -432,6 +442,8 @@ a:hover {
         transition: left 0.3s ease;
         z-index: 999;
         gap: var(--spacing-6);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-menu.active {
@@ -446,9 +458,15 @@ a:hover {
         max-width: 300px;
         border-radius: var(--border-radius);
         transition: all var(--transition-normal);
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
     }
 
-    .nav-menu .nav-link:hover {
+    .nav-menu .nav-link:hover,
+    .nav-menu .nav-link:focus {
         background: rgba(255, 255, 255, 0.1);
         transform: translateX(5px);
     }
@@ -457,6 +475,7 @@ a:hover {
         margin-top: var(--spacing-4);
         font-size: var(--font-size-base);
         padding: var(--spacing-4) var(--spacing-8);
+        min-height: 52px;
     }
 
     .nav-toggle {
@@ -465,6 +484,7 @@ a:hover {
         position: relative;
         cursor: pointer;
         padding: var(--spacing-2);
+        touch-action: manipulation;
     }
 
     .nav-toggle .bar {
@@ -483,6 +503,13 @@ a:hover {
         transform: rotate(-45deg) translate(7px, -6px);
     }
 
+    /* Prevent body scroll when menu is open */
+    body.nav-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-8);
@@ -496,6 +523,33 @@ a:hover {
 
     .footer-legal {
         justify-content: center;
+    }
+}
+
+/* Additional Mobile Optimizations */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 var(--spacing-3);
+    }
+    
+    .nav-menu {
+        padding-top: var(--spacing-8);
+        gap: var(--spacing-4);
+    }
+    
+    .nav-menu .nav-link {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-3) var(--spacing-5);
+        max-width: 280px;
+    }
+    
+    .nav-menu .nav-cta {
+        padding: var(--spacing-3) var(--spacing-6);
+        font-size: var(--font-size-sm);
+    }
+    
+    .nav-tagline {
+        display: none;
     }
 }
 

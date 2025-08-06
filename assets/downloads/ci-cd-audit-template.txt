@@ -1,0 +1,77 @@
+# CI/CD Health Audit Template
+
+## Current State Assessment
+
+### Build Process (Score: ___ / 20)
+□ Build time under 10 minutes (5 points)
+□ Reproducible builds across environments (5 points)
+□ Automated dependency management (5 points)
+□ Build artifacts are versioned and stored (5 points)
+
+### Testing Automation (Score: ___ / 25)
+□ Unit tests run automatically on commits (5 points)
+□ Integration tests cover critical paths (5 points)
+□ End-to-end tests for key user flows (5 points)
+□ Test coverage above 70% (5 points)
+□ Tests run in parallel for faster feedback (5 points)
+
+### Deployment Pipeline (Score: ___ / 30)
+□ One-click deployments to all environments (10 points)
+□ Automated rollback capabilities (5 points)
+□ Zero-downtime deployments (10 points)
+□ Environment parity (dev/staging/prod) (5 points)
+
+### Security & Quality (Score: ___ / 15)
+□ Automated security scanning (5 points)
+□ Code quality checks (linting, formatting) (5 points)
+□ Dependency vulnerability scanning (5 points)
+
+### Monitoring & Feedback (Score: ___ / 10)
+□ Deployment success/failure notifications (3 points)
+□ Performance monitoring in prod (4 points)
+□ Error tracking and alerting (3 points)
+
+## Total Score: ___ / 100
+
+## Scoring Guide:
+- 90-100: Excellent - Minor optimizations needed
+- 70-89: Good - Some automation gaps to address
+- 50-69: Fair - Significant improvements needed
+- Below 50: Poor - Major automation overhaul required
+
+## Recommendations Based on Score:
+
+### 90-100 Points: Advanced Optimizations
+- Implement feature flags for safer deployments
+- Add chaos engineering for resilience testing
+- Optimize build times with better caching
+- Implement advanced monitoring with SLIs/SLOs
+
+### 70-89 Points: Automation Enhancement  
+- Improve test coverage and parallel execution
+- Implement automated security scanning
+- Add deployment approval workflows
+- Enhance monitoring and alerting
+
+### 50-69 Points: Foundation Building
+- Set up basic CI/CD pipeline
+- Automate testing at multiple levels  
+- Implement proper environment management
+- Add basic monitoring and error tracking
+
+### Below 50 Points: Complete Overhaul
+- Start with version control best practices
+- Implement basic automated testing
+- Set up staging environment
+- Create manual deployment checklist as first step
+
+## Next Steps:
+1. Identify your top 3 priority areas for improvement
+2. Create a 30-day action plan
+3. Schedule regular pipeline health reviews
+4. Consider partnering with automation experts
+
+---
+
+Need help implementing these improvements? Resiliotech specializes in startup CI/CD automation.
+Get your free personalized audit at https://resiliotech.com
