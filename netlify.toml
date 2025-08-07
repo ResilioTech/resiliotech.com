@@ -9,6 +9,9 @@
 [build.environment]
   NODE_ENV = "production"
   ELEVENTY_ENV = "production"
+  GA4_TRACKING_ID = "G-P2YM46QZCK"
+  CLARITY_PROJECT_ID = "sr1y78mww9"
+  RECAPTCHA_SITE_KEY = "6Lc8k2oqAAAAAF9QKbYgHmrJ2k5vQ0zEWlYRfK7k"
 
 # Build optimization settings
 [build.processing]
