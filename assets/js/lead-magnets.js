@@ -352,24 +352,76 @@ class LeadMagnetManager {
     }
 
     showCalendlyWidget(form) {
-        // Replace form with Calendly widget
+        // Replace form with Calendly widget - DEFERRED LOADING for performance
         const calendlyContainer = document.createElement('div');
         calendlyContainer.className = 'calendar-container';
         calendlyContainer.innerHTML = `
-            <p>Select a time that works for you:</p>
+            <div class="calendly-loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading calendar...</p>
+            </div>
             <div class="calendly-inline-widget" 
                  data-url="https://calendly.com/resiliotech/strategy-call"
-                 style="min-width:320px;height:630px;"></div>
+                 data-auto-load="false"
+                 style="min-width:320px;height:630px;display:none;">
+            </div>
         `;
         
         form.parentNode.replaceChild(calendlyContainer, form);
         
-        // Load Calendly script if not already loaded
-        if (!window.Calendly && !document.querySelector('script[src*="calendly"]')) {
+        // PERFORMANCE OPTIMIZATION: Load Calendly script only when widget is needed
+        this.loadCalendlyScript().then(() => {
+            // Hide loading state and show widget
+            const loadingState = calendlyContainer.querySelector('.calendly-loading-state');
+            const widget = calendlyContainer.querySelector('.calendly-inline-widget');
+            
+            if (loadingState) loadingState.style.display = 'none';
+            if (widget) {
+                widget.style.display = 'block';
+                // Initialize Calendly widget manually after script loads
+                if (window.Calendly) {
+                    window.Calendly.initInlineWidget({
+                        url: 'https://calendly.com/resiliotech/strategy-call',
+                        parentElement: widget
+                    });
+                }
+            }
+        });
+    }
+
+    // Separate method for deferred Calendly script loading
+    loadCalendlyScript() {
+        return new Promise((resolve, reject) => {
+            // Check if Calendly is already loaded
+            if (window.Calendly) {
+                resolve(window.Calendly);
+                return;
+            }
+
+            // Check if script is already being loaded
+            const existingScript = document.querySelector('script[src*="calendly"]');
+            if (existingScript) {
+                existingScript.addEventListener('load', () => resolve(window.Calendly));
+                existingScript.addEventListener('error', reject);
+                return;
+            }
+
+            // Load Calendly script with proper error handling
             const script = document.createElement('script');
             script.src = 'https://assets.calendly.com/assets/external/widget.js';
+            script.async = true;
+            script.defer = true;
+            script.addEventListener('load', () => {
+                console.log('Calendly script loaded successfully');
+                resolve(window.Calendly);
+            });
+            script.addEventListener('error', (error) => {
+                console.error('Failed to load Calendly script:', error);
+                reject(error);
+            });
+            
             document.head.appendChild(script);
-        }
+        });
     }
 
     getLeadMagnetType(modalId) {

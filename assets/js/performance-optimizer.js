@@ -1,6 +1,7 @@
 /**
  * Advanced Performance Optimization System
- * Handles lazy loading, caching, preloading, and performance monitoring
+ * Core Web Vitals focused - Handles lazy loading, caching, preloading, and performance monitoring
+ * Optimized for <150KB critical path and excellent Core Web Vitals scores
  */
 
 class PerformanceOptimizer {
@@ -11,7 +12,13 @@ class PerformanceOptimizer {
             enableServiceWorker: true,
             enableCaching: true,
             performanceMetrics: true,
-            debugMode: window.location.hostname === 'localhost'
+            debugMode: window.location.hostname === 'localhost',
+            // Core Web Vitals thresholds
+            thresholds: {
+                LCP: 2500, // Good: <2.5s
+                FID: 100,  // Good: <100ms  
+                CLS: 0.1   // Good: <0.1
+            }
         };
         
         this.metrics = {
@@ -19,11 +26,17 @@ class PerformanceOptimizer {
             loadTime: 0,
             interactionTime: 0,
             cacheHits: 0,
-            totalRequests: 0
+            totalRequests: 0,
+            // Core Web Vitals tracking
+            LCP: 0,
+            FID: 0,
+            CLS: 0,
+            TTFB: 0
         };
         
         this.cache = new Map();
         this.observers = {};
+        this.calendlyPreloaded = false;
         
         this.init();
     }

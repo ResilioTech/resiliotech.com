@@ -232,21 +232,24 @@ class PageConfig {
         
         return {
             homeUrl: basePath,
+            servicesUrl: basePath + 'services/',
             consultingUrl: basePath + 'consulting/',
             productsUrl: basePath + 'products/',
             projectsUrl: basePath + 'projects/',
             resourcesUrl: basePath + 'resources/',
             blogUrl: basePath + 'blog/',
+            aboutUrl: basePath + 'about/',
             newsletterUrl: basePath + 'newsletter/',
             logoUrl: basePath + 'assets/images/logo.svg',
             homeActive: pageType === 'home' ? 'active' : '',
+            servicesActive: pageType === 'services' ? 'active' : '',
             consultingActive: pageType === 'consulting' ? 'active' : '',
             productsActive: pageType === 'products' ? 'active' : '',
             projectsActive: pageType === 'projects' ? 'active' : '',
             resourcesActive: pageType === 'resources' ? 'active' : '',
-            aboutActive: '',
+            aboutActive: pageType === 'about' ? 'active' : '',
             blogActive: pageType === 'blog' ? 'active' : '',
-            contactActive: '',
+            contactActive: pageType === 'contact' ? 'active' : '',
             ...overrides
         };
     }
@@ -262,10 +265,12 @@ class PageConfig {
         
         return {
             homeUrl: basePath,
+            servicesUrl: basePath + 'services/',
             consultingUrl: basePath + 'consulting/',
             blogUrl: basePath + 'blog/',
             productsUrl: basePath + 'products/',
             resourcesUrl: basePath + 'resources/',
+            aboutUrl: basePath + 'about/',
             newsletterUrl: basePath + 'newsletter/',
             logoUrl: basePath + 'assets/images/logo.svg',
             ...overrides
@@ -431,7 +436,8 @@ class PageConfig {
                 heroDescription: 'We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.',
                 heroAdditionalContent: `
                     <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary" data-track="hero-cta">Book Free Automation Audit</a>
+                        <a href="#lead-magnet" class="btn btn-primary btn-large" data-track="hero-cta">Get Free CI/CD Audit</a>
+                        <p class="cta-subtext">✓ Personalized report in 48 hours • No spam, actionable insights only</p>
                     </div>
                     <div class="hero-stats">
                         <div class="stat">

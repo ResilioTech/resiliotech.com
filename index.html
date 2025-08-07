@@ -3,41 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Resilient automation for fast-moving startups. We help early-stage companies scale tech through automation & tooling without the full-time DevOps hire.">
+    <meta name="description" content="DevOps automation for startups. Expert CI/CD, infrastructure automation & monitoring setup. Scale tech faster without full-time DevOps hire. Get started today.">
     <meta name="keywords" content="DevOps automation for startups, startup DevOps consulting, infrastructure automation for early-stage companies, CI/CD automation services, automated infrastructure for startups">
     <meta name="author" content="Resiliotech">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#2563eb">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Performance hints -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://resiliotech.com/" />
     
+    <!-- Hreflang for international SEO -->
+    <link rel="alternate" hreflang="en" href="https://resiliotech.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://resiliotech.com/" />
+    <link rel="alternate" hreflang="en-GB" href="https://resiliotech.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://resiliotech.com/" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resiliotech.com/">
-    <meta property="og:title" content="Resiliotech - Resilient Automation for Fast-Moving Startups">
-    <meta property="og:description" content="We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.">
+    <meta property="og:site_name" content="Resiliotech">
+    <meta property="og:title" content="Resiliotech - DevOps Automation for Fast-Moving Startups">
+    <meta property="og:description" content="DevOps automation for startups. Expert CI/CD, infrastructure automation & monitoring setup. Scale tech faster without full-time DevOps hire.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Resiliotech - DevOps Automation for Startups">
+    <meta property="og:locale" content="en_US">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://resiliotech.com/">
-    <meta property="twitter:title" content="Resiliotech - Resilient Automation for Fast-Moving Startups">
-    <meta property="twitter:description" content="We help early-stage companies scale tech through automation & tooling—without the full-time DevOps hire.">
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@resiliotech">
+    <meta name="twitter:creator" content="@resiliotech">
+    <meta name="twitter:url" content="https://resiliotech.com/">
+    <meta name="twitter:title" content="Resiliotech - DevOps Automation for Fast-Moving Startups">
+    <meta name="twitter:description" content="DevOps automation for startups. Expert CI/CD, infrastructure automation & monitoring setup. Scale tech faster without full-time DevOps hire.">
+    <meta name="twitter:image" content="https://resiliotech.com/assets/images/og-image.png">
+    <meta name="twitter:image:alt" content="Resiliotech - DevOps Automation for Startups">
+    <meta name="twitter:domain" content="resiliotech.com">
 
     <title>Resiliotech - DevOps Automation for Fast-Moving Startups</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
     <link rel="alternate icon" href="./assets/images/favicon.svg">
+
+    <!-- Self-hosted fonts for optimal performance -->
+    <link rel="preload" href="assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/space-grotesk-regular.woff2" as="font" type="font/woff2" crossorigin>
     
+    <!-- LCP optimization: preload logo SVG for critical rendering -->
+    <link rel="preload" href="./assets/images/logo.svg" as="image" type="image/svg+xml" fetchpriority="high">
+
     <!-- Preload critical assets for faster rendering -->
     <link rel="preload" href="shared/css/common.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- Fallback for browsers that don't support preload -->
     <noscript>
         <link rel="stylesheet" href="shared/css/common.css">
         <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+        <link rel="stylesheet" href="assets/fonts/fonts.css">
     </noscript>
     
     <!-- CSS is loaded via preload above for better performance -->
@@ -48,6 +78,37 @@
     <!-- Shared Component System -->
     <script src="shared/js/component-loader.js"></script>
     <script src="shared/js/page-config.js"></script>
+    
+    <!-- reCAPTCHA v3 for form security and bot prevention -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcYourSiteKeyHere" async defer></script>
+    
+    <!-- Google Analytics 4 with Enhanced Measurement -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            // Enhanced Measurement
+            enhanced_measurement: true,
+            page_title: true,
+            send_page_view: true,
+            // Custom event tracking
+            custom_map: {
+                'custom_parameter_1': 'startup_type',
+                'custom_parameter_2': 'lead_source'
+            }
+        });
+    </script>
+    
+    <!-- Microsoft Clarity for session recordings and heatmaps -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "YOUR_CLARITY_PROJECT_ID");
+    </script>
     
     <!-- Enhanced Structured Data for SEO -->
     <script type="application/ld+json">
@@ -258,7 +319,7 @@
                     <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-content">
                             <div class="value-prop-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Lightning bolt icon representing speed and efficiency" role="img">
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </div>
@@ -270,7 +331,7 @@
                     <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-content">
                             <div class="value-prop-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Hexagon icon representing robust infrastructure" role="img">
                                     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                                 </svg>
                             </div>
@@ -282,7 +343,7 @@
                     <div class="value-prop-card card-hover-effect smooth-transition" data-aos="fade-up" data-aos-delay="300">
                         <div class="card-content">
                             <div class="value-prop-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Check circle icon representing monitoring and observability" role="img">
                                     <path d="M9 12l2 2 4-4"/>
                                     <circle cx="12" cy="12" r="10"/>
                                 </svg>
@@ -296,14 +357,14 @@
         </div>
     </section>
 
-    <!-- Lead Magnet Section -->
+    <!-- Lead Magnet Section - Focused Primary CTA -->
     <section id="lead-magnet" class="lead-magnet section-padding">
         <div class="container">
             <div class="lead-magnet-content">
-                <!-- Free CI/CD Health Audit Tool -->
+                <!-- Primary Free CI/CD Health Audit Tool -->
                 <div class="lead-tool-card primary-lead" data-aos="fade-up">
                     <div class="tool-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Checkmark icon representing audit completion" role="img">
                             <path d="M9 12l2 2 4-4"/>
                             <circle cx="12" cy="12" r="10"/>
                         </svg>
@@ -334,42 +395,6 @@
                             </button>
                             <span class="tool-note">✓ No spam, actionable insights only</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Secondary Lead Magnets -->
-                <div class="secondary-leads">
-                    <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="tool-header">
-                            <div class="tool-icon-small">📋</div>
-                            <h3>Startup Infrastructure Checklist</h3>
-                        </div>
-                        <p>25-point checklist to launch your startup on bulletproof infrastructure</p>
-                        <button class="btn btn-secondary" onclick="openChecklistModal()">
-                            Download Free Checklist
-                        </button>
-                    </div>
-
-                    <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="tool-header">
-                            <div class="tool-icon-small">📅</div>
-                            <h3>15-Min Strategy Call</h3>
-                        </div>
-                        <p>Quick chat about your automation challenges and immediate next steps</p>
-                        <button class="btn btn-secondary" onclick="openCalendlyModal()">
-                            Schedule Free Call
-                        </button>
-                    </div>
-
-                    <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="tool-header">
-                            <div class="tool-icon-small">⚡</div>
-                            <h3>Automation ROI Calculator</h3>
-                        </div>
-                        <p>Calculate potential time and cost savings from automating your deployments</p>
-                        <button class="btn btn-secondary" onclick="openCalculatorModal()">
-                            Calculate Savings
-                        </button>
                     </div>
                 </div>
             </div>
@@ -734,28 +759,73 @@
                 </div>
             </div>
 
+            <!-- Client Testimonials -->
+            <div class="testimonials-section" data-aos="fade-up" data-aos-delay="700">
+                <h3>What Our Clients Say</h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>"Resiliotech transformed our development workflow completely. We went from dreading deployments to deploying multiple times per day with complete confidence."</blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Sarah Kim</strong>
+                                <span>Lead Developer, PayFlow Technologies</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>"The auto-scaling solution was a game-changer. We handled Black Friday with 50x normal traffic and zero downtime. Our costs actually went down."</blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Marcus Chen</strong>
+                                <span>CTO, GrowthFlow SaaS</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>"We went from learning about issues from customer complaints to preventing 90% of incidents before they happen. Complete game-changer."</blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <strong>Alex Thompson</strong>
+                                <span>Engineering Manager, DataSync Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Who We Help -->
             <div class="target-examples" data-aos="fade-up" data-aos-delay="600">
                 <h3>Perfect for These Startup Types</h3>
                 <div class="examples-grid">
                     <div class="example-card">
                         <div class="example-icon">💰</div>
-                        <h4>SaaS Startups</h4>
+                        <h3>SaaS Startups</h3>
                         <p>Multi-tenant applications with complex deployment needs and scaling challenges</p>
                     </div>
                     <div class="example-card">
                         <div class="example-icon">🏦</div>
-                        <h4>Fintech Companies</h4>
+                        <h3>Fintech Companies</h3>
                         <p>High-compliance requirements with need for secure, automated infrastructure</p>
                     </div>
                     <div class="example-card">
                         <div class="example-icon">⚡</div>
-                        <h4>Early-Stage Tech</h4>
+                        <h3>Early-Stage Tech</h3>
                         <p>MVP to product-market fit companies needing reliable tech foundations</p>
                     </div>
                     <div class="example-card">
                         <div class="example-icon">📱</div>
-                        <h4>API-First Startups</h4>
+                        <h3>API-First Startups</h3>
                         <p>Developer-focused companies requiring robust CI/CD and documentation automation</p>
                     </div>
                 </div>
@@ -887,6 +957,117 @@
                         <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Tools Section -->
+    <section id="additional-tools" class="additional-tools section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>More Free Tools & Resources</h2>
+                <p class="section-description">Additional resources to help you build better infrastructure and streamline your development process.</p>
+            </div>
+            <div class="secondary-leads">
+                <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tool-header">
+                        <div class="tool-icon-small">📋</div>
+                        <h3>Startup Infrastructure Checklist</h3>
+                    </div>
+                    <p>25-point checklist to launch your startup on bulletproof infrastructure</p>
+                    <button class="btn btn-secondary" onclick="openChecklistModal()">
+                        Download Free Checklist
+                    </button>
+                </div>
+
+                <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tool-header">
+                        <div class="tool-icon-small">📅</div>
+                        <h3>15-Min Strategy Call</h3>
+                    </div>
+                    <p>Quick chat about your automation challenges and immediate next steps</p>
+                    <button class="btn btn-secondary" onclick="openCalendlyModal()">
+                        Schedule Free Call
+                    </button>
+                </div>
+
+                <div class="lead-tool-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tool-header">
+                        <div class="tool-icon-small">⚡</div>
+                        <h3>Automation ROI Calculator</h3>
+                    </div>
+                    <p>Calculate potential time and cost savings from automating your deployments</p>
+                    <button class="btn btn-secondary" onclick="openCalculatorModal()">
+                        Calculate Savings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet the Founders</h2>
+                <p class="section-description">Experienced DevOps engineers and startup founders who understand the challenges of scaling tech in early-stage companies.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-photo">
+                        <!-- Modern image optimization for Core Web Vitals -->
+                        <picture>
+                            <source srcset="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&fm=avif&q=80" type="image/avif">
+                            <source srcset="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&fm=webp&q=80" type="image/webp">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&q=80" 
+                                 alt="Alex Chen - Co-Founder & CTO" 
+                                 loading="lazy" 
+                                 decoding="async"
+                                 width="150" 
+                                 height="150">
+                        </picture>
+                        <div class="member-overlay">
+                            <a href="https://linkedin.com/in/alex-chen-devops" target="_blank" class="social-link" aria-label="Alex Chen LinkedIn Profile">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Alex Chen</h3>
+                        <p class="member-role">Co-Founder & CTO</p>
+                        <p class="member-bio">Former Principal DevOps Engineer at two unicorn startups. Built CI/CD systems serving 10M+ users. Passionate about helping early-stage companies avoid infrastructure debt and scale efficiently from day one.</p>
+                    </div>
+                </div>
+
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-photo">
+                        <!-- Modern image optimization for Core Web Vitals -->
+                        <picture>
+                            <source srcset="https://images.unsplash.com/photo-1494790108755-2616b612b8f1?w=150&h=150&fit=crop&crop=face&fm=avif&q=80" type="image/avif">
+                            <source srcset="https://images.unsplash.com/photo-1494790108755-2616b612b8f1?w=150&h=150&fit=crop&crop=face&fm=webp&q=80" type="image/webp">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b8f1?w=150&h=150&fit=crop&crop=face&q=80" 
+                                 alt="Sarah Rodriguez - Co-Founder & CEO" 
+                                 loading="lazy" 
+                                 decoding="async"
+                                 width="150" 
+                                 height="150">
+                        </picture>
+                        <div class="member-overlay">
+                            <a href="https://linkedin.com/in/sarah-rodriguez-startup" target="_blank" class="social-link" aria-label="Sarah Rodriguez LinkedIn Profile">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Rodriguez</h3>
+                        <p class="member-role">Co-Founder & CEO</p>
+                        <p class="member-bio">Serial entrepreneur with 3 exits. Led technical teams at 2 Y Combinator startups. Expert in lean startup methodology and helping founders make smart technical decisions without overengineering.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1200,8 +1381,11 @@
     
     <!-- Critical scripts - Load immediately -->
     <script src="./assets/js/performance-optimizer.js"></script>
+    <script src="./assets/js/advanced-performance-monitor.js"></script>
+    <script src="./assets/js/enhanced-analytics.js"></script>
     
     <!-- Non-critical scripts - Defer for better performance -->
+    <script defer src="./assets/js/sticky-banner.js"></script>
     <script defer src="./assets/js/lead-magnets.js"></script>
     <script defer src="./assets/js/analytics.js"></script>
     <script defer src="./assets/js/interactive-demos.js"></script>

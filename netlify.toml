@@ -1,34 +1,151 @@
 [build]
-  # Static site - no build required
-  publish = "."
-  command = ""
-  ignore = "exit 0"
-  
-# Disable all build processing
-[build.processing]
-  skip_processing = false
-  
-# Disable automatic framework detection
+  # Build command for Jamstack architecture
+  command = "npm run build:prod"
+  # Output directory for static files
+  publish = "dist"
+  # Node.js version for build environment
+  node_bundler = "esbuild"
+
 [build.environment]
   NODE_ENV = "production"
+  ELEVENTY_ENV = "production"
 
-[[redirects]]
-  # Handle 404 errors with custom 404.html page
-  from = "/*"
-  to = "/404.html"
-  status = 404
+# Build optimization settings
+[build.processing]
+  skip_processing = false
 
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Performance optimizations
 [[headers]]
-  # Cache static assets
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  # Security headers
   for = "/*"
   [headers.values]
+    # Security headers (enhanced from previous implementation)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://calendly.com https://*.calendly.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://calendly.com https://*.calendly.com https://www.google-analytics.com https://analytics.google.com https://www.clarity.ms; frame-src https://calendly.com https://*.calendly.com"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # Performance headers
+    X-DNS-Prefetch-Control = "on"
+
+# Static assets with fingerprinting - 1 year cache
+[[headers]]
+  for = "/assets/**/*.{js,css,woff,woff2,jpg,jpeg,png,webp,avif,svg}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML files - short cache with revalidation
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Service worker - no cache
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# API routes - no cache
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "private, no-cache, no-store, must-revalidate"
+
+# Font preload optimization
+[[headers]]
+  for = "/assets/fonts/*.{woff,woff2}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# Redirect rules for SEO and UX
+[[redirects]]
+  from = "/automation-audit"
+  to = "/?utm_source=direct&utm_medium=url&utm_campaign=audit"
+  status = 301
+
+[[redirects]]
+  from = "/free-audit"
+  to = "/?utm_source=direct&utm_medium=url&utm_campaign=audit"
+  status = 301
+
+[[redirects]]
+  from = "/devops-automation"
+  to = "/consulting/"
+  status = 301
+
+[[redirects]]
+  from = "/startup-automation"
+  to = "/consulting/"
+  status = 301
+
+# Form handling for Netlify Forms
+[[redirects]]
+  from = "/contact"
+  to = "/thank-you.html"
+  status = 200
+  conditions = {method = ["POST"]}
+
+# SPA fallback for any unmatched routes
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Development settings
+[dev]
+  command = "npm run dev"
+  port = 8080
+  publish = "dist"
+  autoLaunch = false
+
+# Plugin configuration for enhanced build process
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  
+  [plugins.inputs.thresholds]
+    performance = 0.85
+    accessibility = 0.95
+    best-practices = 0.90
+    seo = 0.95
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+  
+  [plugins.inputs]
+    baseUrl = "https://resiliotech.com"
+    sitemapPath = "/sitemap.xml"
+    ignorePeriod = 0
+
+# Split testing configuration
+[context.production.environment]
+  GA4_TRACKING_ID = "G-XXXXXXXXXX"
+  CLARITY_PROJECT_ID = "YOUR_CLARITY_PROJECT_ID"
+  RECAPTCHA_SITE_KEY = "6LcYourSiteKeyHere"
+
+[context.deploy-preview.environment]
+  GA4_TRACKING_ID = "G-XXXXXXXXXX"
+  CLARITY_PROJECT_ID = "YOUR_CLARITY_PROJECT_ID"
+  RECAPTCHA_SITE_KEY = "6LcYourSiteKeyHere"
+
+[context.branch-deploy.environment]
+  GA4_TRACKING_ID = "G-XXXXXXXXXX"
+  CLARITY_PROJECT_ID = "YOUR_CLARITY_PROJECT_ID"
+  RECAPTCHA_SITE_KEY = "6LcYourSiteKeyHere"

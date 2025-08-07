@@ -214,52 +214,86 @@ class CRMIntegration {
     }
     
     setupLeadCapture() {
-        // Exit intent lead capture
+                // Only setup exit intent capture (removed aggressive scroll and time-based modals)
         this.setupExitIntentCapture();
-        
-        // Scroll-based lead capture
-        this.setupScrollBasedCapture();
-        
-        // Time-based lead capture
-        this.setupTimeBasedCapture();
     }
     
-    handleContactFormSubmission(event) {
+    async handleContactFormSubmission(event) {
         event.preventDefault();
         const form = event.target;
-        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
         
-        const leadData = {
-            email: formData.get('email'),
-            name: formData.get('name'),
-            company: formData.get('company'),
-            jobTitle: formData.get('jobTitle'),
-            phone: formData.get('phone'),
-            message: formData.get('message'),
-            budget: formData.get('budget'),
-            timeline: formData.get('timeline'),
-            teamSize: formData.get('teamSize')
-        };
-        
-        this.captureQualifiedLead(leadData, 'contact-form');
-        
-        // Show success message
-        this.showFormSuccessMessage(form, 'Thank you! We\'ll be in touch within 24 hours.');
+        try {
+            submitButton.textContent = 'Verifying...';
+            submitButton.disabled = true;
+
+            // Execute reCAPTCHA v3 challenge
+            const recaptchaToken = await this.executeRecaptcha('contact_form');
+            
+            const formData = new FormData(form);
+            
+            const leadData = {
+                email: formData.get('email'),
+                name: formData.get('name'),
+                company: formData.get('company'),
+                jobTitle: formData.get('jobTitle'),
+                phone: formData.get('phone'),
+                message: formData.get('message'),
+                budget: formData.get('budget'),
+                timeline: formData.get('timeline'),
+                teamSize: formData.get('teamSize'),
+                recaptcha_token: recaptchaToken
+            };
+            
+            submitButton.textContent = 'Submitting...';
+            
+            this.captureQualifiedLead(leadData, 'contact-form');
+            
+            // Show success message
+            this.showFormSuccessMessage(form, 'Thank you! We\'ll be in touch within 24 hours.');
+        } catch (error) {
+            console.error('Contact form submission error:', error);
+            this.showFormErrorMessage(form, 'Submission failed. Please try again.');
+        } finally {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
     }
     
-    handleNewsletterSubmission(event) {
+    async handleNewsletterSubmission(event) {
         event.preventDefault();
         const form = event.target;
-        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
         
-        const leadData = {
-            email: formData.get('email'),
-            name: formData.get('name')
-        };
-        
-        this.captureQualifiedLead(leadData, 'blog-signup');
-        
-        this.showFormSuccessMessage(form, 'Thanks for subscribing! Check your email for our latest insights.');
+        try {
+            submitButton.textContent = 'Verifying...';
+            submitButton.disabled = true;
+
+            // Execute reCAPTCHA v3 challenge
+            const recaptchaToken = await this.executeRecaptcha('newsletter_signup');
+            
+            const formData = new FormData(form);
+            
+            const leadData = {
+                email: formData.get('email'),
+                name: formData.get('name'),
+                recaptcha_token: recaptchaToken
+            };
+            
+            submitButton.textContent = 'Subscribing...';
+            
+            this.captureQualifiedLead(leadData, 'blog-signup');
+            
+            this.showFormSuccessMessage(form, 'Thanks for subscribing! Check your email for our latest insights.');
+        } catch (error) {
+            console.error('Newsletter subscription error:', error);
+            this.showFormErrorMessage(form, 'Subscription failed. Please try again.');
+        } finally {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
     }
     
     handleResourceDownload(event) {
@@ -276,43 +310,49 @@ class CRMIntegration {
     // Lead Capture Strategies
     setupExitIntentCapture() {
         let exitIntentShown = false;
+        let hasSeenPrimaryOffer = false;
+        
+        // Track if user has seen the main lead magnet
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.id === 'lead-magnet') {
+                    hasSeenPrimaryOffer = true;
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const leadMagnetSection = document.getElementById('lead-magnet');
+        if (leadMagnetSection) {
+            observer.observe(leadMagnetSection);
+        }
         
         document.addEventListener('mouseleave', (e) => {
-            if (e.clientY <= 0 && !exitIntentShown && this.shouldShowExitIntent()) {
+            if (e.clientY <= 0 && !exitIntentShown && this.shouldShowExitIntent() && hasSeenPrimaryOffer) {
                 exitIntentShown = true;
                 this.showExitIntentModal();
             }
         });
     }
     
-    setupScrollBasedCapture() {
-        let scrollCaptureShown = false;
-        
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            
-            if (scrollPercent > 70 && !scrollCaptureShown && this.shouldShowScrollCapture()) {
-                scrollCaptureShown = true;
-                this.showScrollBasedModal();
-            }
-        });
+    shouldShowScrollCapture() {
+        // Disabled - scroll-based modals removed to prevent modal fatigue
+        return false;
     }
     
-    setupTimeBasedCapture() {
-        setTimeout(() => {
-            if (this.shouldShowTimeBasedCapture()) {
-                this.showTimeBasedModal();
-            }
-        }, 120000); // 2 minutes
+    shouldShowTimeBasedCapture() {
+        // Disabled - time-based modals removed to prevent modal fatigue  
+        return false;
     }
     
     shouldShowExitIntent() {
         const behaviors = this.getBehaviorData();
         const sessionData = this.getSessionData();
         
-        return sessionData.timeOnSite > 30000 && // 30+ seconds on site
-               sessionData.pageViews >= 2 && // Viewed 2+ pages
-               !behaviors.calculatorUsed; // Haven't used calculator yet
+        // Only show exit intent if user has spent meaningful time and hasn't converted
+        return sessionData.timeOnSite > 60000 && // 60+ seconds on site (was 30)
+               sessionData.pageViews >= 1 && // Viewed at least 1 page (was 2)
+               !behaviors.emailCaptured && // Haven't captured email yet
+               !sessionData.modalDismissed; // Haven't already dismissed a modal
     }
     
     shouldShowScrollCapture() {
@@ -330,10 +370,10 @@ class CRMIntegration {
     // Modal Creation
     showExitIntentModal() {
         const modal = this.createLeadCaptureModal({
-            title: 'Wait! Get Your Free DevOps Automation Guide',
-            description: 'Before you go, grab our complete guide to implementing DevOps automation in startups. It\'s helped 500+ companies scale efficiently.',
-            offer: 'Free 30-page implementation guide',
-            cta: 'Get Free Guide',
+            title: 'Still Evaluating Your DevOps Options?',
+            description: 'Get our free CI/CD health audit before you go. It only takes 2 minutes and provides actionable insights in 48 hours.',
+            offer: 'Free CI/CD Health Audit (No spam, actionable insights only)',
+            cta: 'Get Free Audit',
             source: 'exit-intent'
         });
         
@@ -665,6 +705,74 @@ class CRMIntegration {
                 page_views: sessionData.pageViews
             });
         }
+    }
+    
+    /**
+     * Execute reCAPTCHA v3 challenge for form security
+     * @param {string} action - The action name for reCAPTCHA scoring
+     * @returns {Promise<string>} - reCAPTCHA token
+     */
+    async executeRecaptcha(action = 'submit') {
+        return new Promise((resolve, reject) => {
+            if (typeof grecaptcha === 'undefined') {
+                console.warn('reCAPTCHA not loaded, proceeding without verification');
+                resolve(null);
+                return;
+            }
+
+            grecaptcha.ready(() => {
+                grecaptcha.execute('6LcYourSiteKeyHere', { action })
+                    .then((token) => {
+                        this.log('reCAPTCHA token generated for action:', action);
+                        resolve(token);
+                    })
+                    .catch((error) => {
+                        console.error('reCAPTCHA execution failed:', error);
+                        reject(error);
+                    });
+            });
+        });
+    }
+
+    /**
+     * Show form error message
+     * @param {HTMLElement} form - The form element
+     * @param {string} message - Error message to display
+     */
+    showFormErrorMessage(form, message) {
+        this.removeExistingMessages(form);
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'form-message form-error';
+        errorDiv.textContent = message;
+        errorDiv.style.cssText = `
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f1aeb5;
+        `;
+        
+        form.appendChild(errorDiv);
+        
+        // Auto-remove after 8 seconds
+        setTimeout(() => {
+            if (errorDiv.parentNode) {
+                errorDiv.remove();
+            }
+        }, 8000);
+    }
+
+    /**
+     * Remove existing form messages
+     * @param {HTMLElement} form - The form element
+     */
+    removeExistingMessages(form) {
+        const existingMessages = form.querySelectorAll('.form-message');
+        existingMessages.forEach(msg => msg.remove());
     }
     
     log(...args) {
