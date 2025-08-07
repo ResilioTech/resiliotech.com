@@ -6,9 +6,9 @@
 class AnalyticsManager {
     constructor() {
         this.config = {
-            gaId: 'G-XXXXXXXXXX', // Replace with actual Google Analytics ID
+            gaId: 'G-P2YM46QZCK', // Replace with actual Google Analytics ID
             gtmId: 'GTM-XXXXXXX',  // Replace with actual GTM ID if using
-            ga4MeasurementId: 'G-XXXXXXXXXX', // GA4 Measurement ID
+            ga4MeasurementId: 'G-P2YM46QZCK', // GA4 Measurement ID
             debugMode: window.location.hostname === 'localhost',
             trackingEnabled: true,
             enableDualModelTracking: true,
@@ -85,7 +85,7 @@ class AnalyticsManager {
     }
 
     loadGoogleAnalytics() {
-        if (!this.config.gaId || this.config.gaId === 'G-XXXXXXXXXX') {
+        if (!this.config.gaId || this.config.gaId === 'G-P2YM46QZCK') {
             this.log('Google Analytics ID not configured');
             return;
         }

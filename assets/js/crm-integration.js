@@ -721,7 +721,7 @@ class CRMIntegration {
             }
 
             grecaptcha.ready(() => {
-                grecaptcha.execute('6LcYourSiteKeyHere', { action })
+                grecaptcha.execute('6Lc8k2oqAAAAAF9QKbYgHmrJ2k5vQ0zEWlYRfK7k', { action })
                     .then((token) => {
                         this.log('reCAPTCHA token generated for action:', action);
                         resolve(token);

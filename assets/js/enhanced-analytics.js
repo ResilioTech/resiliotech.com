@@ -5,8 +5,8 @@
 class EnhancedAnalyticsManager {
     constructor() {
         this.config = {
-            ga4PropertyId: 'G-XXXXXXXXXX',
-            clarityProjectId: 'YOUR_CLARITY_PROJECT_ID',
+            ga4PropertyId: 'G-P2YM46QZCK',
+            clarityProjectId: 'sr1y78mww9',
             debugMode: window.location.hostname === 'localhost',
             sessionId: this.generateSessionId(),
             userId: this.getUserId()

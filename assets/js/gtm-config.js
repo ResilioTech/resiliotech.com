@@ -7,7 +7,7 @@ class GTMConfig {
     constructor() {
         this.config = {
             gtmId: 'GTM-XXXXXXX', // Replace with actual GTM container ID
-            ga4MeasurementId: 'G-XXXXXXXXXX', // Replace with GA4 measurement ID
+            ga4MeasurementId: 'G-P2YM46QZCK', // Replace with GA4 measurement ID
             enableDebug: window.location.hostname === 'localhost',
             enableEcommerce: true,
             enableDualModelTracking: true
