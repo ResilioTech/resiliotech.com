@@ -1,6 +1,6 @@
 [build]
   # Build command for Jamstack architecture
-  command = "npm run build:prod"
+  command = "npm install && npm run build:prod"
   # Output directory for static files
   publish = "dist"
   # Node.js version for build environment
