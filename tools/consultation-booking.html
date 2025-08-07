@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book DevOps Consultation - Resiliotech | Free Strategy Session</title>
+    <meta name="description" content="Book a free DevOps consultation with our experts. Get personalized automation strategy, infrastructure assessment, and implementation roadmap for your startup.">
+    <meta name="keywords" content="DevOps consultation, free strategy session, infrastructure assessment, automation planning, DevOps experts">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://resiliotech.com/tools/consultation-booking">
+    <meta property="og:title" content="Book Free DevOps Consultation - Strategy Session with Experts">
+    <meta property="og:description" content="Get expert guidance on your DevOps automation journey. Free 30-minute consultation with personalized recommendations and implementation roadmap.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/social/consultation-booking-og-1200x630.jpg">
+    <meta property="og:site_name" content="Resiliotech">
+    
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Book Free DevOps Consultation - Strategy Session">
+    <meta property="twitter:description" content="Get expert guidance on your DevOps automation journey. Free 30-minute consultation with personalized recommendations.">
+    <meta property="twitter:image" content="https://resiliotech.com/assets/images/social/consultation-booking-twitter-1200x630.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../shared/css/common.css">
+    <link rel="stylesheet" href="../assets/css/resource-gating.css">
+    <style>
+        .booking-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .booking-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .booking-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .booking-header .subtitle {
+            font-size: 1.25rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .booking-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .booking-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .benefit-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+            transition: all 0.2s;
+        }
+        
+        .benefit-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .benefit-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+        
+        .booking-form-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+        }
+        
+        .form-steps {
+            display: flex;
+            background: #f8fafc;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .form-step {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #6b7280;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .form-step.active {
+            color: #667eea;
+            background: white;
+        }
+        
+        .form-step.completed {
+            color: #10b981;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            color: #6b7280;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        
+        .form-step.active .step-number {
+            background: #667eea;
+            color: white;
+        }
+        
+        .form-step.completed .step-number {
+            background: #10b981;
+            color: white;
+        }
+        
+        .form-content {
+            padding: 2rem;
+        }
+        
+        .step-content {
+            display: none;
+        }
+        
+        .step-content.active {
+            display: block;
+        }
+        
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-label .required {
+            color: #ef4444;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgb(102 126 234 / 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .time-slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .time-slot {
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+        }
+        
+        .time-slot:hover {
+            border-color: #667eea;
+            background: #f8fafc;
+        }
+        
+        .time-slot.selected {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+        
+        .time-slot.unavailable {
+            background: #f3f4f6;
+            color: #9ca3af;
+            cursor: not-allowed;
+            border-color: #d1d5db;
+        }
+        
+        .time-slot-time {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .time-slot-availability {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        .calendar-container {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            margin-bottom: 1rem;
+        }
+        
+        .calendar-nav {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .calendar-nav:hover {
+            background: #f8fafc;
+        }
+        
+        .calendar-month {
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0 1rem;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.25rem;
+        }
+        
+        .calendar-day-header {
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6b7280;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .calendar-day:hover {
+            background: #e5e7eb;
+        }
+        
+        .calendar-day.available {
+            background: white;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .calendar-day.available:hover {
+            border-color: #667eea;
+            background: #f8fafc;
+        }
+        
+        .calendar-day.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .calendar-day.unavailable {
+            color: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .calendar-day.today {
+            font-weight: 700;
+        }
+        
+        .step-navigation {
+            display: flex;
+            justify-content: between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        
+        .consultation-summary {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .summary-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+        
+        .summary-details {
+            display: grid;
+            gap: 0.75rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .summary-label {
+            font-weight: 500;
+            color: #075985;
+        }
+        
+        .summary-value {
+            color: #0c4a6e;
+        }
+        
+        .confirmation-message {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .confirmation-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .confirmation-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+        
+        .confirmation-details {
+            background: #f0fdf4;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .next-steps {
+            background: #fffbeb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .next-steps h4 {
+            color: #92400e;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .next-steps-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .next-steps-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            color: #78350f;
+        }
+        
+        .next-steps-list li::before {
+            content: "✓";
+            margin-right: 0.5rem;
+            color: #059669;
+            font-weight: 600;
+        }
+        
+        .timezone-info {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            display: none;
+        }
+        
+        .loading-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 300px;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e5e7eb;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "DevOps Consultation Booking",
+        "description": "Free DevOps strategy consultation with expert recommendations and implementation roadmap.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Resiliotech",
+            "url": "https://resiliotech.com"
+        },
+        "serviceType": "DevOps Consultation",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "http://schema.org/InStock"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Processing your booking...</p>
+        </div>
+    </div>
+    
+    <main class="booking-container">
+        <!-- Header -->
+        <div class="booking-header">
+            <div class="subtitle">Free Strategy Session</div>
+            <h1>Book Your DevOps Consultation</h1>
+            <p>Get personalized guidance from our DevOps experts. We'll assess your current setup, identify opportunities, and create a tailored automation roadmap for your startup.</p>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="booking-benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon">🎯</div>
+                <div class="benefit-title">Custom Strategy</div>
+                <div class="benefit-description">Personalized DevOps roadmap tailored to your specific needs and goals</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <div class="benefit-title">Quick Wins</div>
+                <div class="benefit-description">Identify immediate improvements you can implement today</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💰</div>
+                <div class="benefit-title">ROI Analysis</div>
+                <div class="benefit-description">Understand the financial impact of DevOps automation</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🚀</div>
+                <div class="benefit-title">Implementation Plan</div>
+                <div class="benefit-description">Step-by-step guide to execute your DevOps transformation</div>
+            </div>
+        </div>
+        
+        <!-- Booking Form -->
+        <div class="booking-form-container">
+            <!-- Form Steps -->
+            <div class="form-steps">
+                <div class="form-step active" data-step="1">
+                    <span class="step-number">1</span>
+                    <span>Your Details</span>
+                </div>
+                <div class="form-step" data-step="2">
+                    <span class="step-number">2</span>
+                    <span>Select Date</span>
+                </div>
+                <div class="form-step" data-step="3">
+                    <span class="step-number">3</span>
+                    <span>Choose Time</span>
+                </div>
+                <div class="form-step" data-step="4">
+                    <span class="step-number">4</span>
+                    <span>Confirm</span>
+                </div>
+            </div>
+            
+            <!-- Form Content -->
+            <div class="form-content">
+                <form id="consultation-booking-form">
+                    
+                    <!-- Step 1: Contact Information -->
+                    <div class="step-content active" data-step="1">
+                        <h3 class="step-title">Tell us about yourself</h3>
+                        <p class="step-description">Help us understand your background so we can provide the most relevant advice.</p>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">
+                                    First Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">
+                                    Last Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">
+                                    Work Email <span class="required">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="company">
+                                    Company Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="company" name="company" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="role">
+                                    Your Role <span class="required">*</span>
+                                </label>
+                                <select id="role" name="role" class="form-select" required>
+                                    <option value="">Select your role</option>
+                                    <option value="founder-ceo">Founder/CEO</option>
+                                    <option value="cto-vp-eng">CTO/VP Engineering</option>
+                                    <option value="engineering-manager">Engineering Manager</option>
+                                    <option value="devops-engineer">DevOps Engineer</option>
+                                    <option value="developer">Developer</option>
+                                    <option value="product-manager">Product Manager</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="teamSize">
+                                    Team Size
+                                </label>
+                                <select id="teamSize" name="teamSize" class="form-select">
+                                    <option value="">Select team size</option>
+                                    <option value="1-2">1-2 people</option>
+                                    <option value="3-5">3-5 people</option>
+                                    <option value="6-10">6-10 people</option>
+                                    <option value="11-25">11-25 people</option>
+                                    <option value="25+">25+ people</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label class="form-label" for="currentChallenges">
+                                    What are your biggest DevOps challenges? <span class="required">*</span>
+                                </label>
+                                <textarea id="currentChallenges" name="currentChallenges" class="form-textarea" required 
+                                    placeholder="e.g., Slow deployments, frequent production issues, lack of monitoring, manual processes..."></textarea>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label class="form-label" for="goals">
+                                    What do you hope to achieve? (Optional)
+                                </label>
+                                <textarea id="goals" name="goals" class="form-textarea" 
+                                    placeholder="e.g., Faster releases, better reliability, improved team productivity, cost reduction..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <div></div>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                Next: Select Date
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Date Selection -->
+                    <div class="step-content" data-step="2">
+                        <h3 class="step-title">Choose your preferred date</h3>
+                        <p class="step-description">Select a date that works best for your schedule.</p>
+                        
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button type="button" class="calendar-nav" id="prev-month">‹</button>
+                                <div class="calendar-month" id="current-month"></div>
+                                <button type="button" class="calendar-nav" id="next-month">›</button>
+                            </div>
+                            
+                            <div class="calendar-grid" id="calendar-grid">
+                                <!-- Calendar will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="timezone-info" id="timezone-info">
+                            All times shown in your local timezone
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep()">
+                                ‹ Back
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()" disabled id="date-next-btn">
+                                Next: Choose Time
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Time Selection -->
+                    <div class="step-content" data-step="3">
+                        <h3 class="step-title">Select your preferred time</h3>
+                        <p class="step-description">Choose from available 30-minute time slots.</p>
+                        
+                        <div class="time-slots-grid" id="time-slots-grid">
+                            <!-- Time slots will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="timezone-info" id="timezone-info-time">
+                            Times shown in your local timezone
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep()">
+                                ‹ Back
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()" disabled id="time-next-btn">
+                                Review & Confirm
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Confirmation -->
+                    <div class="step-content" data-step="4">
+                        <h3 class="step-title">Confirm your consultation</h3>
+                        <p class="step-description">Please review your booking details and confirm.</p>
+                        
+                        <div class="consultation-summary" id="consultation-summary">
+                            <div class="summary-title">📅 Consultation Details</div>
+                            <div class="summary-details">
+                                <div class="summary-item">
+                                    <span class="summary-label">Date</span>
+                                    <span class="summary-value" id="summary-date">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Time</span>
+                                    <span class="summary-value" id="summary-time">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Duration</span>
+                                    <span class="summary-value">30 minutes</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Format</span>
+                                    <span class="summary-value">Video Call (Zoom)</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Cost</span>
+                                    <span class="summary-value" style="color: #059669; font-weight: 600;">FREE</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep()">
+                                ‹ Back
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="confirmBooking()">
+                                Confirm Booking
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5: Success -->
+                    <div class="step-content" data-step="5">
+                        <div class="confirmation-message">
+                            <div class="confirmation-icon">✅</div>
+                            <h3 class="confirmation-title">Booking Confirmed!</h3>
+                            <p>Your DevOps consultation has been successfully scheduled.</p>
+                            
+                            <div class="confirmation-details">
+                                <div class="summary-details" id="final-confirmation-details">
+                                    <!-- Will be populated by JavaScript -->
+                                </div>
+                            </div>
+                            
+                            <div class="next-steps">
+                                <h4>🚀 What happens next?</h4>
+                                <ul class="next-steps-list">
+                                    <li>You'll receive a calendar invite with Zoom details within 5 minutes</li>
+                                    <li>We'll send a brief preparation guide to maximize our session</li>
+                                    <li>Our expert will review your information before the call</li>
+                                    <li>During the session, we'll create a personalized action plan</li>
+                                    <li>You'll receive a summary with recommendations and next steps</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-top: 2rem;">
+                                <a href="/" class="btn btn-primary">Back to Home</a>
+                                <a href="/resources/" class="btn btn-secondary" style="margin-left: 1rem;">Browse Resources</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- JavaScript -->
+    <script src="../shared/js/common.js"></script>
+    <script src="../shared/js/page-config.js"></script>
+    <script src="../assets/js/newsletter-manager.js"></script>
+    <script src="assets/js/consultation-booking.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load components
+            window.PageConfig.initializePage('consultation-booking');
+            
+            // Initialize booking system
+            if (window.consultationBooking) {
+                window.consultationBooking.init();
+            }
+            
+            // Track page view
+            if (window.analyticsManager) {
+                window.analyticsManager.trackEvent('consultation_booking_page_view', {
+                    source: 'direct',
+                    page: '/tools/consultation-booking'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

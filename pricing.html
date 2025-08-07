@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transparent pricing for startup DevOps automation. Fixed-price packages, payment plans available. CI/CD, infrastructure, and monitoring automation starting from $7,500.">
+    <meta name="keywords" content="DevOps pricing, startup automation pricing, CI/CD costs, infrastructure automation pricing, transparent pricing">
+    <meta name="author" content="Resiliotech">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Transparent Pricing for Startup DevOps Automation | Resiliotech">
+    <meta property="og:description" content="Fixed-price DevOps automation packages designed for startup budgets. No surprises, no scope creep. Payment plans available.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/og-image.svg">
+    <meta property="og:url" content="https://resiliotech.com/pricing.html">
+    
+    <title>Transparent Pricing for Startup DevOps Automation | Resiliotech</title>
+    
+    <link rel="canonical" href="https://resiliotech.com/pricing.html">
+    <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
+    
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --success-color: #059669;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --background-primary: #ffffff;
+            --background-secondary: #f8fafc;
+            --border-color: #e2e8f0;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-family-primary); line-height: 1.6; color: var(--text-primary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        .section-padding { padding: 4rem 0; }
+        .btn-primary { background: var(--primary-color); color: white; padding: var(--spacing-4) var(--spacing-6); text-decoration: none; border-radius: 8px; display: inline-block; font-weight: 600; transition: background-color 0.2s ease; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .pricing-card { background: white; border: 2px solid var(--border-color); border-radius: 16px; padding: 2rem; position: relative; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .pricing-card.featured { border-color: var(--primary-color); transform: scale(1.05); }
+        .popular-badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--primary-color); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600; }
+    </style>
+    
+    <!-- Load full styles -->
+    <link rel="stylesheet" href="./shared/css/common.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body data-page-type="pricing">
+    <!-- Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li><a href="./">Home</a></li>
+                <li aria-current="page">Pricing</li>
+            </ol>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pricing-hero section-padding">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transparent Pricing for Startup DevOps Automation</h1>
+                <p class="hero-subtitle">Fixed-price packages designed for startup budgets. No surprises, no scope creep, no hourly billing. Payment plans available for qualified startups.</p>
+                
+                <div class="pricing-benefits">
+                    <div class="benefit">
+                        <span class="benefit-icon">✅</span>
+                        <span>Fixed-price projects</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">🛡️</span>
+                        <span>Success guarantee</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">💰</span>
+                        <span>Payment plans available</span>
+                    </div>
+                    <div class="benefit">
+                        <span class="benefit-icon">⚡</span>
+                        <span>2-4 week delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Service Packages -->
+    <section class="service-packages section-padding">
+        <div class="container">
+            <h2>DevOps Automation Packages</h2>
+            <p class="section-subtitle">Choose the package that fits your startup's needs and budget. All packages include implementation, training, and ongoing support.</p>
+            
+            <!-- CI/CD Automation Packages -->
+            <div class="package-category">
+                <h3>CI/CD Automation Packages</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="package-header">
+                            <h4>Essential CI/CD</h4>
+                            <div class="price">$8,500</div>
+                            <div class="price-subtitle">Perfect for MVP startups</div>
+                        </div>
+                        
+                        <div class="package-features">
+                            <h5>What's Included:</h5>
+                            <ul>
+                                <li>✓ Basic CI/CD pipeline setup (GitHub Actions/GitLab CI)</li>
+                                <li>✓ Automated testing framework integration</li>
+                                <li>✓ Single environment deployment (production)</li>
+                                <li>✓ Basic deployment notifications</li>
+                                <li>✓ Team training session (2 hours)</li>
+                                <li>✓ Documentation and runbooks</li>
+                                <li>✓ 30-day email support</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package-specs">
+                            <div class="spec">
+                                <strong>Timeline:</strong> 1-2 weeks
+                            </div>
+                            <div class="spec">
+                                <strong>Best for:</strong> Teams of 2-5 developers
+                            </div>
+                        </div>
+                        
+                        <div class="package-cta">
+                            <a href="#get-started" class="btn-primary">Get Started</a>
+                            <div class="payment-options">
+                                <small>💳 Payment plans: 50% upfront, 50% on completion</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="package-header">
+                            <h4>Professional CI/CD</h4>
+                            <div class="price">$15,000</div>
+                            <div class="price-subtitle">For growing startups</div>
+                        </div>
+                        
+                        <div class="package-features">
+                            <h5>Everything in Essential, plus:</h5>
+                            <ul>
+                                <li>✓ Multi-environment setup (dev/staging/prod)</li>
+                                <li>✓ Zero-downtime blue-green deployments</li>
+                                <li>✓ Advanced testing (E2E, performance, security)</li>
+                                <li>✓ Automated rollback capabilities</li>
+                                <li>✓ Advanced monitoring integration</li>
+                                <li>✓ Slack/Teams integration</li>
+                                <li>✓ 60-day support with video calls</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package-specs">
+                            <div class="spec">
+                                <strong>Timeline:</strong> 2-3 weeks
+                            </div>
+                            <div class="spec">
+                                <strong>Best for:</strong> Teams of 5-15 developers
+                            </div>
+                        </div>
+                        
+                        <div class="package-cta">
+                            <a href="#get-started" class="btn-primary">Get Started</a>
+                            <div class="payment-options">
+                                <small>💳 Payment plans: 3 installments of $5,000</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="package-header">
+                            <h4>Enterprise CI/CD</h4>
+                            <div class="price">$25,000</div>
+                            <div class="price-subtitle">For scaling startups</div>
+                        </div>
+                        
+                        <div class="package-features">
+                            <h5>Everything in Professional, plus:</h5>
+                            <ul>
+                                <li>✓ Advanced deployment strategies (canary, feature flags)</li>
+                                <li>✓ Multi-cloud deployment support</li>
+                                <li>✓ Advanced security scanning & compliance</li>
+                                <li>✓ Custom integrations & workflows</li>
+                                <li>✓ Dedicated Slack channel support</li>
+                                <li>✓ Monthly optimization reviews</li>
+                                <li>✓ 90-day support + quarterly check-ins</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package-specs">
+                            <div class="spec">
+                                <strong>Timeline:</strong> 3-4 weeks
+                            </div>
+                            <div class="spec">
+                                <strong>Best for:</strong> Teams of 15+ developers
+                            </div>
+                        </div>
+                        
+                        <div class="package-cta">
+                            <a href="#get-started" class="btn-primary">Get Started</a>
+                            <div class="payment-options">
+                                <small>💳 Payment plans: 4 installments of $6,250</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Infrastructure Automation Packages -->
+            <div class="package-category">
+                <h3>Infrastructure Automation Packages</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="package-header">
+                            <h4>Startup Foundation</h4>
+                            <div class="price">$12,500</div>
+                            <div class="price-subtitle">Launch-ready infrastructure</div>
+                        </div>
+                        
+                        <div class="package-features">
+                            <h5>What's Included:</h5>
+                            <ul>
+                                <li>✓ Single cloud provider setup (AWS/Azure/GCP)</li>
+                                <li>✓ Terraform Infrastructure as Code</li>
+                                <li>✓ Basic auto-scaling configuration</li>
+                                <li>✓ SSL certificates and security basics</li>
+                                <li>✓ Database setup and basic backups</li>
+                                <li>✓ Basic monitoring & alerting</li>
+                                <li>✓ 30-day support included</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package-specs">
+                            <div class="spec">
+                                <strong>Timeline:</strong> 2-3 weeks
+                            </div>
+                            <div class="spec">
+                                <strong>Best for:</strong> Early-stage startups
+                            </div>
+                        </div>
+                        
+                        <div class="package-cta">
+                            <a href="#get-started" class="btn-primary">Get Started</a>
+                            <div class="payment-options">
+                                <small>💳 Payment plans: 2 installments of $6,250</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="package-header">
+                            <h4>Scale-Ready Infrastructure</h4>
+                            <div class="price">$22,000</div>
+                            <div class="price-subtitle">Built for growth</div>
+                        </div>
+                        
+                        <div class="package-features">
+                            <h5>Everything in Foundation, plus:</h5>
+                            <ul>
+                                <li>✓ Multi-environment setup (dev/staging/prod)</li>
+                                <li>✓ Kubernetes cluster management</li>
+                                <li>✓ Advanced monitoring (Prometheus/Grafana)</li>
+                                <li>✓ Database automation & advanced backups</li>
+                                <li>✓ CDN and performance optimization</li>
+                                <li>✓ Disaster recovery planning</li>
+                                <li>✓ 60-day support with optimization reviews</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package-specs">
+                            <div class="spec">
+                                <strong>Timeline:</strong> 3-4 weeks
+                            </div>
+                            <div class="spec">
+                                <strong>Best for:</strong> Growing startups with traffic</div>
+                        </div>
+                        
+                        <div class="package-cta">
+                            <a href="#get-started" class="btn-primary">Get Started</a>
+                            <div class="payment-options">
+                                <small>💳 Payment plans: 4 installments of $5,500</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="package-header">
+                            <h4>Enterprise-Grade</h4>
+                            <div class="price">$35,000</div>
+                            <div class="price-subtitle">Maximum reliability</div>
+                        </div>
+                        
+                        <div class="package-features">
+                            <h5>Everything in Scale-Ready, plus:</h5>
+                            <ul>
+                                <li>✓ Multi-cloud deployment support</li>
+                                <li>✓ Advanced security & compliance (SOC 2 ready)</li>
+                                <li>✓ Service mesh (Istio) implementation</li>
+                                <li>✓ Advanced cost optimization</li>
+                                <li>✓ 24/7 monitoring & alerting</li>
+                                <li>✓ Dedicated DevOps consultant</li>
+                                <li>✓ 90-day support + quarterly reviews</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package-specs">
+                            <div class="spec">
+                                <strong>Timeline:</strong> 4-6 weeks
+                            </div>
+                            <div class="spec">
+                                <strong>Best for:</strong> High-growth, compliance-focused startups
+                            </div>
+                        </div>
+                        
+                        <div class="package-cta">
+                            <a href="#get-started" class="btn-primary">Get Started</a>
+                            <div class="payment-options">
+                                <small>💳 Payment plans: 5 installments of $7,000</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Services -->
+            <div class="package-category">
+                <h3>Additional Services</h3>
+                <div class="additional-services">
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h4>Monitoring & Incident Intelligence</h4>
+                            <p>Complete observability stack with intelligent alerting</p>
+                        </div>
+                        <div class="service-price">
+                            <span class="price">$10,000</span>
+                            <span class="timeline">2-3 weeks</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h4>MLOps & AI Pipeline Automation</h4>
+                            <p>Model deployment, monitoring, and automated training pipelines</p>
+                        </div>
+                        <div class="service-price">
+                            <span class="price">$18,000</span>
+                            <span class="timeline">4-5 weeks</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h4>Developer Experience Automation</h4>
+                            <p>Code quality, development environment, and workflow automation</p>
+                        </div>
+                        <div class="service-price">
+                            <span class="price">$7,500</span>
+                            <span class="timeline">2 weeks</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-info">
+                            <h4>Custom Automation Solutions</h4>
+                            <p>Tailored automation for your specific business needs</p>
+                        </div>
+                        <div class="service-price">
+                            <span class="price">Quote</span>
+                            <span class="timeline">Varies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bundle Discounts -->
+    <section class="bundle-discounts section-padding bg-light">
+        <div class="container">
+            <h2>Bundle Discounts</h2>
+            <p class="section-subtitle">Save money by combining services. Perfect for comprehensive automation setups.</p>
+            
+            <div class="bundle-grid">
+                <div class="bundle-card">
+                    <h3>Complete Automation Bundle</h3>
+                    <div class="bundle-services">
+                        <span>Professional CI/CD</span>
+                        <span>+</span>
+                        <span>Scale-Ready Infrastructure</span>
+                        <span>+</span>
+                        <span>Monitoring & Intelligence</span>
+                    </div>
+                    <div class="bundle-pricing">
+                        <div class="original-price">$47,000 separately</div>
+                        <div class="bundle-price">$39,000 bundled</div>
+                        <div class="bundle-savings">Save $8,000 (17%)</div>
+                    </div>
+                    <div class="bundle-timeline">
+                        <strong>Timeline:</strong> 4-5 weeks
+                    </div>
+                    <a href="#get-started" class="btn-primary">Get Bundle Quote</a>
+                </div>
+                
+                <div class="bundle-card">
+                    <h3>AI Startup Special</h3>
+                    <div class="bundle-services">
+                        <span>Professional CI/CD</span>
+                        <span>+</span>
+                        <span>Scale-Ready Infrastructure</span>
+                        <span>+</span>
+                        <span>MLOps Automation</span>
+                    </div>
+                    <div class="bundle-pricing">
+                        <div class="original-price">$55,000 separately</div>
+                        <div class="bundle-price">$45,000 bundled</div>
+                        <div class="bundle-savings">Save $10,000 (18%)</div>
+                    </div>
+                    <div class="bundle-timeline">
+                        <strong>Timeline:</strong> 6-7 weeks
+                    </div>
+                    <a href="#get-started" class="btn-primary">Get Bundle Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Payment Options -->
+    <section class="payment-options section-padding">
+        <div class="container">
+            <h2>Flexible Payment Options for Startups</h2>
+            <div class="payment-grid">
+                <div class="payment-option">
+                    <div class="payment-icon">💳</div>
+                    <h3>Installment Plans</h3>
+                    <p>Split payments across 2-5 installments based on project milestones. No interest, no fees.</p>
+                    <div class="payment-example">
+                        <strong>Example:</strong> $15,000 project = 3 × $5,000 payments
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <h3>Startup-Friendly Terms</h3>
+                    <p>For qualified early-stage startups, we offer:</p>
+                    <ul>
+                        <li>✓ Extended payment terms (up to 90 days)</li>
+                        <li>✓ Revenue-based payment options</li>
+                        <li>✓ Deferred payment for post-funding startups</li>
+                    </ul>
+                    <div class="payment-note">
+                        <small>Subject to qualification and approval</small>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <div class="payment-icon">🛡️</div>
+                    <h3>Success Guarantee</h3>
+                    <p>If we don't deliver the promised results within the agreed timeline, you get your money back.</p>
+                    <div class="guarantee-details">
+                        <ul>
+                            <li>✓ 100% satisfaction guarantee</li>
+                            <li>✓ Milestone-based payments</li>
+                            <li>✓ No payment until you're satisfied</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ROI Calculator -->
+    <section class="roi-section section-padding bg-light">
+        <div class="container">
+            <h2>Calculate Your ROI</h2>
+            <p class="section-subtitle">See how much time and money automation will save your startup</p>
+            
+            <div class="roi-calculator">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="team-size">Development team size</label>
+                        <input type="number" id="team-size" min="1" value="5" onchange="calculateROI()">
+                    </div>
+                    <div class="input-group">
+                        <label for="avg-salary">Average developer salary</label>
+                        <input type="number" id="avg-salary" min="50000" value="120000" onchange="calculateROI()">
+                    </div>
+                    <div class="input-group">
+                        <label for="deployments-week">Deployments per week</label>
+                        <input type="number" id="deployments-week" min="1" value="3" onchange="calculateROI()">
+                    </div>
+                    <div class="input-group">
+                        <label for="hours-deployment">Hours per deployment</label>
+                        <input type="number" id="hours-deployment" min="0.5" step="0.5" value="2" onchange="calculateROI()">
+                    </div>
+                </div>
+                
+                <div class="roi-results">
+                    <div class="roi-metric">
+                        <span class="roi-label">Time Saved Per Week</span>
+                        <span class="roi-value" id="time-saved">4.8 hours</span>
+                    </div>
+                    <div class="roi-metric">
+                        <span class="roi-label">Cost Saved Per Month</span>
+                        <span class="roi-value" id="monthly-savings">$2,308</span>
+                    </div>
+                    <div class="roi-metric">
+                        <span class="roi-label">Annual Savings</span>
+                        <span class="roi-value" id="annual-savings">$27,692</span>
+                    </div>
+                    <div class="roi-metric">
+                        <span class="roi-label">Payback Period</span>
+                        <span class="roi-value" id="payback-period">7.8 months</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq-section section-padding">
+        <div class="container">
+            <h2>Pricing FAQ</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Why fixed pricing instead of hourly?</h3>
+                    <p>Fixed pricing gives you budget certainty and aligns our incentives with your success. We focus on delivering results, not billing hours. You know exactly what you'll pay upfront.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What if my project needs change during implementation?</h3>
+                    <p>Minor changes are included in our fixed price. For major scope changes, we'll discuss options and provide transparent pricing for any additions before proceeding.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you offer discounts for early-stage startups?</h3>
+                    <p>Yes! We offer extended payment terms, installment plans, and sometimes equity arrangements for qualified early-stage startups. Contact us to discuss your situation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What happens if you can't deliver on time?</h3>
+                    <p>We guarantee delivery within the agreed timeline. If we're delayed due to our fault, we'll either accelerate delivery at no extra cost or provide partial refunds for delays.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is ongoing maintenance included?</h3>
+                    <p>All packages include 30-90 days of support. After that, we offer maintenance packages starting at $500/month, or you can manage everything yourself with our documentation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I upgrade my package later?</h3>
+                    <p>Absolutely! You can upgrade anytime and we'll credit your original investment toward the higher-tier package. Many clients start with Essential and upgrade as they grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section id="get-started" class="cta-section section-padding bg-primary">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Get a custom quote tailored to your startup's specific needs and budget. Free consultation included.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-white">Get Custom Quote</a>
+                    <a href="/services/" class="btn btn-outline-white">View All Services</a>
+                </div>
+                
+                <div class="cta-guarantees">
+                    <div class="guarantee">
+                        <span class="guarantee-icon">✅</span>
+                        <span>No sales pressure</span>
+                    </div>
+                    <div class="guarantee">
+                        <span class="guarantee-icon">⚡</span>
+                        <span>24-hour response</span>
+                    </div>
+                    <div class="guarantee">
+                        <span class="guarantee-icon">🛡️</span>
+                        <span>Success guarantee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- Scripts -->
+    <script src="./shared/js/common.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    <!-- ROI Calculator -->
+    <script>
+        function calculateROI() {
+            const teamSize = parseInt(document.getElementById('team-size').value) || 5;
+            const avgSalary = parseInt(document.getElementById('avg-salary').value) || 120000;
+            const deploymentsWeek = parseInt(document.getElementById('deployments-week').value) || 3;
+            const hoursDeployment = parseFloat(document.getElementById('hours-deployment').value) || 2;
+            
+            // Calculations (assuming 80% time savings with automation)
+            const timeSavedPerWeek = deploymentsWeek * hoursDeployment * 0.8;
+            const hourlyCost = avgSalary / 2080; // 2080 working hours per year
+            const weeklySavings = timeSavedPerWeek * hourlyCost * teamSize;
+            const monthlySavings = weeklySavings * 4.33; // avg weeks per month
+            const annualSavings = monthlySavings * 12;
+            const avgProjectCost = 18000; // average project cost
+            const paybackMonths = avgProjectCost / monthlySavings;
+            
+            // Update display
+            document.getElementById('time-saved').textContent = `${timeSavedPerWeek.toFixed(1)} hours`;
+            document.getElementById('monthly-savings').textContent = `$${Math.round(monthlySavings).toLocaleString()}`;
+            document.getElementById('annual-savings').textContent = `$${Math.round(annualSavings).toLocaleString()}`;
+            document.getElementById('payback-period').textContent = `${paybackMonths.toFixed(1)} months`;
+        }
+        
+        // Initialize calculator
+        document.addEventListener('DOMContentLoaded', calculateROI);
+    </script>
+    
+    <!-- Initialize page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Load navigation
+            const navContainer = document.getElementById('navigation-container');
+            if (navContainer) {
+                const navResponse = await fetch('./shared/components/navigation.html');
+                if (navResponse.ok) {
+                    let navHTML = await navResponse.text();
+                    navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, './');
+                    navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, './assets/images/logo.svg');
+                    navHTML = navHTML.replace(/\{\{pricingActive\}\}/g, 'active');
+                    navContainer.innerHTML = navHTML;
+                }
+            }
+            
+            // Load footer
+            const footerContainer = document.getElementById('footer-container');
+            if (footerContainer) {
+                const footerResponse = await fetch('./shared/components/footer.html');
+                if (footerResponse.ok) {
+                    let footerHTML = await footerResponse.text();
+                    footerHTML = footerHTML.replace(/\{\{homeUrl\}\}/g, './');
+                    footerHTML = footerHTML.replace(/\{\{logoUrl\}\}/g, './assets/images/logo.svg');
+                    footerContainer.innerHTML = footerHTML;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

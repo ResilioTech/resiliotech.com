@@ -87,10 +87,53 @@ class ResilioCommon {
             }
         });
 
+        // Setup dropdown functionality
+        this.setupDropdowns();
+        
         // Active navigation highlighting
         this.updateActiveNavLink();
         window.addEventListener('hashchange', () => this.updateActiveNavLink());
         window.addEventListener('scroll', () => this.updateActiveNavLink());
+    }
+
+    setupDropdowns() {
+        const dropdowns = document.querySelectorAll('.nav-dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+            const menu = dropdown.querySelector('.nav-dropdown-menu');
+            
+            if (toggle && menu) {
+                // Desktop hover behavior
+                if (window.innerWidth > 768) {
+                    dropdown.addEventListener('mouseenter', () => {
+                        dropdown.classList.add('active');
+                    });
+                    
+                    dropdown.addEventListener('mouseleave', () => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+                
+                // Mobile click behavior
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                // Remove mobile active states on desktop
+                document.querySelectorAll('.nav-dropdown.active').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
     }
 
     updateActiveNavLink() {

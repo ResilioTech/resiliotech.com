@@ -171,6 +171,31 @@ class PageConfig {
                     'assets/data/blog-content.js',
                     'assets/js/content-manager.js'
                 ]
+            },
+            
+            about: {
+                title: 'About Us - Resiliotech | DevOps Experts for Startups',
+                description: 'Learn about Resiliotech\'s mission to help startups scale tech through automation. Meet our team of DevOps experts with proven startup and enterprise experience.',
+                keywords: 'about resiliotech, DevOps experts for startups, startup automation team, DevOps consultants, infrastructure automation experts',
+                ogType: 'website',
+                ogTitle: 'About Us - Resiliotech',
+                ogDescription: 'Learn about Resiliotech\'s mission to help startups scale tech through automation. Meet our team of DevOps experts.',
+                ogImage: 'https://resiliotech.com/assets/images/og-image.png',
+                ogImageWidth: '1200',
+                ogImageHeight: '630',
+                ogSiteName: 'Resiliotech',
+                twitterTitle: 'About Us - Resiliotech',
+                twitterDescription: 'Learn about Resiliotech\'s mission to help startups scale tech through automation. Meet our team of DevOps experts.',
+                twitterImage: 'https://resiliotech.com/assets/images/og-image.png',
+                twitterCard: 'summary_large_image',
+                twitterSite: '@resiliotech',
+                twitterCreator: '@resiliotech',
+                css: [
+                    'assets/css/styles.css'
+                ],
+                js: [
+                    'shared/js/common.js'
+                ]
             }
         };
     }

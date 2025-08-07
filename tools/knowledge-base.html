@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Knowledge Base - Resiliotech | Searchable DevOps Resources</title>
+    <meta name="description" content="Comprehensive searchable knowledge base covering DevOps automation, CI/CD, infrastructure management, and best practices. Find answers to your DevOps questions instantly.">
+    <meta name="keywords" content="DevOps knowledge base, CI/CD documentation, infrastructure automation guides, DevOps best practices, troubleshooting guides">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://resiliotech.com/tools/knowledge-base">
+    <meta property="og:title" content="DevOps Knowledge Base - Searchable DevOps Resources">
+    <meta property="og:description" content="Comprehensive searchable knowledge base with DevOps guides, best practices, and troubleshooting resources for modern development teams.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/social/knowledge-base-og-1200x630.jpg">
+    <meta property="og:site_name" content="Resiliotech">
+    
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="DevOps Knowledge Base - Searchable DevOps Resources">
+    <meta property="twitter:description" content="Comprehensive searchable knowledge base with DevOps guides, best practices, and troubleshooting resources.">
+    <meta property="twitter:image" content="https://resiliotech.com/assets/images/social/knowledge-base-twitter-1200x630.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../shared/css/common.css">
+    <link rel="stylesheet" href="../assets/css/resource-gating.css">
+    <style>
+        .knowledge-base-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .kb-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .kb-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .kb-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: white;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgb(102 126 234 / 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            pointer-events: none;
+        }
+        
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-button {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #6b7280;
+        }
+        
+        .filter-button:hover,
+        .filter-button.active {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+        
+        .results-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        @media (max-width: 768px) {
+            .results-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        .sidebar {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .sidebar h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #374151;
+            margin: 0 0 1rem 0;
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .category-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+            text-decoration: none;
+            color: #6b7280;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        
+        .category-link:hover,
+        .category-link.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .category-count {
+            background: #e5e7eb;
+            color: #6b7280;
+            padding: 0.125rem 0.375rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+        
+        .category-link.active .category-count {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .content-area {
+            min-height: 600px;
+        }
+        
+        .search-stats {
+            margin-bottom: 1.5rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        .article-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .article-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .article-category {
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .article-difficulty {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .difficulty-beginner {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .difficulty-intermediate {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .difficulty-advanced {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .article-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-excerpt {
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .article-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 0.125rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #6b7280;
+        }
+        
+        .no-results-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .loading-state {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+        
+        .loading-spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #e5e7eb;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .popular-searches {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .popular-searches h4 {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .popular-search-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .popular-tag {
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .popular-tag:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .suggestion-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #f3f4f6;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .suggestion-item:hover,
+        .suggestion-item.highlighted {
+            background: #f8fafc;
+        }
+        
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .suggestion-title {
+            font-weight: 500;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+        
+        .suggestion-category {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Resiliotech DevOps Knowledge Base",
+        "description": "Comprehensive searchable knowledge base for DevOps automation, CI/CD, and infrastructure management.",
+        "url": "https://resiliotech.com/tools/knowledge-base",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://resiliotech.com/tools/knowledge-base?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Resiliotech",
+            "url": "https://resiliotech.com"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-container"></div>
+    
+    <main class="knowledge-base-container">
+        <!-- Header -->
+        <div class="kb-header">
+            <h1>🧠 DevOps Knowledge Base</h1>
+            <p>Search through our comprehensive collection of guides, best practices, and troubleshooting resources</p>
+        </div>
+        
+        <!-- Search Container -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="kb-search-input" 
+                placeholder="Search guides, tutorials, and best practices..."
+                autocomplete="off"
+            >
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            
+            <!-- Search Suggestions -->
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+        
+        <!-- Popular Searches -->
+        <div class="popular-searches">
+            <h4>Popular searches:</h4>
+            <div class="popular-search-tags">
+                <span class="popular-tag" data-search="ci/cd pipeline">CI/CD Pipeline</span>
+                <span class="popular-tag" data-search="docker deployment">Docker Deployment</span>
+                <span class="popular-tag" data-search="kubernetes troubleshooting">Kubernetes Troubleshooting</span>
+                <span class="popular-tag" data-search="terraform best practices">Terraform Best Practices</span>
+                <span class="popular-tag" data-search="monitoring setup">Monitoring Setup</span>
+                <span class="popular-tag" data-search="security automation">Security Automation</span>
+            </div>
+        </div>
+        
+        <!-- Filters -->
+        <div class="filters-container">
+            <button class="filter-button active" data-filter="all">All Topics</button>
+            <button class="filter-button" data-filter="ci-cd">CI/CD</button>
+            <button class="filter-button" data-filter="infrastructure">Infrastructure</button>
+            <button class="filter-button" data-filter="monitoring">Monitoring</button>
+            <button class="filter-button" data-filter="security">Security</button>
+            <button class="filter-button" data-filter="troubleshooting">Troubleshooting</button>
+            <button class="filter-button" data-filter="best-practices">Best Practices</button>
+        </div>
+        
+        <!-- Results Container -->
+        <div class="results-container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Categories</h3>
+                <ul class="category-list" id="category-list">
+                    <li class="category-item">
+                        <a href="#" class="category-link active" data-category="all">
+                            <span>All Articles</span>
+                            <span class="category-count" id="count-all">--</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="ci-cd">
+                            <span>CI/CD Pipelines</span>
+                            <span class="category-count" id="count-ci-cd">--</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="infrastructure">
+                            <span>Infrastructure</span>
+                            <span class="category-count" id="count-infrastructure">--</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="monitoring">
+                            <span>Monitoring & Alerts</span>
+                            <span class="category-count" id="count-monitoring">--</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="security">
+                            <span>Security</span>
+                            <span class="category-count" id="count-security">--</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="troubleshooting">
+                            <span>Troubleshooting</span>
+                            <span class="category-count" id="count-troubleshooting">--</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="best-practices">
+                            <span>Best Practices</span>
+                            <span class="category-count" id="count-best-practices">--</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="search-stats" id="search-stats" style="display: none;">
+                    Found <strong id="results-count">0</strong> results for "<span id="search-term"></span>"
+                </div>
+                
+                <!-- Loading State -->
+                <div class="loading-state" id="loading-state">
+                    <div class="loading-spinner"></div>
+                    <span>Loading knowledge base...</span>
+                </div>
+                
+                <!-- Articles Grid -->
+                <div class="article-grid" id="article-grid" style="display: none;">
+                    <!-- Articles will be populated by JavaScript -->
+                </div>
+                
+                <!-- No Results -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <div class="no-results-icon">🔍</div>
+                    <h3>No articles found</h3>
+                    <p>Try adjusting your search terms or browse by category</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- JavaScript -->
+    <script src="../shared/js/common.js"></script>
+    <script src="../shared/js/page-config.js"></script>
+    <script src="../assets/js/newsletter-manager.js"></script>
+    <script src="assets/js/knowledge-base.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load components
+            window.PageConfig.initializePage('knowledge-base');
+            
+            // Initialize knowledge base
+            if (window.knowledgeBase) {
+                window.knowledgeBase.init();
+            }
+            
+            // Track page view
+            if (window.analyticsManager) {
+                window.analyticsManager.trackEvent('knowledge_base_page_view', {
+                    source: 'direct',
+                    page: '/tools/knowledge-base'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

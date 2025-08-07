@@ -266,11 +266,44 @@ class ROICalculator {
     performCalculations() {
         const data = this.formData;
         
-        // Base calculations
+        // Use the advanced ROI calculator for more comprehensive calculations
+        if (typeof AdvancedROICalculator !== 'undefined') {
+            this.advancedCalculator = new AdvancedROICalculator();
+            
+            // Transform form data to match advanced calculator inputs
+            const transformedInputs = this.transformFormDataToAdvancedInputs(data);
+            
+            // Set input values programmatically
+            Object.keys(transformedInputs).forEach(key => {
+                const element = document.createElement('input');
+                element.id = key;
+                element.value = transformedInputs[key];
+                // Temporarily add to DOM for calculator to read
+                document.body.appendChild(element);
+            });
+            
+            // Run advanced calculations
+            this.advancedCalculator.calculateROI();
+            const advancedResults = this.advancedCalculator.results;
+            
+            // Clean up temporary elements
+            Object.keys(transformedInputs).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) element.remove();
+            });
+            
+            // Convert advanced results to our format and enhance with form context
+            this.results = this.convertAdvancedResults(advancedResults, data);
+        } else {
+            // Fallback to basic calculations if advanced calculator not available
+            this.performBasicCalculations(data);
+        }
+    }
+    
+    transformFormDataToAdvancedInputs(data) {
         const teamSize = parseInt(data['team-size']) || 3;
         const avgSalary = parseInt(data['avg-salary']) || 120000;
         const deploymentTime = parseFloat(data['deployment-time']) || 2;
-        const hourlyRate = avgSalary / (52 * 40); // ~$60/hour for $120k salary
         
         // Frequency conversion
         const frequencyMap = {
@@ -282,7 +315,110 @@ class ROICalculator {
         };
         const deploymentsPerWeek = frequencyMap[data['deployments-frequency']] || 1;
         
-        // Rollback impact
+        // Revenue estimation based on company stage and monthly revenue
+        const revenueEstimates = {
+            '0-10k': 200,
+            '10k-50k': 500,
+            '50k-100k': 1000,
+            '100k-500k': 2000,
+            '500k-1m': 4000,
+            '1m+': 8000
+        };
+        const revenuePerHour = revenueEstimates[data['monthly-revenue']] || 500;
+        
+        // Estimate downtime based on rollback frequency
+        const downtimeMap = {
+            'rarely': 1,
+            'sometimes': 3,
+            'often': 6,
+            'frequently': 12
+        };
+        const downtimeHoursPerMonth = downtimeMap[data['rollback-frequency']] || 4;
+        
+        return {
+            teamSize: teamSize,
+            avgSalary: avgSalary,
+            deploymentsPerWeek: deploymentsPerWeek,
+            hoursPerDeployment: deploymentTime,
+            downtimeHoursPerMonth: downtimeHoursPerMonth,
+            revenuePerHour: revenuePerHour
+        };
+    }
+    
+    convertAdvancedResults(advancedResults, formData) {
+        if (!advancedResults || !advancedResults.automatedSavings) {
+            return this.performBasicCalculations(formData);
+        }
+        
+        const automated = advancedResults.automatedSavings;
+        const additional = advancedResults.additionalBenefits;
+        const roi = advancedResults.roiMetrics;
+        
+        // Apply form-specific adjustments
+        const painPoints = formData['pain-points'] || [];
+        const stage = formData['company-stage'];
+        const industry = formData['industry'];
+        
+        // Adjustment factors based on form context
+        let contextMultiplier = 1.0;
+        
+        // Stage-based adjustments
+        const stageMultipliers = {
+            'pre-seed': 0.8,
+            'seed': 0.9,
+            'series-a': 1.0,
+            'series-b': 1.1,
+            'established': 1.2
+        };
+        contextMultiplier *= stageMultipliers[stage] || 1.0;
+        
+        // Industry adjustments  
+        contextMultiplier *= this.industryMultipliers[industry] || 1.0;
+        
+        // Pain point urgency boost
+        const urgentPainPoints = ['frequent-failures', 'slow-deployments', 'scaling-issues'];
+        const hasUrgentPains = painPoints.some(pain => urgentPainPoints.includes(pain));
+        if (hasUrgentPains) {
+            contextMultiplier *= 1.15;
+        }
+        
+        const adjustedAnnualSavings = Math.round(automated.totalAnnualSavings * contextMultiplier);
+        const timeReductionPercentage = Math.min(95, Math.round(70 + (painPoints.length * 5))); // 70-95% based on pain points
+        
+        return {
+            annualSavings: adjustedAnnualSavings,
+            weeklySavings: Math.round(adjustedAnnualSavings / 52),
+            timeReduction: timeReductionPercentage,
+            productivityGain: Math.round((additional.additionalFeatureVelocity / automated.totalAnnualSavings) * 100),
+            roiPercentage: Math.round(Math.max(roi.roiPercentage * contextMultiplier, 0)),
+            breakdown: {
+                deploymentSavings: Math.round(automated.deploymentTimeSavings * contextMultiplier),
+                failureSavings: Math.round(automated.downtimeSavings * contextMultiplier),
+                productivitySavings: Math.round(additional.additionalFeatureVelocity * contextMultiplier)
+            },
+            implementationCost: roi.averageProjectCost,
+            paybackMonths: Math.max(1, Math.round(roi.paybackPeriodMonths)),
+            threeYearROI: Math.round(roi.threeYearROI * contextMultiplier),
+            netPresentValue: Math.round(roi.netPresentValue * contextMultiplier)
+        };
+    }
+    
+    performBasicCalculations(data) {
+        // Original basic calculation logic as fallback
+        const teamSize = parseInt(data['team-size']) || 3;
+        const avgSalary = parseInt(data['avg-salary']) || 120000;
+        const deploymentTime = parseFloat(data['deployment-time']) || 2;
+        const hourlyRate = avgSalary / (52 * 40);
+        
+        const frequencyMap = {
+            'daily': 5,
+            'few-per-week': 3,
+            'weekly': 1,
+            'bi-weekly': 0.5,
+            'monthly': 0.25
+        };
+        const deploymentsPerWeek = frequencyMap[data['deployments-frequency']] || 1;
+        
         const rollbackMap = {
             'rarely': 0.05,
             'sometimes': 0.1,
@@ -291,25 +427,20 @@ class ROICalculator {
         };
         const rollbackRate = rollbackMap[data['rollback-frequency']] || 0.1;
         
-        // Industry and stage adjustments
         const stage = data['company-stage'];
         const industry = data['industry'];
         const stageMultiplier = this.benchmarks[stage]?.automationAdoption || 0.5;
         const industryMultiplier = this.industryMultipliers[industry] || 1.0;
         
-        // Calculate current costs
         const weeklyDeploymentTime = deploymentsPerWeek * deploymentTime * teamSize;
-        const weeklyRollbackTime = weeklyDeploymentTime * rollbackRate * 2; // Rollbacks take 2x time
+        const weeklyRollbackTime = weeklyDeploymentTime * rollbackRate * 2;
         const totalWeeklyTime = weeklyDeploymentTime + weeklyRollbackTime;
-        const weeklyCost = totalWeeklyTime * hourlyRate;
         
-        // Calculate automation benefits
         const painPoints = data['pain-points'] || [];
-        let timeReductionFactor = 0.6; // Base 60% reduction
-        let reliabilityImprovement = 0.7; // Base 70% failure reduction
-        let productivityBoost = 0.3; // Base 30% productivity increase
+        let timeReductionFactor = 0.6;
+        let reliabilityImprovement = 0.7;
+        let productivityBoost = 0.3;
         
-        // Adjust based on pain points
         painPoints.forEach(pain => {
             const impact = this.painPointImpacts[pain];
             if (impact) {
@@ -322,24 +453,20 @@ class ROICalculator {
             }
         });
         
-        // Apply industry and stage multipliers
         timeReductionFactor *= industryMultiplier * (0.8 + stageMultiplier * 0.4);
         reliabilityImprovement *= industryMultiplier * (0.8 + stageMultiplier * 0.4);
         productivityBoost *= industryMultiplier * (0.7 + stageMultiplier * 0.6);
         
-        // Calculate savings
         const deploymentTimeSavings = weeklyDeploymentTime * timeReductionFactor * hourlyRate;
         const failureReductionSavings = weeklyRollbackTime * reliabilityImprovement * hourlyRate;
-        const productivitySavings = (teamSize * 40 * hourlyRate) * productivityBoost * 0.2; // 20% of productivity boost affects billable time
+        const productivitySavings = (teamSize * 40 * hourlyRate) * productivityBoost * 0.2;
         
         const totalWeeklySavings = deploymentTimeSavings + failureReductionSavings + productivitySavings;
         const annualSavings = totalWeeklySavings * 52;
         
-        // Calculate implementation cost (rough estimate)
-        const implementationCost = teamSize * 5000; // $5k per team member
+        const implementationCost = teamSize * 5000;
         const firstYearROI = ((annualSavings - implementationCost) / implementationCost) * 100;
         
-        // Store results
         this.results = {
             annualSavings: Math.round(annualSavings),
             weeklySavings: Math.round(totalWeeklySavings),
@@ -365,6 +492,16 @@ class ROICalculator {
         document.getElementById('productivity-gain').textContent = `${results.productivityGain}%`;
         document.getElementById('roi-percentage').textContent = `${results.roiPercentage}%`;
         
+        // Update additional metrics if available
+        if (document.getElementById('payback-period')) {
+            const paybackText = results.paybackMonths === 1 ? '1 month' : `${results.paybackMonths} months`;
+            document.getElementById('payback-period').textContent = paybackText;
+        }
+        
+        if (document.getElementById('three-year-roi') && results.threeYearROI) {
+            document.getElementById('three-year-roi').textContent = `$${results.threeYearROI.toLocaleString()}`;
+        }
+        
         // Update breakdown chart
         const maxSaving = Math.max(results.breakdown.deploymentSavings, results.breakdown.failureSavings, results.breakdown.productivitySavings);
         
@@ -375,6 +512,87 @@ class ROICalculator {
         // Generate timeline and recommendations
         this.generateImplementationTimeline();
         this.generateRecommendations();
+        
+        // Add personalized ROI recommendation
+        this.displayPersonalizedRecommendation();
+    }
+    
+    displayPersonalizedRecommendation() {
+        const results = this.results;
+        const data = this.formData;
+        
+        // Create or update recommendation element
+        let recommendationEl = document.getElementById('personalized-recommendation');
+        if (!recommendationEl) {
+            recommendationEl = document.createElement('div');
+            recommendationEl.id = 'personalized-recommendation';
+            recommendationEl.className = 'roi-recommendation-enhanced';
+            
+            // Insert after results summary
+            const resultsSummary = document.querySelector('.results-summary');
+            if (resultsSummary && resultsSummary.parentNode) {
+                resultsSummary.parentNode.insertBefore(recommendationEl, resultsSummary.nextSibling);
+            }
+        }
+        
+        let recommendation = '';
+        let priority = '';
+        
+        if (results.paybackMonths <= 6) {
+            priority = 'high';
+            recommendation = `🚀 <strong>Immediate Action Recommended:</strong> With a payback period of just ${results.paybackMonths} months and ${results.roiPercentage}% first-year ROI, DevOps automation should be your top priority. You'll save $${Math.round(results.annualSavings / 12).toLocaleString()} per month once implemented.`;
+        } else if (results.paybackMonths <= 12) {
+            priority = 'medium';
+            recommendation = `⚡ <strong>Strong Business Case:</strong> A ${results.paybackMonths}-month payback period delivers ${results.roiPercentage}% ROI in year one. Plan automation into your next quarterly roadmap to start realizing $${results.annualSavings.toLocaleString()} in annual savings.`;
+        } else {
+            priority = 'low';
+            recommendation = `📊 <strong>Long-term Value:</strong> While the ${results.paybackMonths}-month payback requires patience, you'll still achieve ${results.roiPercentage}% ROI and significant operational improvements. Consider starting with high-impact, low-effort automation wins.`;
+        }
+        
+        // Add industry-specific insights
+        const industry = data['industry'];
+        const industryInsights = {
+            'fintech': 'Financial services companies typically see faster ROI due to regulatory compliance automation and critical uptime requirements.',
+            'saas': 'SaaS businesses benefit most from deployment velocity improvements and reliability gains that directly impact customer retention.',
+            'ecommerce': 'E-commerce platforms see immediate value from automated scaling during traffic spikes and reduced downtime costs.',
+            'healthcare': 'Healthcare applications require high reliability and compliance automation, making DevOps investment particularly valuable.'
+        };
+        
+        if (industryInsights[industry]) {
+            recommendation += `<br><br><strong>Industry Insight:</strong> ${industryInsights[industry]}`;
+        }
+        
+        recommendationEl.innerHTML = recommendation;
+        recommendationEl.className = `roi-recommendation-enhanced priority-${priority}`;
+        
+        // Add some basic styling if not already present
+        if (!document.querySelector('#enhanced-recommendation-styles')) {
+            const style = document.createElement('style');
+            style.id = 'enhanced-recommendation-styles';
+            style.textContent = `
+                .roi-recommendation-enhanced {
+                    background: white;
+                    border-radius: 12px;
+                    padding: 1.5rem;
+                    margin: 1.5rem 0;
+                    border-left: 4px solid #10b981;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                }
+                .roi-recommendation-enhanced.priority-high {
+                    border-left-color: #059669;
+                    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+                }
+                .roi-recommendation-enhanced.priority-medium {
+                    border-left-color: #d97706;
+                    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+                }
+                .roi-recommendation-enhanced.priority-low {
+                    border-left-color: #6b7280;
+                    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+                }
+            `;
+            document.head.appendChild(style);
+        }
     }
 
     updateChartBar(id, value, maxValue) {

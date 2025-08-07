@@ -115,6 +115,9 @@
     <!-- Navigation -->
     <div id="navigation-container"></div>
     
+    <!-- Header -->
+    <div id="header-container"></div>
+    
     <!-- Main Content -->
 
     <main>
@@ -876,42 +879,9 @@
     <!-- Animation Library -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-            // Load navigation
-            try {
-                const navContainer = document.getElementById('navigation-container');
-                if (navContainer && !navContainer.innerHTML.trim()) {
-                    const navResponse = await fetch('../shared/components/navigation.html');
-                    if (navResponse.ok) {
-                        let navHTML = await navResponse.text();
-                        navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, '../');
-                        navHTML = navHTML.replace(/\{\{consultingUrl\}\}/g, '../consulting/');
-                        navHTML = navHTML.replace(/\{\{productsUrl\}\}/g, '../products/');
-                        navHTML = navHTML.replace(/\{\{blogUrl\}\}/g, '../blog/');
-                        navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, '../projects/');
-                        navHTML = navHTML.replace(/\{\{resourcesUrl\}\}/g, '../resources/');
-                        navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, '../assets/images/logo.svg');
-                        navHTML = navHTML.replace(/\{\{homeActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{consultingActive\}\}/g, 'active');
-                        navHTML = navHTML.replace(/\{\{productsActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{blogActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
-                        navContainer.innerHTML = navHTML;
-                        
-                        // Initialize navigation after it's loaded
-                        if (window.initializeNavigation) {
-                            window.initializeNavigation();
-                        }
-                    } else {
-                        console.error('Failed to load navigation component');
-                    }
-                }
-            } catch (error) {
-                console.error('Error loading navigation:', error);
-            }
+        document.addEventListener('DOMContentLoaded', async () => {
+            const pageConfig = new PageConfig();
+            await pageConfig.loadComponents('consulting');
             
             // Initialize AOS animations
             AOS.init({

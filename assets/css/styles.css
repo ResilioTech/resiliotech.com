@@ -3301,6 +3301,7 @@
 
 .form-submit .btn-loading svg {
     animation: spin 1s linear infinite;
+    will-change: transform;
 }
 
 /* Form Validation Styles */
@@ -3508,6 +3509,7 @@
     font-size: 3rem;
     margin-bottom: var(--spacing-4);
     animation: bounce 2s infinite;
+    will-change: transform;
 }
 
 @keyframes bounce {
@@ -3832,6 +3834,7 @@
     border-top: 3px solid var(--color-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    will-change: transform;
     margin-bottom: var(--spacing-4);
 }
 
@@ -6025,6 +6028,7 @@
 
 .btn .btn-loading svg {
     animation: spin 1s linear infinite;
+    will-change: transform;
 }
 
 @keyframes spin {
@@ -6359,6 +6363,7 @@
 
 [data-aos="fade-up"] {
     animation: fadeInUp 0.6s ease-out forwards;
+    will-change: transform, opacity;
 }
 
 .card-highlight-effect {
@@ -7002,11 +7007,12 @@ img[data-src].loaded {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     animation: shimmer 2s infinite;
+    will-change: transform;
 }
 
 @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 .lead-capture-form .form-group {
@@ -7124,6 +7130,7 @@ img[data-src].loaded {
 
 .lead-capture-form .btn-loading svg {
     animation: spin 1s linear infinite;
+    will-change: transform;
 }
 
 @keyframes spin {
@@ -7204,6 +7211,7 @@ img[data-src].loaded {
     color: var(--text-primary);
     font-weight: 500;
     animation: slideInUp 0.6s ease forwards;
+    will-change: transform, opacity;
     opacity: 0;
     transform: translateY(20px);
 }
@@ -7213,9 +7221,13 @@ img[data-src].loaded {
 .feature-item:nth-child(3) { animation-delay: 0.6s; }
 
 @keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -7685,6 +7697,7 @@ select:focus {
     letter-spacing: 0.025em;
     box-shadow: 0 1px 3px rgba(245, 158, 11, 0.3);
     animation: pulse 2s ease-in-out infinite;
+    will-change: transform;
     white-space: nowrap;
     line-height: 1;
 }
@@ -8652,4 +8665,30 @@ input, textarea, select {
         width: 100%;
         max-width: 300px;
     }
+}
+
+/* Performance optimization - Remove will-change after animations complete */
+.animation-complete {
+    will-change: auto !important;
+}
+
+/* Optimize GPU layers for better animation performance */
+.smooth-transition {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Preload animation states */
+.card-hover-effect {
+    will-change: transform;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-4px) translateZ(0);
+}
+
+.card-hover-effect:not(:hover) {
+    will-change: auto;
 }

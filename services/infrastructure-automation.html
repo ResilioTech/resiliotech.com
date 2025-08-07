@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Infrastructure automation for startups. AWS, Azure, GCP setup with Terraform, auto-scaling, and cost optimization. Launch on bulletproof infrastructure.">
+    <meta name="keywords" content="infrastructure automation, terraform, AWS automation, Azure automation, GCP automation, kubernetes, docker, infrastructure as code">
+    <meta name="author" content="Resiliotech">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Infrastructure Automation for Startups | Resiliotech">
+    <meta property="og:description" content="Launch on bulletproof infrastructure with automated scaling and cost optimization. AWS, Azure, GCP setup with Infrastructure as Code.">
+    <meta property="og:image" content="https://resiliotech.com/assets/images/og-image.svg">
+    <meta property="og:url" content="https://resiliotech.com/services/infrastructure-automation.html">
+    
+    <title>Infrastructure Automation for Startups | Resiliotech</title>
+    
+    <link rel="canonical" href="https://resiliotech.com/services/infrastructure-automation.html">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+    
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --background-primary: #ffffff;
+            --border-color: #e2e8f0;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-family-primary); line-height: 1.6; color: var(--text-primary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        .btn-primary { background: var(--primary-color); color: white; padding: var(--spacing-4) var(--spacing-6); text-decoration: none; border-radius: 8px; display: inline-block; font-weight: 600; }
+        .btn-primary:hover { background: var(--primary-dark); }
+    </style>
+    
+    <!-- Load full styles -->
+    <link rel="stylesheet" href="../shared/css/common.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body data-page-type="service" data-service="infrastructure-automation">
+    <!-- Navigation -->
+    <div id="navigation-container"></div>
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li><a href="../">Home</a></li>
+                <li><a href="../services/">Services</a></li>
+                <li aria-current="page">Infrastructure Automation</li>
+            </ol>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Infrastructure Automation for Startups</h1>
+                <p class="hero-subtitle">Launch on bulletproof infrastructure that grows with you. Automated scaling, cost optimization, and enterprise-grade reliability—without enterprise complexity.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50%</span>
+                        <span class="stat-label">Cost Reduction</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime SLA</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Auto</span>
+                        <span class="stat-label">Scaling</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#get-started" class="btn-primary">Get Infrastructure Audit</a>
+                    <a href="#cloud-platforms" class="btn-secondary">View Platforms</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cloud Platforms Section -->
+    <section id="cloud-platforms" class="platforms-section section-padding">
+        <div class="container">
+            <h2>We Automate Infrastructure on All Major Clouds</h2>
+            
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <div class="platform-logo">
+                        <img src="../assets/images/3-aws.svg" alt="AWS" width="60" height="60">
+                    </div>
+                    <h3>Amazon Web Services (AWS)</h3>
+                    <div class="platform-services">
+                        <h4>Services We Automate:</h4>
+                        <ul>
+                            <li>EC2, ECS, EKS container orchestration</li>
+                            <li>RDS, DynamoDB database automation</li>
+                            <li>Lambda serverless functions</li>
+                            <li>CloudFront CDN and S3 storage</li>
+                            <li>VPC networking and security groups</li>
+                            <li>CloudWatch monitoring & alerts</li>
+                        </ul>
+                    </div>
+                    <div class="platform-pricing">
+                        <strong>Starting from:</strong> $12,500
+                    </div>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-logo">
+                        <img src="../assets/images/4-azure.svg" alt="Microsoft Azure" width="60" height="60">
+                    </div>
+                    <h3>Microsoft Azure</h3>
+                    <div class="platform-services">
+                        <h4>Services We Automate:</h4>
+                        <ul>
+                            <li>Azure Container Instances & AKS</li>
+                            <li>Azure SQL Database & Cosmos DB</li>
+                            <li>Azure Functions serverless</li>
+                            <li>Azure CDN and Blob Storage</li>
+                            <li>Virtual Networks and NSGs</li>
+                            <li>Azure Monitor & Application Insights</li>
+                        </ul>
+                    </div>
+                    <div class="platform-pricing">
+                        <strong>Starting from:</strong> $12,500
+                    </div>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-logo">
+                        <img src="../assets/images/5-google-cloud.svg" alt="Google Cloud Platform" width="60" height="60">
+                    </div>
+                    <h3>Google Cloud Platform (GCP)</h3>
+                    <div class="platform-services">
+                        <h4>Services We Automate:</h4>
+                        <ul>
+                            <li>Compute Engine & Google Kubernetes Engine</li>
+                            <li>Cloud SQL & Firestore databases</li>
+                            <li>Cloud Functions serverless</li>
+                            <li>Cloud CDN and Cloud Storage</li>
+                            <li>VPC networking and firewall rules</li>
+                            <li>Cloud Monitoring & Logging</li>
+                        </ul>
+                    </div>
+                    <div class="platform-pricing">
+                        <strong>Starting from:</strong> $12,500
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Problem Section -->
+    <section class="problem-section section-padding bg-light">
+        <div class="container">
+            <h2>Infrastructure Challenges That Kill Startups</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>Runaway Cloud Costs</h3>
+                    <p>Your AWS bill doubles every month because nothing is optimized. Resources run 24/7 even when not needed, eating your runway.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📈</div>
+                    <h3>Can't Handle Traffic Spikes</h3>
+                    <p>Your site crashes when you get featured on Product Hunt or TechCrunch. Manual scaling means missed opportunities and angry users.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🔥</div>
+                    <h3>Constant Firefighting</h3>
+                    <p>Servers go down at 3am and nobody knows how to fix them. Your team spends more time on ops than building your product.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🏗️</div>
+                    <h3>Fragile Infrastructure</h3>
+                    <p>Everything is held together with duct tape and SSH scripts. One wrong command and your entire platform is down.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solution Overview -->
+    <section class="solution-section section-padding">
+        <div class="container">
+            <h2>Our Complete Infrastructure Automation Solution</h2>
+            <p class="section-subtitle">Enterprise-grade infrastructure that scales automatically and costs 50% less than traditional setups.</p>
+            
+            <div class="solution-tabs">
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="infrastructure">Infrastructure as Code</button>
+                    <button class="tab-btn" data-tab="containers">Container Orchestration</button>
+                    <button class="tab-btn" data-tab="monitoring">Monitoring & Alerting</button>
+                    <button class="tab-btn" data-tab="security">Security & Compliance</button>
+                </div>
+                
+                <div class="tab-content active" id="infrastructure">
+                    <div class="tab-grid">
+                        <div class="tab-text">
+                            <h3>Infrastructure as Code with Terraform</h3>
+                            <p>Your entire infrastructure defined in code, version controlled, and deployed automatically. No more manual server setup or configuration drift.</p>
+                            <ul>
+                                <li>✓ Terraform templates for your exact needs</li>
+                                <li>✓ Multi-environment setup (dev/staging/prod)</li>
+                                <li>✓ Automated provisioning and updates</li>
+                                <li>✓ Disaster recovery and backup automation</li>
+                                <li>✓ Cost optimization built-in</li>
+                            </ul>
+                        </div>
+                        <div class="tab-image">
+                            <div class="code-block">
+                                <pre><code># Example Terraform Configuration
+resource "aws_instance" "app_server" {
+  ami           = var.app_ami
+  instance_type = var.instance_type
+  
+  auto_scaling_group = aws_autoscaling_group.app
+  load_balancer     = aws_lb.main
+  
+  tags = {
+    Environment = var.environment
+    Project     = "startup-infrastructure"
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="containers">
+                    <div class="tab-grid">
+                        <div class="tab-text">
+                            <h3>Docker & Kubernetes Orchestration</h3>
+                            <p>Containerized applications that scale automatically based on demand. Deploy anywhere, scale effortlessly.</p>
+                            <ul>
+                                <li>✓ Docker containerization of your apps</li>
+                                <li>✓ Kubernetes cluster setup and management</li>
+                                <li>✓ Horizontal pod autoscaling</li>
+                                <li>✓ Service mesh for microservices</li>
+                                <li>✓ Automated updates and rollbacks</li>
+                            </ul>
+                        </div>
+                        <div class="tab-image">
+                            <div class="architecture-diagram">
+                                <div class="diagram-node">Load Balancer</div>
+                                <div class="diagram-arrow">→</div>
+                                <div class="diagram-node">Kubernetes Cluster</div>
+                                <div class="diagram-arrow">→</div>
+                                <div class="diagram-node">Auto-scaling Pods</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="monitoring">
+                    <div class="tab-grid">
+                        <div class="tab-text">
+                            <h3>Complete Observability Stack</h3>
+                            <p>Know what's happening in your infrastructure before problems occur. Proactive monitoring and intelligent alerting.</p>
+                            <ul>
+                                <li>✓ Prometheus & Grafana monitoring</li>
+                                <li>✓ ELK stack for log aggregation</li>
+                                <li>✓ Application performance monitoring</li>
+                                <li>✓ Smart alerting (no alert fatigue)</li>
+                                <li>✓ Custom dashboards for your KPIs</li>
+                            </ul>
+                        </div>
+                        <div class="tab-image">
+                            <div class="monitoring-dashboard">
+                                <div class="dashboard-metric">
+                                    <span class="metric-label">CPU Usage</span>
+                                    <span class="metric-value">23%</span>
+                                </div>
+                                <div class="dashboard-metric">
+                                    <span class="metric-label">Memory</span>
+                                    <span class="metric-value">67%</span>
+                                </div>
+                                <div class="dashboard-metric">
+                                    <span class="metric-label">Response Time</span>
+                                    <span class="metric-value">145ms</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="security">
+                    <div class="tab-grid">
+                        <div class="tab-text">
+                            <h3>Security & Compliance by Default</h3>
+                            <p>Enterprise-grade security without enterprise complexity. SOC 2, GDPR, and HIPAA compliance options available.</p>
+                            <ul>
+                                <li>✓ Network security and firewalls</li>
+                                <li>✓ SSL/TLS encryption everywhere</li>
+                                <li>✓ Secrets management (HashiCorp Vault)</li>
+                                <li>✓ Vulnerability scanning and patching</li>
+                                <li>✓ Compliance reporting and auditing</li>
+                            </ul>
+                        </div>
+                        <div class="tab-image">
+                            <div class="security-layers">
+                                <div class="security-layer">Application Security</div>
+                                <div class="security-layer">Container Security</div>
+                                <div class="security-layer">Network Security</div>
+                                <div class="security-layer">Infrastructure Security</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cost Optimization Section -->
+    <section class="cost-section section-padding bg-light">
+        <div class="container">
+            <h2>Slash Your Infrastructure Costs by 50%</h2>
+            <div class="cost-comparison">
+                <div class="cost-before">
+                    <h3>Before Automation</h3>
+                    <div class="cost-items">
+                        <div class="cost-item">
+                            <span class="cost-label">Always-on servers</span>
+                            <span class="cost-value">$2,400/month</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label">Over-provisioned resources</span>
+                            <span class="cost-value">$800/month</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label">Manual management overhead</span>
+                            <span class="cost-value">$3,000/month</span>
+                        </div>
+                        <div class="cost-total">
+                            <strong>Total: $6,200/month</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cost-after">
+                    <h3>After Automation</h3>
+                    <div class="cost-items">
+                        <div class="cost-item savings">
+                            <span class="cost-label">Auto-scaling resources</span>
+                            <span class="cost-value">$1,200/month</span>
+                        </div>
+                        <div class="cost-item savings">
+                            <span class="cost-label">Right-sized instances</span>
+                            <span class="cost-value">$300/month</span>
+                        </div>
+                        <div class="cost-item savings">
+                            <span class="cost-label">Fully automated</span>
+                            <span class="cost-value">$500/month</span>
+                        </div>
+                        <div class="cost-total savings">
+                            <strong>Total: $2,000/month</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cost-savings">
+                    <div class="savings-amount">$4,200/month saved</div>
+                    <div class="savings-percentage">68% cost reduction</div>
+                    <div class="savings-annual">$50,400 saved annually</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="pricing-section section-padding">
+        <div class="container">
+            <h2>Infrastructure Automation Packages</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Startup Foundation</h3>
+                    <div class="price">$12,500</div>
+                    <div class="price-period">One-time setup</div>
+                    <div class="price-includes">
+                        <h4>Perfect for early-stage startups:</h4>
+                        <ul>
+                            <li>✓ Single cloud provider setup</li>
+                            <li>✓ Basic auto-scaling configuration</li>
+                            <li>✓ Terraform infrastructure as code</li>
+                            <li>✓ Basic monitoring & alerting</li>
+                            <li>✓ SSL certificates and security basics</li>
+                            <li>✓ 30-day support included</li>
+                        </ul>
+                    </div>
+                    <div class="price-timeline"><strong>Timeline:</strong> 2-3 weeks</div>
+                    <a href="#get-started" class="btn-primary">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Scale-Ready Infrastructure</h3>
+                    <div class="price">$22,000</div>
+                    <div class="price-period">One-time setup</div>
+                    <div class="price-includes">
+                        <h4>Everything in Foundation, plus:</h4>
+                        <ul>
+                            <li>✓ Multi-environment setup (dev/staging/prod)</li>
+                            <li>✓ Kubernetes cluster management</li>
+                            <li>✓ Advanced monitoring (Prometheus/Grafana)</li>
+                            <li>✓ Database automation & backups</li>
+                            <li>✓ CDN and performance optimization</li>
+                            <li>✓ Disaster recovery planning</li>
+                            <li>✓ 60-day support included</li>
+                        </ul>
+                    </div>
+                    <div class="price-timeline"><strong>Timeline:</strong> 3-4 weeks</div>
+                    <a href="#get-started" class="btn-primary">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise-Grade</h3>
+                    <div class="price">$35,000</div>
+                    <div class="price-period">One-time setup</div>
+                    <div class="price-includes">
+                        <h4>Everything in Scale-Ready, plus:</h4>
+                        <ul>
+                            <li>✓ Multi-cloud deployment support</li>
+                            <li>✓ Advanced security & compliance (SOC 2)</li>
+                            <li>✓ Service mesh (Istio) implementation</li>
+                            <li>✓ Advanced cost optimization</li>
+                            <li>✓ 24/7 monitoring & incident response</li>
+                            <li>✓ Dedicated DevOps consultant</li>
+                            <li>✓ 90-day support + quarterly reviews</li>
+                        </ul>
+                    </div>
+                    <div class="price-timeline"><strong>Timeline:</strong> 4-6 weeks</div>
+                    <a href="#get-started" class="btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section id="get-started" class="cta-section section-padding bg-light">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Launch on Bulletproof Infrastructure?</h2>
+                <p>Get a free infrastructure audit and see exactly how much you can save with automated, scalable architecture.</p>
+                
+                <div class="cta-form">
+                    <form id="infrastructure-audit-form" class="audit-form">
+                        <div class="form-row">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" placeholder="Company Name" required>
+                            <select required>
+                                <option value="">Current Cloud Provider</option>
+                                <option value="aws">Amazon Web Services (AWS)</option>
+                                <option value="azure">Microsoft Azure</option>
+                                <option value="gcp">Google Cloud Platform</option>
+                                <option value="digitalocean">DigitalOcean</option>
+                                <option value="none">Not on cloud yet</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" placeholder="Monthly cloud spend ($)" min="0">
+                            <select>
+                                <option value="">Team size</option>
+                                <option value="1-5">1-5 people</option>
+                                <option value="6-15">6-15 people</option>
+                                <option value="16-50">16-50 people</option>
+                                <option value="50+">50+ people</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <textarea placeholder="What's your biggest infrastructure challenge?" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-large">Get My Free Infrastructure Audit</button>
+                    </form>
+                </div>
+                
+                <div class="cta-trust">
+                    <p>✓ Free infrastructure assessment</p>
+                    <p>✓ Custom cost optimization plan</p>
+                    <p>✓ Architecture recommendations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- Scripts -->
+    <script src="../shared/js/common.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Tab functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and content
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    btn.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+    
+    <!-- Initialize page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Load navigation
+            const navContainer = document.getElementById('navigation-container');
+            if (navContainer) {
+                const navResponse = await fetch('../shared/components/navigation.html');
+                if (navResponse.ok) {
+                    let navHTML = await navResponse.text();
+                    navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, '../');
+                    navHTML = navHTML.replace(/\{\{servicesUrl\}\}/g, '../services/');
+                    navHTML = navHTML.replace(/\{\{logoUrl\}\}/g, '../assets/images/logo.svg');
+                    navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, 'active');
+                    navContainer.innerHTML = navHTML;
+                }
+            }
+            
+            // Load footer
+            const footerContainer = document.getElementById('footer-container');
+            if (footerContainer) {
+                const footerResponse = await fetch('../shared/components/footer.html');
+                if (footerResponse.ok) {
+                    let footerHTML = await footerResponse.text();
+                    footerHTML = footerHTML.replace(/\{\{homeUrl\}\}/g, '../');
+                    footerHTML = footerHTML.replace(/\{\{logoUrl\}\}/g, '../assets/images/logo.svg');
+                    footerContainer.innerHTML = footerHTML;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

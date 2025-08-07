@@ -13,19 +13,16 @@
     <!-- Performance hints -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
     
-    <!-- DNS prefetch for third-party domains -->
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-    <link rel="dns-prefetch" href="//www.clarity.ms">
+    <!-- Critical third-party domains - preconnect for immediate use -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
+    <link rel="preconnect" href="https://www.clarity.ms">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Non-critical third-party domains - dns-prefetch for later use -->
     <link rel="dns-prefetch" href="//calendly.com">
     <link rel="dns-prefetch" href="//assets.calendly.com">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    
-    <!-- Preconnect for critical third-party resources -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://resiliotech.com/" />
@@ -69,8 +66,16 @@
     <link rel="preload" href="assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/space-grotesk-regular.woff2" as="font" type="font/woff2" crossorigin>
     
-    <!-- LCP optimization: preload logo SVG for critical rendering -->
+    <!-- LCP optimization: preload critical images for faster rendering -->
     <link rel="preload" href="./assets/images/logo.svg" as="image" type="image/svg+xml" fetchpriority="high">
+    <link rel="preload" href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&fm=webp&q=80" as="image" fetchpriority="high">
+    <link rel="preload" href="https://images.unsplash.com/photo-1494790108755-2616b612b8f1?w=150&h=150&fit=crop&crop=face&fm=webp&q=80" as="image" fetchpriority="high">
+    
+    <!-- Resource optimization headers -->
+    <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
     <!-- Critical CSS inlined for optimal performance -->
     <style>
@@ -116,12 +121,50 @@
         .header-container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: center; }
         .header-content h1 { font-size: var(--font-size-5xl); font-weight: 700; line-height: 1.1; margin-bottom: var(--spacing-6); color: var(--text-primary); }
         .header-content .hero-description { font-size: var(--font-size-xl); color: var(--text-secondary); margin-bottom: var(--spacing-8); line-height: 1.5; }
+        .hero-cta { display: flex; gap: var(--spacing-4); flex-wrap: wrap; margin-bottom: var(--spacing-8); }
+        .tech-stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: var(--spacing-4); padding: var(--spacing-6); }
+        .tech-item { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-2); }
+        .tech-icon { width: 48px; height: 48px; object-fit: contain; }
+        .tech-label { font-size: 0.875rem; color: var(--text-muted); text-align: center; }
+        .btn-secondary { background: transparent; color: var(--primary-color); border-color: var(--primary-color); }
+        .btn-secondary:hover { background: var(--primary-color); color: white; }
         .btn { display: inline-flex; align-items: center; gap: var(--spacing-2); padding: var(--spacing-4) var(--spacing-6); font-size: var(--font-size-base); font-weight: 600; text-decoration: none; border-radius: var(--border-radius-lg); border: 2px solid transparent; cursor: pointer; transition: all var(--transition-normal); min-height: 48px; }
         .btn-primary { background: var(--primary-color); color: white; border-color: var(--primary-color); }
         .btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
         .skip-to-main { position: absolute; top: -40px; left: 6px; background: var(--primary-color); color: white; padding: 8px; text-decoration: none; border-radius: 4px; z-index: 9999; }
         .skip-to-main:focus { top: 6px; }
+        .lazy { opacity: 0; transition: opacity 0.3s ease; }
+        .lazy-loaded { opacity: 1; }
+        
+        /* Enhanced focus indicators for accessibility */
+        button:focus,
+        input:focus,
+        textarea:focus,
+        select:focus,
+        a:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        
+        /* High contrast focus for better visibility */
+        @media (prefers-contrast: high) {
+            button:focus,
+            input:focus,
+            textarea:focus,
+            select:focus,
+            a:focus {
+                outline: 4px solid #000;
+                outline-offset: 3px;
+            }
+        }
+        
+        /* Motion preference respect */
+        @media (prefers-reduced-motion: reduce) {
+            .lazy { transition: none; }
+            * { animation-duration: 0.01ms !important; }
+        }
         @media (max-width: 768px) {
             .header-container { grid-template-columns: 1fr; text-align: center; }
             .header-content h1 { font-size: var(--font-size-4xl); }
@@ -145,42 +188,15 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
-    <!-- Shared Component System -->
-    <script src="shared/js/component-loader.js"></script>
-    <script src="shared/js/page-config.js"></script>
+    <!-- Shared Component System - defer for non-critical loading -->
+    <script defer src="shared/js/component-loader.js"></script>
+    <script defer src="shared/js/page-config.js"></script>
     
-    <!-- reCAPTCHA v3 for form security and bot prevention -->
-    <!-- reCAPTCHA v3 for form security -->
-    <script src="https://www.google.com/recaptcha/api.js?render={{ env.RECAPTCHA_SITE_KEY }}" async defer></script>
+    <!-- reCAPTCHA v3 - Deferred loading for better performance -->
     
-    <!-- Google Analytics 4 with Enhanced Measurement -->
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ env.GA4_TRACKING_ID }}"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ env.GA4_TRACKING_ID }}', {
-            // Enhanced Measurement
-            enhanced_measurement: true,
-            page_title: true,
-            send_page_view: true,
-            // Custom event tracking
-            custom_map: {
-                'custom_parameter_1': 'startup_type',
-                'custom_parameter_2': 'lead_source'
-            }
-        });
-    </script>
+    <!-- Google Analytics 4 - Deferred loading for better performance -->
     
-    <!-- Microsoft Clarity for session recordings and heatmaps -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "{{ env.CLARITY_PROJECT_ID }}");
-    </script>
+    <!-- Microsoft Clarity - Deferred loading for better performance -->
     
     <!-- Enhanced Structured Data for SEO -->
     <script type="application/ld+json">
@@ -375,13 +391,13 @@
     <div id="header-container"></div>
 
     <!-- Main Content Area -->
-    <main id="main-content">
+    <main id="main-content" role="main" aria-label="Main content">
         <!-- Value Proposition Section -->
-        <section id="value-prop" class="value-prop section-padding">
+        <section id="value-prop" class="value-prop section-padding" aria-labelledby="value-prop-title">
         <div class="container">
             <div class="value-prop-content">
                 <div class="value-prop-header" data-aos="fade-up">
-                    <h2 class="value-prop-title">Why Choose Resiliotech for Your Startup Automation?</h2>
+                    <h2 id="value-prop-title" class="value-prop-title">Why Choose Resiliotech for Your Startup Automation?</h2>
                     <p class="value-prop-subtitle">
                         We provide DevOps automation for startups and help early stage companies scale tech through infrastructure automation—no full-time DevOps hire needed
                     </p>
@@ -1232,7 +1248,7 @@
                         <!-- Hidden field for form identification -->
                         <input type="hidden" name="form-name" value="contact">
                         
-                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn" aria-describedby="form-status">
                             <span class="btn-text">Send Message</span>
                             <span class="btn-loading" style="display: none;">
                                 <svg width="20" height="20" viewBox="0 0 50 50">
@@ -1288,6 +1304,8 @@
                         // Replace all template variables
                         navHTML = navHTML.replace(/\{\{homeUrl\}\}/g, './');
                         navHTML = navHTML.replace(/\{\{consultingUrl\}\}/g, './consulting/');
+                        navHTML = navHTML.replace(/\{\{servicesUrl\}\}/g, './services/');
+                        navHTML = navHTML.replace(/\{\{aboutUrl\}\}/g, './about/');
                         navHTML = navHTML.replace(/\{\{projectsUrl\}\}/g, './projects/');
                         navHTML = navHTML.replace(/\{\{productsUrl\}\}/g, './products/');
                         navHTML = navHTML.replace(/\{\{blogUrl\}\}/g, './blog/');
@@ -1297,11 +1315,12 @@
                         // Set active states
                         navHTML = navHTML.replace(/\{\{homeActive\}\}/g, 'active');
                         navHTML = navHTML.replace(/\{\{consultingActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{servicesActive\}\}/g, '');
+                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{projectsActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{productsActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{blogActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{resourcesActive\}\}/g, '');
-                        navHTML = navHTML.replace(/\{\{aboutActive\}\}/g, '');
                         navHTML = navHTML.replace(/\{\{contactActive\}\}/g, '');
                         
                         // Set the navigation HTML
@@ -1355,67 +1374,67 @@
                         headerHTML = headerHTML.replace(/\{\{heroRightContent\}\}/g, `
                             <div class="tech-stack-grid">
                                 <div class="tech-item">
-                                    <img src="assets/images/1-kubernetes.svg" alt="Kubernetes" class="tech-icon">
+                                    <img src="assets/images/1-kubernetes.svg" alt="Kubernetes" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Kubernetes</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/2-docker.svg" alt="Docker" class="tech-icon">
+                                    <img src="assets/images/2-docker.svg" alt="Docker" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Docker</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/3-aws.svg" alt="AWS" class="tech-icon">
+                                    <img src="assets/images/3-aws.svg" alt="AWS" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">AWS</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/4-azure.svg" alt="Azure" class="tech-icon">
+                                    <img src="assets/images/4-azure.svg" alt="Azure" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Azure</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/5-google-cloud.svg" alt="Google Cloud" class="tech-icon">
+                                    <img src="assets/images/5-google-cloud.svg" alt="Google Cloud" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Google Cloud</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/6-terraform.svg" alt="Terraform" class="tech-icon">
+                                    <img src="assets/images/6-terraform.svg" alt="Terraform" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Terraform</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/7-ansible.svg" alt="Ansible" class="tech-icon">
+                                    <img src="assets/images/7-ansible.svg" alt="Ansible" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Ansible</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/8-jenkins.svg" alt="Jenkins" class="tech-icon">
+                                    <img src="assets/images/8-jenkins.svg" alt="Jenkins" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Jenkins</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/9-gitHub-actions.svg" alt="GitHub Actions" class="tech-icon">
+                                    <img src="assets/images/9-gitHub-actions.svg" alt="GitHub Actions" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">GitHub Actions</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/10-prometheus.svg" alt="Prometheus" class="tech-icon">
+                                    <img src="assets/images/10-prometheus.svg" alt="Prometheus" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Prometheus</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/11-grafana.svg" alt="Grafana" class="tech-icon">
+                                    <img src="assets/images/11-grafana.svg" alt="Grafana" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Grafana</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/12-helm.svg" alt="Helm" class="tech-icon">
+                                    <img src="assets/images/12-helm.svg" alt="Helm" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Helm</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/13-argocd.svg" alt="ArgoCD" class="tech-icon">
+                                    <img src="assets/images/13-argocd.svg" alt="ArgoCD" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">ArgoCD</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/14-elasticsearch.svg" alt="Elasticsearch" class="tech-icon">
+                                    <img src="assets/images/14-elasticsearch.svg" alt="Elasticsearch" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Elasticsearch</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/15-vault.svg" alt="Vault" class="tech-icon">
+                                    <img src="assets/images/15-vault.svg" alt="Vault" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Vault</span>
                                 </div>
                                 <div class="tech-item">
-                                    <img src="assets/images/16-bitcoin.svg" alt="Bitcoin" class="tech-icon">
+                                    <img src="assets/images/16-bitcoin.svg" alt="Bitcoin" class="tech-icon" width="48" height="48" loading="eager">
                                     <span class="tech-label">Bitcoin</span>
                                 </div>
                             </div>
@@ -1473,5 +1492,149 @@
     <script defer src="./assets/js/email-automation.js"></script>
     <script defer src="./assets/js/analytics-dashboard.js"></script>
     <script defer src="./assets/js/customer-success-tracker.js"></script>
+    
+    <!-- Deferred third-party scripts for optimal performance -->
+    <script>
+        // Defer Google Analytics until after page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const gtmScript = document.createElement('script');
+                gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-GBTY565EQ7';
+                gtmScript.async = true;
+                document.head.appendChild(gtmScript);
+                
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-GBTY565EQ7', {
+                    enhanced_measurement: true,
+                    page_title: true,
+                    send_page_view: true,
+                    custom_map: {
+                        'custom_parameter_1': 'startup_type',
+                        'custom_parameter_2': 'lead_source'
+                    }
+                });
+            }, 2000); // 2 second delay
+        });
+
+        // Load Microsoft Clarity with delay
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "nqr3l1vcsm");
+            }, 3000); // 3 second delay
+        });
+
+        // Only load reCAPTCHA when user interacts with forms
+        let recaptchaLoaded = false;
+        function loadRecaptcha() {
+            if (!recaptchaLoaded) {
+                const script = document.createElement('script');
+                script.src = 'https://www.google.com/recaptcha/api.js?render=6LfP-JAqAAAAAKzF-7Lk8x0uV8V6o6aPZgXqpC0l';
+                script.async = true;
+                document.head.appendChild(script);
+                recaptchaLoaded = true;
+            }
+        }
+        
+        // Load reCAPTCHA when user focuses on any form
+        document.addEventListener('focusin', function(e) {
+            if (e.target.closest('form')) {
+                loadRecaptcha();
+            }
+        }, { once: true });
+
+        // Lazy loading for images using Intersection Observer
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            img.classList.add('lazy-loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+
+            // Observe all lazy images after DOM is loaded
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            });
+        }
+
+        // Fallback for browsers without IntersectionObserver
+        else {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    img.classList.add('lazy-loaded');
+                });
+            });
+        }
+
+        // Performance monitoring and reporting
+        window.addEventListener('load', function() {
+            // Measure Core Web Vitals
+            if ('performance' in window) {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    const timing = performance.timing;
+                    
+                    // Calculate key metrics
+                    const metrics = {
+                        FCP: performance.getEntriesByName('first-contentful-paint')[0]?.startTime || 0,
+                        LCP: 0, // Will be measured by separate observer
+                        TTI: timing.domInteractive - timing.navigationStart,
+                        TBT: 0, // Approximated from long tasks
+                        CLS: 0, // Will be measured by separate observer
+                        loadTime: timing.loadEventEnd - timing.navigationStart,
+                        domContentLoaded: timing.domContentLoadedEventEnd - timing.navigationStart
+                    };
+                    
+                    // Log performance for debugging (remove in production)
+                    console.log('Performance Metrics:', metrics);
+                    
+                    // Send to analytics (uncomment when ready)
+                    // gtag('event', 'performance_metrics', {
+                    //     'custom_map': metrics
+                    // });
+                }, 3000);
+            }
+        });
+
+        // Measure Largest Contentful Paint
+        if ('PerformanceObserver' in window) {
+            new PerformanceObserver((entryList) => {
+                for (const entry of entryList.getEntries()) {
+                    console.log('LCP:', entry.startTime);
+                }
+            }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+            // Measure Cumulative Layout Shift
+            let cumulativeLayoutShiftScore = 0;
+            new PerformanceObserver((entryList) => {
+                for (const entry of entryList.getEntries()) {
+                    if (!entry.hadRecentInput) {
+                        cumulativeLayoutShiftScore += entry.value;
+                    }
+                }
+                console.log('CLS:', cumulativeLayoutShiftScore);
+            }).observe({ entryTypes: ['layout-shift'] });
+        }
+    </script>
 </body>
 </html>
