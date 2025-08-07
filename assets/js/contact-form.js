@@ -32,10 +32,27 @@ class ContactFormHandler {
         this.setLoadingState(true);
         
         try {
+            // Execute reCAPTCHA verification
+            const recaptchaToken = await this.executeRecaptcha('contact_form');
+            
+            if (recaptchaToken) {
+                // Verify reCAPTCHA token server-side
+                const recaptchaVerification = await this.verifyRecaptcha(recaptchaToken, 'contact_form');
+                
+                if (!recaptchaVerification.success) {
+                    throw new Error('Security verification failed. Please try again.');
+                }
+            }
+            
             const formData = new FormData(this.form);
             
             // Add form-name for Netlify Forms AJAX submission
             formData.append('form-name', 'contact');
+            
+            // Add reCAPTCHA token to form data
+            if (recaptchaToken) {
+                formData.append('g-recaptcha-response', recaptchaToken);
+            }
             
             // Submit to Netlify Forms
             const response = await fetch('/', {
@@ -203,6 +220,68 @@ class ContactFormHandler {
         
         // Console log for development
         console.log(`Form submission ${status}`, error ? { error } : {});
+    }
+    
+    /**
+     * Execute reCAPTCHA v3 challenge for form security
+     * @param {string} action - The action name for reCAPTCHA scoring
+     * @returns {Promise<string>} - reCAPTCHA token
+     */
+    async executeRecaptcha(action = 'submit') {
+        return new Promise((resolve, reject) => {
+            if (typeof grecaptcha === 'undefined') {
+                console.warn('reCAPTCHA not loaded, proceeding without verification');
+                resolve(null);
+                return;
+            }
+
+            grecaptcha.ready(() => {
+                grecaptcha.execute('6Ld9bp0rAAAAACdIYemp9LvEyC6NGghMjeyUkR0u', { action })
+                    .then((token) => {
+                        console.log('reCAPTCHA token generated for action:', action);
+                        resolve(token);
+                    })
+                    .catch((error) => {
+                        console.error('reCAPTCHA execution failed:', error);
+                        reject(error);
+                    });
+            });
+        });
+    }
+    
+    /**
+     * Verify reCAPTCHA token server-side
+     * @param {string} token - reCAPTCHA token to verify
+     * @param {string} action - Expected action name
+     * @returns {Promise<Object>} - Verification result
+     */
+    async verifyRecaptcha(token, action) {
+        try {
+            const response = await fetch('/.netlify/functions/verify-recaptcha', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    token: token,
+                    expectedAction: action,
+                }),
+            });
+
+            const result = await response.json();
+            
+            if (!response.ok) {
+                console.error('reCAPTCHA verification failed:', result);
+                return { success: false, error: result.error };
+            }
+
+            console.log('reCAPTCHA verification successful:', result);
+            return result;
+            
+        } catch (error) {
+            console.error('reCAPTCHA verification error:', error);
+            return { success: false, error: 'Network error during verification' };
+        }
     }
 }
 
